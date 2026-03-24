@@ -21,7 +21,7 @@
 .info-ticker{margin-top:0!important;position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:1001!important;padding:10px 0!important}
 .header{top:42px!important}
 .mobile-nav{top:116px!important}
-.hero{padding-top:190px!important}
+.hero{padding-top:140px!important}
 .s2{padding-top:150px!important}
 .s3{padding-top:130px!important}
 .on-popup-ov{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}.on-popup-ov.open{display:flex}

@@ -326,7 +326,7 @@
         }
 
         .d-none {
-            display: none
+            display: none !important
         }
 
         /* TICKER */
@@ -393,7 +393,7 @@
         /* HERO */
         .hero {
             position: relative;
-            padding: 160px 24px 60px;
+            padding: 160px 24px 20px;
             text-align: center;
             overflow: hidden
         }
@@ -621,7 +621,7 @@
         .deals-section {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 20px 24px 60px
+            padding: 20px 24px 20px
         }
 
         .deals-grid {
@@ -2268,10 +2268,17 @@
                 grid-template-columns: 1fr 1fr
             }
         }
-
+            .section-header{
+                display: none !important;
+                padding-bottom: 10px;
+            }
+            .justify-content-center{
+            display: flex !important;
+                justify-content: center !important;
+            }
         @media(max-width:768px) {
             .hero {
-                padding: 100px 16px 50px
+                padding: 100px 16px 10px
             }
 
             .hero h1 {
@@ -2287,20 +2294,20 @@
                 display: none
             }
 
-        .hero-btn {
-            /* width: 100%; */
-            justify-content: center;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
+            .hero-btn {
+                /* width: 100%; */
+                justify-content: center;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 20px;
+                border-radius: 60px;
+                font-weight: 700;
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: var(--transition);
+            }
 
             .hero-or {
                 display: none
@@ -2399,6 +2406,17 @@
                 max-width: none;
                 bottom: 12px;
                 width: calc(100% - 24px)
+            }
+            .section-header{
+                display: block !important;
+                padding-bottom: 10px;
+            }
+            .justify-content-center{
+                display: flex !important;
+                justify-content: center !important;
+            }
+            .deals-section {
+                padding: 10px 16px 20px;
             }
         }
 
@@ -2505,7 +2523,7 @@
             <div class="hero-content">
                 <div class="hero-badge">Open Daily 10:30 AM – 11 PM</div>
                 <h1 class="hero-header d-none">START YOUR <span class="hl">ORDER</span></h1>
-                <p class="hero-sub d-xs-none">Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties,
+                <p class="hero-sub d-xs-none d-none">Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties,
                     wings, momos & more.</p>
                 <div class="hero-buttons">
                     <button class="hero-btn hero-btn-del" onclick="openDf()">
@@ -2526,7 +2544,7 @@
                         PICKUP
                     </button>
                 </div>
-                <div class="hero-info d-xs-none">
+                <div class="hero-info d-xs-none d-none">
                     <a href="tel:9028004001"><svg viewBox="0 0 24 24">
                             <path
                                 d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
@@ -2538,8 +2556,34 @@
             </div>
         </section>
 
-        <!-- 3RD PARTY ORDER -->
-        <div class="third-party d-xs-none">
+    
+
+        <!-- DEAL BANNERS -->
+        <section class="deals-section">
+            <h4 class="section-header justify-content-center">Our Top Deals</h4>
+            <div class="deals-grid">
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-1.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-2.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-3.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-4.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-5.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-6.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-7.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-8.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card deal-card-full" onclick="scrollHero()"><img src="assets/images/banner-9.png"
+                        alt="Deal" loading="lazy"></div>
+            </div>
+        </section>
+            <!-- 3RD PARTY ORDER -->
+        <div class="third-party ">
             <p>Also order via</p>
             <div class="tp-btns">
                 <a href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY"
@@ -2567,30 +2611,6 @@
                 </a>
             </div>
         </div>
-
-        <!-- DEAL BANNERS -->
-        <section class="deals-section">
-            <div class="deals-grid">
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-1.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-2.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-3.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-4.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-5.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-6.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-7.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-8.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card deal-card-full" onclick="scrollHero()"><img src="assets/images/banner-9.png"
-                        alt="Deal" loading="lazy"></div>
-            </div>
-        </section>
 
         <!-- INFO BAR -->
         <div class="info-bar">

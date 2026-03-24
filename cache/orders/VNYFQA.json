@@ -1,0 +1,121 @@
+{
+    "number": "VNYFQA",
+    "clover_id": "B9JJRA9VNYFQA",
+    "type": "pickup",
+    "status": "placed",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-20T20:52:54+00:00",
+            "note": "Order placed and paid"
+        }
+    ],
+    "customer": {
+        "name": "Mazen Alwarith",
+        "phone": "9028807884",
+        "email": "mazen@goodairvent.com",
+        "address": "",
+        "city": "Halifax",
+        "postal": ""
+    },
+    "items": [
+        {
+            "name": "Any Medium Pizza + Small Garlic Fingers",
+            "quantity": 1,
+            "total": 2499,
+            "modifiers": [
+                {
+                    "group_id": "ENN9RQC5F0TG8",
+                    "group_name": "Choice of Garlic Finger",
+                    "id": "YEZS0GAZ0AK22",
+                    "name": "Cheese Lovers Garlic Fingers",
+                    "price_cents": 0
+                },
+                {
+                    "group_id": "EET9SEVQEQ4HA",
+                    "group_name": "Choice of Medium Pizza",
+                    "id": "6JGHCZJQ4EPR8",
+                    "name": "Cheese Lovers Pizza",
+                    "price_cents": 0
+                }
+            ]
+        },
+        {
+            "name": "Any 2 Type Foot Long Pizzas",
+            "quantity": 1,
+            "total": 1599,
+            "modifiers": [
+                {
+                    "group_id": "919FJNF8MXQKP",
+                    "group_name": "Choice of First FootLong Pizza",
+                    "id": "F815SSSBR1Z9P",
+                    "name": "Chipotle Chicken",
+                    "price_cents": 0
+                },
+                {
+                    "group_id": "A2PRC7PATCRAG",
+                    "group_name": "Choice of Second FootLong Pizza",
+                    "id": "P96QT8XA4PEDC",
+                    "name": "Greek",
+                    "price_cents": 0
+                }
+            ]
+        },
+        {
+            "name": "Any 2 Type Foot Long Pizzas",
+            "quantity": 1,
+            "total": 1599,
+            "modifiers": [
+                {
+                    "group_id": "919FJNF8MXQKP",
+                    "group_name": "Choice of First FootLong Pizza",
+                    "id": "01ZDVJ2GT3X5J",
+                    "name": "BBQ Chicken",
+                    "price_cents": 0
+                },
+                {
+                    "group_id": "A2PRC7PATCRAG",
+                    "group_name": "Choice of Second FootLong Pizza",
+                    "id": "DFT7DAWPJFFQJ",
+                    "name": "Donair",
+                    "price_cents": 0
+                }
+            ]
+        },
+        {
+            "name": "Greek Pizza",
+            "quantity": 1,
+            "total": 1999,
+            "modifiers": [
+                {
+                    "group_id": "4FHTDEBSK0YJA",
+                    "group_name": "Choice of Size",
+                    "id": "WF7EGBEAXTFWA",
+                    "name": "Medium 12Inch",
+                    "price_cents": 1000
+                }
+            ]
+        },
+        {
+            "name": "Parmesan Bites",
+            "quantity": 1,
+            "total": 699,
+            "modifiers": []
+        }
+    ],
+    "subtotal": "83.95",
+    "tax": "11.75",
+    "delivery_fee": "0.00",
+    "tip": "0.00",
+    "total": "95.70",
+    "payment": {
+        "status": "paid",
+        "last4": "1277",
+        "brand": "VISA"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=VNYFQA",
+    "uber_delivery": null,
+    "placed_at": "2026-03-20T20:52:54+00:00",
+    "updated_at": "2026-03-20T20:52:54+00:00",
+    "estimated_time": "20-30 min"
+}

@@ -1,0 +1,21 @@
+# Slice+ API Security
+# ====================
+
+# Block direct access to config.php
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Block access to sensitive files
+<FilesMatch "\.(log|bak|sql|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

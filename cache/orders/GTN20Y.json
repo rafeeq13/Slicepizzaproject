@@ -1,0 +1,91 @@
+{
+    "number": "GTN20Y",
+    "clover_id": "Y5C5HGAGTN20Y",
+    "type": "delivery",
+    "status": "placed",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-22T15:18:24+00:00",
+            "note": "Order placed and paid"
+        }
+    ],
+    "customer": {
+        "name": "Mazen  Alwarith",
+        "phone": "9024889231",
+        "email": "alwarith.mazen@gmail.com",
+        "address": "241 broad street  Apartment 405",
+        "city": "Halifax",
+        "postal": "B4b 1j6"
+    },
+    "items": [
+        {
+            "name": "Any Medium 1 Topping Pizza",
+            "quantity": 3,
+            "total": 4797,
+            "modifiers": [
+                {
+                    "group_id": "AGZGCCRGYH4S4",
+                    "group_name": "Choice of Pizza Size",
+                    "id": "994SY98HRJQXW",
+                    "name": "XL",
+                    "price_cents": 200
+                },
+                {
+                    "group_id": "MYEGKE335BDAP",
+                    "group_name": "Choose Any 1 Topping For Pizza",
+                    "id": "4F51DSYTCZQDP",
+                    "name": "Ground Beef",
+                    "price_cents": 0
+                }
+            ]
+        },
+        {
+            "name": "Veggi Lovers Pizza",
+            "quantity": 2,
+            "total": 3798,
+            "modifiers": [
+                {
+                    "group_id": "78G33281ZBJ42",
+                    "group_name": "Choice of Size",
+                    "id": "Z45E6M1E1G092",
+                    "name": "XL 16Inch",
+                    "price_cents": 1000
+                }
+            ]
+        },
+        {
+            "name": "Original Garlic Fingers",
+            "quantity": 2,
+            "total": 3398,
+            "modifiers": [
+                {
+                    "group_id": "ZFKYR4XM77FQA",
+                    "group_name": "Garlic Fingers Size",
+                    "id": "S6NFGA9381FHJ",
+                    "name": "Xl 16Inch",
+                    "price_cents": 400
+                }
+            ]
+        }
+    ],
+    "subtotal": "119.93",
+    "tax": "16.79",
+    "delivery_fee": "3.99",
+    "tip": "0.00",
+    "total": "140.71",
+    "payment": {
+        "status": "paid",
+        "last4": "7510",
+        "brand": "MC"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=GTN20Y",
+    "uber_delivery": {
+        "status": "failed",
+        "error": "The specified location is not in a deliverable area.",
+        "time": "2026-03-22T15:18:24+00:00"
+    },
+    "placed_at": "2026-03-22T15:18:24+00:00",
+    "updated_at": "2026-03-22T15:18:24+00:00",
+    "estimated_time": "30-45 min"
+}

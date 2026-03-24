@@ -1,0 +1,50 @@
+{
+    "number": "9Y6WV4",
+    "clover_id": "FSDG0Z39Y6WV4",
+    "type": "pickup",
+    "status": "placed",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-09T18:33:28+00:00",
+            "note": "Order placed and paid"
+        }
+    ],
+    "customer": {
+        "name": "Kenneth Strickland",
+        "phone": "9027896965",
+        "email": "kenneth.strickland94@hotmail.com",
+        "address": "",
+        "city": "Halifax",
+        "postal": ""
+    },
+    "items": [
+        {
+            "name": "Jalapeno Cheddar Garlic Fingers",
+            "quantity": 1,
+            "total": 1899,
+            "modifiers": [
+                {
+                    "group_id": "ZFKYR4XM77FQA",
+                    "group_name": "Garlic Fingers Size",
+                    "id": "S6NFGA9381FHJ",
+                    "name": "Xl 16Inch",
+                    "price_cents": 400
+                }
+            ]
+        }
+    ],
+    "subtotal": "18.99",
+    "tax": "2.85",
+    "delivery_fee": "0.00",
+    "total": "21.84",
+    "payment": {
+        "status": "paid",
+        "last4": "2192",
+        "brand": "VISA"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=9Y6WV4",
+    "placed_at": "2026-03-09T18:33:28+00:00",
+    "updated_at": "2026-03-09T18:33:28+00:00",
+    "estimated_time": "20-30 min"
+}

@@ -1,0 +1,3088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slice+ Convenience & Pizzeria | Order Online Halifax</title>
+    <meta name="description"
+        content="Order online from Slice+ Halifax. Gourmet pizza, donairs, Indian specialties, wings, momos & more. Pickup or delivery.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        media="print" onload="this.media='all'" rel="stylesheet">
+    <style>
+        :root {
+            --red: #df2b2b;
+            --red-dark: #b91c1c;
+            --black: #0a0a0a;
+            --dark: #111;
+            --dark2: #1a1a1a;
+            --dark3: #222;
+            --white: #fff;
+            --gold: #f5a623;
+            --green: #22c55e;
+            --gray: #888;
+            --gray-light: #aaa;
+            --gray-dark: #555;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow-red: 0 4px 30px rgba(223, 43, 43, 0.25);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-body)
+        }
+
+        /* PREMIUM BACKGROUND */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            background:
+                radial-gradient(ellipse 120% 80% at 15% 5%, rgba(223, 43, 43, .07) 0%, transparent 40%),
+                radial-gradient(ellipse 100% 60% at 85% 20%, rgba(180, 30, 30, .05) 0%, transparent 35%),
+                radial-gradient(ellipse 80% 80% at 50% 100%, rgba(223, 43, 43, .04) 0%, transparent 40%),
+                linear-gradient(180deg, #080808 0%, #0c0a09 20%, #0a0a0a 50%, #0c0909 80%, #080808 100%)
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: .035;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 200px 200px
+        }
+
+        .bg-bokeh {
+            position: fixed;
+            z-index: -2;
+            pointer-events: none;
+            border-radius: 50%
+        }
+
+        .bg-bokeh-1 {
+            width: 300px;
+            height: 300px;
+            top: 5%;
+            left: 8%;
+            background: radial-gradient(circle, rgba(223, 43, 43, .06) 0%, rgba(223, 43, 43, .02) 40%, transparent 70%);
+            animation: bk 25s ease-in-out infinite
+        }
+
+        .bg-bokeh-2 {
+            width: 200px;
+            height: 200px;
+            top: 15%;
+            right: 12%;
+            background: radial-gradient(circle, rgba(245, 166, 35, .04) 0%, transparent 70%);
+            animation: bk 30s ease-in-out infinite reverse
+        }
+
+        .bg-bokeh-3 {
+            width: 400px;
+            height: 400px;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(223, 43, 43, .04) 0%, transparent 60%);
+            animation: bk 35s ease-in-out infinite
+        }
+
+        @keyframes bk {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+                opacity: .7
+            }
+
+            50% {
+                transform: translate(-20px, 15px) scale(.9);
+                opacity: .6
+            }
+        }
+
+        .bg-vignette {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 40%, rgba(0, 0, 0, .4) 100%)
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, .85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            transition: var(--transition)
+        }
+
+        .header.scrolled {
+            background: rgba(10, 10, 10, .95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, .5)
+        }
+
+        .header-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .logo img {
+            height: 50px
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 24px
+        }
+
+        .nav a {
+            font-size: .88rem;
+            font-weight: 500;
+            letter-spacing: .5px;
+            color: var(--gray-light);
+            transition: var(--transition);
+            position: relative
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: var(--transition)
+        }
+
+        .nav a:hover {
+            color: var(--white)
+        }
+
+        .nav a:hover::after {
+            width: 100%
+        }
+
+        .nav a.active {
+            color: var(--white)
+        }
+
+        .nav a.active::after {
+            width: 100%
+        }
+
+        .nav-cta {
+            background: var(--red) !important;
+            color: var(--white) !important;
+            padding: 10px 22px !important;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            font-size: .82rem !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase;
+            box-shadow: var(--shadow-red)
+        }
+
+        .nav-cta::after {
+            display: none !important
+        }
+
+        .nav-cta:hover {
+            background: var(--red-dark) !important;
+            transform: translateY(-2px)
+        }
+
+        .nav-cta-call {
+            background: transparent !important;
+            border: 2px solid var(--red) !important;
+            color: var(--white) !important;
+            box-shadow: none !important
+        }
+
+        .nav-cta-call:hover {
+            background: var(--red) !important
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            padding: 8px
+        }
+
+        .mobile-toggle span {
+            width: 26px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: var(--transition)
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 74px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, .98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px
+        }
+
+        .mobile-nav.open {
+            display: flex
+        }
+
+        .mobile-nav a {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--gray-light);
+            transition: var(--transition)
+        }
+
+        .mobile-nav a:hover {
+            color: var(--red)
+        }
+
+        .mob-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 80%;
+            max-width: 300px;
+            margin-top: 20px
+        }
+
+        .mob-btns a {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase
+        }
+
+        .d-none {
+            display: none
+        }
+
+        /* TICKER */
+        .info-ticker {
+            background: var(--red);
+            padding: 14px 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 1
+        }
+
+        .ticker-track {
+            display: flex;
+            animation: ticker 45s linear infinite;
+            white-space: nowrap
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 36px;
+            font-weight: 600;
+            font-size: .85rem;
+            letter-spacing: .8px;
+            text-transform: uppercase
+        }
+
+        .ticker-item svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            opacity: .9;
+            flex-shrink: 0
+        }
+
+        .ticker-sep {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 4px;
+            opacity: .4;
+            font-size: 1.2rem
+        }
+
+        /* SCREENS */
+        .screen {
+            display: none
+        }
+
+        .screen.active {
+            display: block
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            padding: 160px 24px 60px;
+            text-align: center;
+            overflow: hidden
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(223, 43, 43, .08) 0%, transparent 40%, transparent 60%, rgba(223, 43, 43, .04) 100%);
+            pointer-events: none
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: .04;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, .4) 1px, transparent 0);
+            background-size: 40px 40px;
+            pointer-events: none
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(223, 43, 43, .15);
+            border: 1px solid rgba(223, 43, 43, .3);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--red);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: pg 3s ease-in-out infinite
+        }
+
+        @keyframes pg {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(223, 43, 43, .2)
+            }
+
+            50% {
+                box-shadow: 0 0 25px 8px rgba(223, 43, 43, .12)
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: .95;
+            letter-spacing: 2px;
+            margin-bottom: 16px
+        }
+
+        .hero h1 .hl {
+            color: var(--red)
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--gray-light);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.7
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition)
+        }
+
+        .hero-btn-del {
+            background: var(--red);
+            color: var(--white);
+            box-shadow: 0 6px 30px var(--shadow-red)
+        }
+
+        .hero-btn-del:hover {
+            background: var(--red-dark);
+            transform: translateY(-3px)
+        }
+
+        .hero-btn-pick {
+            background: var(--white);
+            color: var(--black)
+        }
+
+        .hero-btn-pick:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, .15)
+        }
+
+        .hero-btn svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .hero-or {
+            color: var(--gray-dark);
+            font-weight: 600;
+            font-size: .9rem
+        }
+
+        .hero-info {
+            margin-top: 36px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap
+        }
+
+        .hero-info a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: .88rem;
+            transition: var(--transition)
+        }
+
+        .hero-info a:hover {
+            color: var(--white)
+        }
+
+        .hero-info a svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--red);
+            flex-shrink: 0
+        }
+
+        /* 3RD PARTY ORDER STRIP */
+        .third-party {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 30px 24px;
+            text-align: center
+        }
+
+        .third-party p {
+            color: var(--gray-dark);
+            font-size: .82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px
+        }
+
+        .tp-btns {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        .tp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: .85rem;
+            transition: var(--transition);
+            border: 2px solid
+        }
+
+        .tp-btn-ue {
+            border-color: #06C167;
+            color: #06C167
+        }
+
+        .tp-btn-ue:hover {
+            background: #06C167;
+            color: #fff
+        }
+
+        .tp-btn-dd {
+            border-color: #FF3008;
+            color: #FF3008
+        }
+
+        .tp-btn-dd:hover {
+            background: #FF3008;
+            color: #fff
+        }
+
+        .tp-btn-call {
+            border-color: var(--white);
+            color: var(--white)
+        }
+
+        .tp-btn-call:hover {
+            background: var(--white);
+            color: var(--black)
+        }
+
+        /* DEALS BANNERS */
+        .deals-section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 24px 60px
+        }
+
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px
+        }
+
+        .deal-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative
+        }
+
+        .deal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .4)
+        }
+
+        .deal-card img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition)
+        }
+
+        .deal-card:hover img {
+            transform: scale(1.03)
+        }
+
+        .deal-card-full {
+            grid-column: span 2
+        }
+
+        /* INFO BAR */
+        .info-bar {
+            background: rgba(17, 17, 17, .8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            max-width: 100%;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap
+        }
+
+        .info-bar a,
+        .info-bar span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray-light);
+            font-size: .9rem;
+            font-weight: 500;
+            transition: var(--transition)
+        }
+
+        .info-bar a:hover {
+            color: var(--white)
+        }
+
+        .info-bar svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--red);
+            flex-shrink: 0
+        }
+
+        /* FOOTER */
+        .footer {
+            background: rgba(17, 17, 17, .8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            padding: 60px 24px 30px;
+            position: relative;
+            z-index: 1
+        }
+
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px
+        }
+
+        .footer-brand img {
+            height: 45px;
+            margin-bottom: 16px
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: .85rem;
+            line-height: 1.7;
+            max-width: 300px
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 16px
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--gray);
+            font-size: .85rem;
+            padding: 5px 0;
+            transition: var(--transition)
+        }
+
+        .footer-col a:hover {
+            color: var(--red);
+            transform: translateX(4px)
+        }
+
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        .footer-bottom p {
+            color: var(--gray-dark);
+            font-size: .8rem
+        }
+
+        /* DELIVERY FORM MODAL */
+        .df-ov {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, .7);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        .df-ov.open {
+            display: flex
+        }
+
+        .df-box {
+            background: var(--dark);
+            border-radius: 20px;
+            max-width: 480px;
+            width: 100%;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, .06);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .6);
+            position: relative
+        }
+
+        .df-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 4px
+        }
+
+        .df-sub {
+            color: var(--gray);
+            font-size: .88rem;
+            margin-bottom: 24px
+        }
+
+        .fg {
+            margin-bottom: 14px
+        }
+
+        .fl {
+            display: block;
+            font-weight: 600;
+            font-size: .82rem;
+            color: var(--gray);
+            margin-bottom: 6px;
+            letter-spacing: .5px
+        }
+
+        .fi {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--dark2);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius-sm);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: .95rem;
+            transition: var(--transition)
+        }
+
+        .fi:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(223, 43, 43, .15)
+        }
+
+        .fi::placeholder {
+            color: var(--gray-dark)
+        }
+
+        .fr {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        .df-go {
+            width: 100%;
+            margin-top: 20px;
+            padding: 16px;
+            background: var(--red);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: .5px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-red)
+        }
+
+        .df-go:hover {
+            background: var(--red-dark)
+        }
+
+        .df-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05);
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition)
+        }
+
+        .df-close:hover {
+            background: var(--red);
+            color: var(--white)
+        }
+
+        /* CATEGORY GRID (Screen 2) */
+        .s2 {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 24px 120px
+        }
+
+        .s2-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: .88rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: none;
+            transition: var(--transition);
+            margin-bottom: 20px
+        }
+
+        .s2-back:hover {
+            color: var(--white)
+        }
+
+        .s2-badge {
+            display: inline-block;
+            background: rgba(223, 43, 43, .12);
+            color: var(--red);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px
+        }
+
+        .s2-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 8px
+        }
+
+        .s2-sub {
+            color: var(--gray);
+            text-align: center;
+            font-size: .95rem;
+            margin-bottom: 32px
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px
+        }
+
+        .cat-card {
+            background: rgba(17, 17, 17, .6);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .04);
+            cursor: pointer;
+            transition: var(--transition)
+        }
+
+        .cat-card:hover {
+            border-color: rgba(223, 43, 43, .3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .4)
+        }
+
+        .cat-card-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            background: var(--dark2)
+        }
+
+        .cat-card-ph {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, var(--dark2), var(--dark3))
+        }
+
+        .cat-card-body {
+            padding: 14px
+        }
+
+        .cat-card-name {
+            font-weight: 700;
+            font-size: .95rem
+        }
+
+        .cat-card-count {
+            font-size: .75rem;
+            color: var(--gray);
+            margin-top: 2px
+        }
+
+        /* CATEGORY ITEMS (Screen 3) */
+        .s3 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 24px 120px
+        }
+
+        .s3-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: .88rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: none;
+            transition: var(--transition);
+            margin-bottom: 24px
+        }
+
+        .s3-back:hover {
+            color: var(--white)
+        }
+
+        .s3-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .s3-count {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--gray);
+            background: rgba(255, 255, 255, .05);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-family: var(--font-body);
+            text-transform: none;
+            letter-spacing: 0
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+            margin-top: 20px
+        }
+
+        .item-card {
+            background: rgba(17, 17, 17, .6);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .04);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            height: 140px
+        }
+
+        .item-card:hover {
+            border-color: rgba(223, 43, 43, .2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .3)
+        }
+
+        .item-card.out {
+            opacity: .5;
+            pointer-events: none
+        }
+
+        .itm-img {
+            width: 140px;
+            min-width: 140px;
+            height: 100%;
+            object-fit: cover;
+            background: var(--dark2)
+        }
+
+        .itm-img.hid {
+            display: none
+        }
+
+        .item-card:has(.hid) {
+            height: auto;
+            min-height: 120px
+        }
+
+        .item-card:has(.hid) .itm-info {
+            padding: 18px 20px
+        }
+
+        .itm-info {
+            flex: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0
+        }
+
+        .itm-name {
+            font-weight: 700;
+            font-size: .95rem;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden
+        }
+
+        .itm-desc {
+            font-size: .78rem;
+            color: var(--gray);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: 4px
+        }
+
+        .itm-bot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto
+        }
+
+        .itm-price {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--green);
+            letter-spacing: .5px
+        }
+
+        .itm-add {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--red);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0
+        }
+
+        .itm-add:hover {
+            background: var(--red-dark);
+            transform: scale(1.1)
+        }
+
+        /* ITEM MODAL */
+        .mo {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, .7);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        .mo.open {
+            display: flex
+        }
+
+        .mo-box {
+            background: var(--dark);
+            border-radius: 20px;
+            max-width: 520px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, .06);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .6)
+        }
+
+        .mo-box::-webkit-scrollbar {
+            width: 4px
+        }
+
+        .mo-box::-webkit-scrollbar-thumb {
+            background: var(--gray-dark);
+            border-radius: 4px
+        }
+
+        .mo-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: var(--dark2)
+        }
+
+        .mo-img.hid {
+            display: none
+        }
+
+        .mo-body {
+            padding: 24px
+        }
+
+        .mo-x {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .6);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10
+        }
+
+        .mo-x:hover {
+            background: var(--red)
+        }
+
+        .mo-name {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            letter-spacing: 1px
+        }
+
+        .mo-desc {
+            color: var(--gray);
+            font-size: .9rem;
+            margin-top: 8px;
+            line-height: 1.5
+        }
+
+        .mo-price {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--green);
+            margin-top: 12px
+        }
+
+        .mg {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .mg-t {
+            font-weight: 700;
+            font-size: .9rem;
+            margin-bottom: 4px
+        }
+
+        .mg-h {
+            font-size: .75rem;
+            color: var(--gray);
+            margin-bottom: 10px
+        }
+
+        .mg-o {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 4px
+        }
+
+        .mg-o:hover {
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .mg-o.sel {
+            background: rgba(223, 43, 43, .1);
+            border: 1px solid rgba(223, 43, 43, .25)
+        }
+
+        .mg-ol {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .mg-cb {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid var(--gray-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0
+        }
+
+        .mg-o.sel .mg-cb {
+            background: var(--red);
+            border-color: var(--red)
+        }
+
+        .si {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .si label {
+            font-weight: 700;
+            font-size: .9rem;
+            display: block;
+            margin-bottom: 8px
+        }
+
+        .si textarea {
+            width: 100%;
+            background: var(--dark2);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius-sm);
+            color: var(--white);
+            padding: 12px;
+            font-family: var(--font-body);
+            font-size: .85rem;
+            resize: vertical;
+            min-height: 70px;
+            transition: var(--transition)
+        }
+
+        .si textarea:focus {
+            outline: none;
+            border-color: var(--red)
+        }
+
+        .mo-ft {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px
+        }
+
+        .qc {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, .05);
+            border-radius: 50px
+        }
+
+        .qb {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition)
+        }
+
+        .qb:hover {
+            background: rgba(255, 255, 255, .08)
+        }
+
+        .qv {
+            width: 36px;
+            text-align: center;
+            font-weight: 700;
+            font-size: .95rem
+        }
+
+        .atc {
+            flex: 1;
+            background: var(--red);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: .95rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: var(--shadow-red)
+        }
+
+        .atc:hover {
+            background: var(--red-dark)
+        }
+
+        /* CART SIDEBAR */
+        .cart-ov {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 1400
+        }
+
+        .cart-ov.open {
+            display: block
+        }
+
+        .cart-sb {
+            position: fixed;
+            top: 0;
+            right: -440px;
+            width: 420px;
+            height: 100vh;
+            background: var(--dark);
+            z-index: 1500;
+            border-left: 1px solid rgba(255, 255, 255, .06);
+            transition: right .4s cubic-bezier(.4, 0, .2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -8px 0 40px rgba(0, 0, 0, .5)
+        }
+
+        .cart-sb.open {
+            right: 0
+        }
+
+        .cart-h {
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .cart-h h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            letter-spacing: 1px
+        }
+
+        .cart-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05);
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition)
+        }
+
+        .cart-close:hover {
+            background: var(--red);
+            color: var(--white)
+        }
+
+        .cart-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 24px
+        }
+
+        .cart-empty {
+            text-align: center;
+            color: var(--gray);
+            padding: 60px 20px
+        }
+
+        .ci {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .05)
+        }
+
+        .ci-info {
+            flex: 1
+        }
+
+        .ci-name {
+            font-weight: 600;
+            font-size: .9rem
+        }
+
+        .ci-mods {
+            font-size: .75rem;
+            color: var(--gray);
+            margin-top: 2px
+        }
+
+        .ci-notes {
+            font-size: .72rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-top: 2px
+        }
+
+        .ci-bot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 8px
+        }
+
+        .ci-price {
+            font-weight: 700;
+            font-size: .9rem;
+            color: var(--green)
+        }
+
+        .ci-rm {
+            color: var(--gray-dark);
+            font-size: .72rem;
+            background: none;
+            transition: var(--transition);
+            margin-top: 4px
+        }
+
+        .ci-rm:hover {
+            color: var(--red)
+        }
+
+        .ci-qty {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, .05);
+            border-radius: 50px
+        }
+
+        .ci-qty button {
+            width: 28px;
+            height: 28px;
+            background: transparent;
+            color: var(--white);
+            font-size: .85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition)
+        }
+
+        .ci-qty button:hover {
+            background: rgba(255, 255, 255, .1)
+        }
+
+        .ci-qty span {
+            width: 28px;
+            text-align: center;
+            font-weight: 700;
+            font-size: .82rem
+        }
+
+        .cart-ft {
+            padding: 20px 24px;
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            background: rgba(17, 17, 17, .8)
+        }
+
+        .cl {
+            display: flex;
+            justify-content: space-between;
+            font-size: .88rem;
+            margin-bottom: 8px;
+            color: var(--gray)
+        }
+
+        .cl.tot {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .cl.tot span:last-child {
+            color: var(--green)
+        }
+
+        .co-btn {
+            width: 100%;
+            margin-top: 16px;
+            background: var(--red);
+            color: var(--white);
+            padding: 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-red);
+            letter-spacing: .5px
+        }
+
+        .co-btn:hover {
+            background: var(--red-dark)
+        }
+
+        /* UPSELL */
+        .ups-ov {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2500;
+            background: rgba(0, 0, 0, .7);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        .ups-ov.open {
+            display: flex
+        }
+
+        .ups-box {
+            background: var(--dark);
+            border-radius: 20px;
+            max-width: 480px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, .06);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .6);
+            padding: 28px
+        }
+
+        .ups-t {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            margin-bottom: 4px
+        }
+
+        .ups-s {
+            color: var(--gray);
+            font-size: .85rem;
+            margin-bottom: 20px
+        }
+
+        .ups-i {
+            display: flex;
+            gap: 14px;
+            padding: 14px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .04);
+            margin-bottom: 10px;
+            transition: var(--transition)
+        }
+
+        .ups-i:hover {
+            border-color: rgba(223, 43, 43, .2)
+        }
+
+        .ups-img {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+            background: var(--dark2);
+            flex-shrink: 0
+        }
+
+        .ups-img.hid {
+            display: none
+        }
+
+        .ups-inf {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .ups-n {
+            font-weight: 600;
+            font-size: .9rem
+        }
+
+        .ups-p {
+            color: var(--green);
+            font-weight: 700;
+            font-size: .88rem;
+            margin-top: 4px
+        }
+
+        .ups-add {
+            padding: 8px 16px;
+            background: var(--red);
+            color: var(--white);
+            border-radius: 50px;
+            font-size: .78rem;
+            font-weight: 600;
+            transition: var(--transition);
+            white-space: nowrap;
+            align-self: center
+        }
+
+        .ups-add:hover {
+            background: var(--red-dark)
+        }
+
+        .ups-skip {
+            width: 100%;
+            margin-top: 16px;
+            padding: 14px;
+            background: rgba(255, 255, 255, .05);
+            color: var(--gray-light);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: .9rem;
+            transition: var(--transition);
+            text-align: center
+        }
+
+        .ups-skip:hover {
+            background: rgba(255, 255, 255, .1);
+            color: var(--white)
+        }
+
+        /* CHECKOUT */
+        .chk-ov {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            background: var(--black);
+            overflow-y: auto
+        }
+
+        .chk-ov.open {
+            display: block
+        }
+
+        .chk-w {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px;
+            min-height: 100vh
+        }
+
+        .chk-hdr {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .chk-back {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition)
+        }
+
+        .chk-back:hover {
+            background: var(--red)
+        }
+
+        .chk-hdr h2 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            letter-spacing: 1px
+        }
+
+        .chk-steps {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px
+        }
+
+        .sd {
+            flex: 1;
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, .05);
+            transition: var(--transition)
+        }
+
+        .sd.on {
+            background: var(--red)
+        }
+
+        .sd.ok {
+            background: var(--green)
+        }
+
+        .os {
+            background: rgba(17, 17, 17, .6);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .os h4 {
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--gray);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px
+        }
+
+        .si2 {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: .88rem
+        }
+
+        .si2.tot {
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            margin-top: 8px;
+            padding-top: 12px;
+            font-weight: 800;
+            font-size: 1.05rem
+        }
+
+        .si2.tot span:last-child {
+            color: var(--green)
+        }
+
+        .ps {
+            background: rgba(17, 17, 17, .6);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .ps h4 {
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--gray);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px
+        }
+
+        #card-number,
+        #card-date,
+        #card-cvv,
+        #card-zip {
+            padding: 14px 16px;
+            background: var(--dark2);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius-sm);
+            min-height: 48px
+        }
+
+        .cr {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px
+        }
+
+        .clbl {
+            font-size: .78rem;
+            color: var(--gray);
+            margin-bottom: 6px;
+            display: block
+        }
+
+        .pay-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--red);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            letter-spacing: .5px
+        }
+
+        .pay-btn:hover {
+            background: var(--red-dark)
+        }
+
+        .pay-btn:disabled {
+            opacity: .5;
+            pointer-events: none
+        }
+
+        .pay-btn .psp {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, .3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+            display: none
+        }
+
+        .pay-btn.ld .psp {
+            display: block
+        }
+
+        .pay-btn.ld .pt {
+            display: none
+        }
+
+        .chk-err {
+            background: rgba(239, 68, 68, .1);
+            border: 1px solid rgba(239, 68, 68, .3);
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            color: #ef4444;
+            font-size: .88rem;
+            margin-bottom: 16px;
+            display: none
+        }
+
+        .chk-err.show {
+            display: block
+        }
+
+        .sbadge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: var(--gray);
+            font-size: .75rem;
+            margin-top: 12px
+        }
+
+        .conf {
+            text-align: center;
+            padding: 40px 20px
+        }
+
+        .conf-ic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(34, 197, 94, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px
+        }
+
+        .conf-ic svg {
+            width: 40px;
+            height: 40px;
+            color: var(--green)
+        }
+
+        .conf-t {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px
+        }
+
+        .conf-s {
+            color: var(--gray);
+            margin-bottom: 32px
+        }
+
+        .conf-d {
+            background: rgba(17, 17, 17, .6);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: left;
+            margin-bottom: 24px
+        }
+
+        .conf-r {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: .9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .05)
+        }
+
+        .conf-r:last-child {
+            border: none
+        }
+
+        .conf-r span:first-child {
+            color: var(--gray)
+        }
+
+        .conf-r span:last-child {
+            font-weight: 600
+        }
+
+        .neo-btn {
+            background: rgba(255, 255, 255, .05);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: .95rem;
+            transition: var(--transition)
+        }
+
+        .neo-btn:hover {
+            background: rgba(255, 255, 255, .1)
+        }
+
+        /* TODAY'S DEAL ALERT */
+        .deal-alert {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            max-width: 380px;
+            width: calc(100% - 48px);
+            background: rgba(17, 17, 17, .95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(223, 43, 43, .3);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .6), 0 0 30px rgba(223, 43, 43, .1);
+            transform: translateY(120%);
+            opacity: 0;
+            transition: transform .5s cubic-bezier(.34, 1.56, .64, 1), opacity .4s ease;
+            pointer-events: none
+        }
+
+        .deal-alert.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all
+        }
+
+        .deal-alert-top {
+            background: var(--red);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .deal-alert-label {
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--white)
+        }
+
+        .deal-alert-label svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--white);
+            animation: da-ring 1.5s ease-in-out infinite
+        }
+
+        @keyframes da-ring {
+            0% {
+                transform: rotate(0)
+            }
+
+            20% {
+                transform: rotate(15deg)
+            }
+
+            40% {
+                transform: rotate(-10deg)
+            }
+
+            60% {
+                transform: rotate(5deg)
+            }
+
+            80% {
+                transform: rotate(-5deg)
+            }
+
+            100% {
+                transform: rotate(0)
+            }
+        }
+
+        .deal-alert-close {
+            background: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+            transition: .3s;
+            line-height: 1;
+            opacity: .8;
+            border: none
+        }
+
+        .deal-alert-close:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, .15)
+        }
+
+        .deal-alert-body {
+            padding: 20px 24px;
+            cursor: pointer;
+            transition: .3s;
+            display: block;
+            color: var(--white)
+        }
+
+        .deal-alert-body:hover {
+            background: rgba(223, 43, 43, .05)
+        }
+
+        .deal-alert-day {
+            font-size: .7rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px
+        }
+
+        .deal-alert-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 6px
+        }
+
+        .deal-alert-desc {
+            font-size: .85rem;
+            color: var(--gray-light);
+            margin-bottom: 10px;
+            line-height: 1.4
+        }
+
+        .deal-alert-price {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--gold);
+            display: inline-block;
+            margin-right: 12px
+        }
+
+        .deal-alert-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--red);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            transition: .3s
+        }
+
+        .deal-alert-cta:hover {
+            background: var(--red-dark)
+        }
+
+        .deal-alert-cta svg {
+            width: 12px;
+            height: 12px;
+            fill: var(--white)
+        }
+
+        .deal-alert-progress {
+            position: relative;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, .08);
+            overflow: hidden
+        }
+
+        .deal-alert-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red), var(--gold));
+            width: 100%
+        }
+
+        @keyframes progressShrink {
+            0% {
+                width: 100%
+            }
+
+            100% {
+                width: 0
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--green);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: .9rem;
+            z-index: 9998;
+            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
+            box-shadow: 0 8px 32px rgba(34, 197, 94, .3)
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0)
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .cat-card,
+        .item-card,
+        .deal-card {
+            animation: fadeUp .5s ease both
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity .8s ease, transform .8s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @media(max-width:1024px) {
+            .nav {
+                display: none
+            }
+
+            .mobile-toggle {
+                display: flex
+            }
+
+            .deals-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:768px) {
+            .hero {
+                padding: 100px 16px 50px
+            }
+
+            .hero h1 {
+                font-size: 3rem
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                gap: 12px
+                
+            }
+            .d-xs-none {
+                display: none
+            }
+
+        .hero-btn {
+            /* width: 100%; */
+            justify-content: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+            .hero-or {
+                display: none
+            }
+
+            .deals-grid {
+                grid-template-columns: 1fr
+            }
+
+            .deal-card-full {
+                grid-column: span 1
+            }
+
+            .items-grid {
+                grid-template-columns: 1fr
+            }
+
+            .item-card {
+                height: 120px
+            }
+
+            .itm-img {
+                width: 120px;
+                min-width: 120px
+            }
+
+            .cat-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px
+            }
+
+            .cat-card-img,
+            .cat-card-ph {
+                height: 110px
+            }
+
+            .cart-sb {
+                width: 100%;
+                right: -100%
+            }
+
+            .mo-box,
+            .ups-box {
+                max-width: 100%;
+                border-radius: 20px 20px 0 0;
+                max-height: 90vh
+            }
+
+            .mo,
+            .ups-ov {
+                align-items: flex-end;
+                padding: 0
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center
+            }
+
+            .info-bar {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center
+            }
+
+            .chk-w {
+                padding: 16px
+            }
+
+            .fr,
+            .cr {
+                grid-template-columns: 1fr
+            }
+
+            .hero-info {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center
+            }
+
+            .tp-btns {
+                flex-direction: column;
+                align-items: center
+            }
+
+            .third-party {
+                padding: 20px 24px
+            }
+
+            .deal-alert {
+                right: 12px;
+                max-width: none;
+                bottom: 12px;
+                width: calc(100% - 24px)
+            }
+        }
+
+        .tb {
+            flex: 1;
+            min-width: 55px;
+            padding: 12px 8px;
+            background: rgba(255, 255, 255, .04);
+            border: 2px solid rgba(255, 255, 255, .08);
+            border-radius: 12px;
+            color: #aaa;
+            font-weight: 700;
+            font-size: .85rem;
+            text-align: center;
+            transition: all .3s;
+            cursor: pointer
+        }
+
+        .tb:hover {
+            border-color: rgba(245, 166, 35, .3);
+            color: #fff
+        }
+
+        .tb.act {
+            border-color: #f5a623;
+            color: #f5a623;
+            background: rgba(245, 166, 35, .1)
+        }
+
+        .tp {
+            display: block;
+            font-size: .95rem;
+            margin-bottom: 2px
+        }
+
+        .ta {
+            display: block;
+            font-size: .7rem;
+            color: #888;
+            font-weight: 500
+        }
+
+        .tb.act .ta {
+            color: #f5a623
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PREMIUM BACKGROUND -->
+    <div class="bg-bokeh bg-bokeh-1"></div>
+    <div class="bg-bokeh bg-bokeh-2"></div>
+    <div class="bg-bokeh bg-bokeh-3"></div>
+    <div class="bg-vignette"></div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
+            <nav class="nav">
+                <a href="/" class="active">Home</a>
+                <a href="specials.html">Today Special Deal</a>
+                <a href="contact.html">Contact</a>
+                <a href="catering.html">Catering</a>
+                <a href="#" onclick="event.preventDefault();scrollHero()" class="nav-cta">Order Now</a>
+                <a href="tel:9028004001" class="nav-cta nav-cta-call">Call Now</a>
+            </nav>
+            <button class="btn-cart" onclick="toggleCart()" style="position:relative">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
+                </svg>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+            <button class="mobile-toggle" onclick="toggleMob()"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobNav">
+        <a href="/" onclick="closeMob()">Home</a>
+        <a href="specials.html">Today Special Deal</a>
+        <a href="contact.html">Contact</a>
+        <a href="catering.html">Catering</a>
+        <div class="mob-btns">
+            <a href="#" onclick="closeMob();scrollHero()" style="background:var(--red);color:var(--white)">Order Now</a>
+            <a href="tel:9028004001" style="border:2px solid var(--red);color:var(--white)">Call (902) 800-4001</a>
+        </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="info-ticker" style="margin-top:74px">
+        <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+
+    <!-- ========== SCREEN 1: HOMEPAGE ========== -->
+    <div class="screen active" id="screen1">
+
+        <!-- HERO -->
+        <section class="hero" id="heroSection">
+            <div class="hero-pattern"></div>
+            <div class="hero-content">
+                <div class="hero-badge">Open Daily 10:30 AM – 11 PM</div>
+                <h1 class="hero-header d-none">START YOUR <span class="hl">ORDER</span></h1>
+                <p class="hero-sub d-xs-none">Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties,
+                    wings, momos & more.</p>
+                <div class="hero-buttons">
+                    <button class="hero-btn hero-btn-del" onclick="openDf()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="1" y="3" width="15" height="13" />
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                            <circle cx="5.5" cy="18.5" r="2.5" />
+                            <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg>
+                        DELIVERY
+                    </button>
+                    <span class="hero-or">OR</span>
+                    <button class="hero-btn hero-btn-pick" onclick="startPickup()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3" />
+                            <path d="M9 7h1m-1 4h1m4-4h1m-1 4h1" />
+                        </svg>
+                        PICKUP
+                    </button>
+                </div>
+                <div class="hero-info d-xs-none">
+                    <a href="tel:9028004001"><svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>(902) 800-4001</a>
+                    <a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank"><svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                        </svg>6169 Quinpool Rd #111, Halifax</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3RD PARTY ORDER -->
+        <div class="third-party d-xs-none">
+            <p>Also order via</p>
+            <div class="tp-btns">
+                <a href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY"
+                    target="_blank" class="tp-btn tp-btn-ue">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    UberEats
+                </a>
+                <a href="https://www.doordash.com/store/sliceplus-halifax-37896069/?utm_campaign=gpa" target="_blank"
+                    class="tp-btn tp-btn-dd">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    DoorDash
+                </a>
+                <a href="tel:9028004001" class="tp-btn tp-btn-call">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    Call to Order
+                </a>
+            </div>
+        </div>
+
+        <!-- DEAL BANNERS -->
+        <section class="deals-section">
+            <div class="deals-grid">
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-1.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-2.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-3.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-4.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-5.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-6.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-7.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-8.jpg" alt="Deal"
+                        loading="lazy"></div>
+                <div class="deal-card deal-card-full" onclick="scrollHero()"><img src="assets/images/banner-9.png"
+                        alt="Deal" loading="lazy"></div>
+            </div>
+        </section>
+
+        <!-- INFO BAR -->
+        <div class="info-bar">
+            <a href="tel:9028004001"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>(902) 800-4001</a>
+            <a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank"><svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                </svg>6169 Quinpool Rd #111, Halifax</a>
+            <span><svg viewBox="0 0 24 24">
+                    <path
+                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                </svg>Open Daily 10:30 AM – 11 PM</span>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-brand"><img src="assets/images/1__3_.png" alt="Slice+">
+                    <p>Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties, wings, momos &
+                        more.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>PAGES</h4><a href="/">Home</a><a href="specials.html">Today Special Deal</a><a
+                        href="contact.html">Contact</a><a href="catering.html">Catering</a>
+                </div>
+                <div class="footer-col">
+                    <h4>ORDER</h4><a href="#" onclick="event.preventDefault();scrollHero()">Order Direct</a><a
+                        href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY"
+                        target="_blank">UberEats</a><a
+                        href="https://www.doordash.com/store/sliceplus-halifax-37896069/?utm_campaign=gpa"
+                        target="_blank">DoorDash</a><a href="tel:9028004001">Call (902) 800-4001</a>
+                </div>
+                <div class="footer-col">
+                    <h4>VISIT US</h4><a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank">6169 Quinpool
+                        Rd #111, Halifax, NS</a><a href="tel:9028004001">(902) 800-4001</a><a>10:30 AM – 11 PM Daily</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Slice+ Convenience & Pizzeria. All Rights Reserved.</p>
+                <p>Crafted with ❤️ in Halifax | Developed by <a href="https://usamagrowth.com/" target="_blank"
+                        style="color:#df2b2b;text-decoration:none;font-weight:600;transition:opacity .3s">Muhammad
+                        Usama</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- DELIVERY FORM -->
+    <div class="df-ov" id="dfOv">
+        <div class="df-box">
+            <button class="df-close" onclick="closeDf()">&times;</button>
+            <div class="df-title">DELIVERY DETAILS</div>
+            <div class="df-sub">Enter your address and we'll bring it to you</div>
+            <div class="fg"><label class="fl">Street Address *</label><input class="fi" id="dfA"
+                    placeholder="123 Main Street, Apt 4B" autocomplete="street-address"></div>
+            <div class="fr">
+                <div class="fg"><label class="fl">City *</label><input class="fi" id="dfC" value="Halifax"
+                        autocomplete="address-level2"></div>
+                <div class="fg"><label class="fl">Postal Code *</label><input class="fi" id="dfP" placeholder="B3S 1L6"
+                        autocomplete="postal-code"></div>
+            </div>
+            <div class="fg"><label class="fl">Phone Number *</label><input class="fi" id="dfPh" type="tel"
+                    placeholder="(902) 555-0123" autocomplete="tel"></div>
+            <button class="df-go" onclick="submitDf()">Continue to Menu</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: CATEGORIES -->
+    <div class="screen" id="screen2">
+        <div class="s2">
+            <div style="text-align:center">
+                <button class="s2-back" onclick="showScr('screen1')"><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg> Back</button><br>
+                <span class="s2-badge" id="otBadge">Pickup Order</span>
+            </div>
+            <h2 class="s2-title">WHAT ARE YOU CRAVING?</h2>
+            <p class="s2-sub">Choose a category to explore our menu</p>
+            <div class="cat-grid" id="catGrid"></div>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: ITEMS -->
+    <div class="screen" id="screen3">
+        <div class="s3">
+            <button class="s3-back" onclick="showScr('screen2')"><svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg> All Categories</button>
+            <div id="catItems"></div>
+        </div>
+    </div>
+
+    <!-- ITEM MODAL -->
+    <div class="mo" id="itemMo">
+        <div class="mo-box">
+            <div style="position:relative"><button class="mo-x" onclick="closeMo()"><svg width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                    </svg></button>
+                <div id="moImg"></div>
+            </div>
+            <div class="mo-body" id="moBody"></div>
+        </div>
+    </div>
+
+    <!-- UPSELL -->
+    <div class="ups-ov" id="upsOv">
+        <div class="ups-box" id="upsBox"></div>
+    </div>
+
+    <!-- CART -->
+    <div class="cart-ov" id="cartOv" onclick="toggleCart()"></div>
+    <div class="cart-sb" id="cartSb">
+        <div class="cart-h">
+            <h3>YOUR ORDER</h3><button class="cart-close" onclick="toggleCart()"><svg width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg></button>
+        </div>
+        <div class="cart-body" id="cartBody"></div>
+        <div class="cart-ft" id="cartFt"></div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div class="chk-ov" id="chkOv">
+        <div class="chk-w" id="chkW"></div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- TODAY'S DEAL ALERT -->
+    <div class="deal-alert" id="dealAlert">
+        <div class="deal-alert-top">
+            <span class="deal-alert-label"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                </svg> TODAY'S SPECIAL</span>
+            <button class="deal-alert-close" onclick="closeDealAlert()">&times;</button>
+        </div>
+        <a href="#" onclick="event.preventDefault();scrollHero()" class="deal-alert-body">
+            <div class="deal-alert-day" id="alertDay"></div>
+            <div class="deal-alert-name" id="alertName"></div>
+            <div class="deal-alert-desc" id="alertDesc"></div>
+            <div><span class="deal-alert-price" id="alertPrice"></span><span class="deal-alert-cta">Order Now <svg
+                        viewBox="0 0 24 24">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                    </svg></span></div>
+        </a>
+        <div class="deal-alert-progress">
+            <div class="deal-alert-progress-bar" id="alertProgress"></div>
+        </div>
+    </div>
+
+    <script>
+        // ===== STATE =====
+        var menu = null, cart = JSON.parse(localStorage.getItem('sp_cart') || '[]'), curItem = null, mQty = 1, selMods = {},
+            oInfo = { type: 'pickup', addr: '', city: 'Halifax', postal: '', phone: '' },
+            chkStep = 1, chkData = {}, clover = null, cardEl = {}, sCfg = null;
+        var TAX = .14, DFEE = 7.99, UPSELL_CATS = ["Garlic Fingers", "Sides", "Dessert's", "Chicken Bites"];
+
+        // ===== HEADER SCROLL =====
+        window.addEventListener('scroll', function () { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50) });
+
+        // ===== TICKER =====
+        var tickerItems = [
+            { icon: '<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>', text: '6169 Quinpool Rd, Halifax' },
+            { icon: '<svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>', text: '(902) 800-4001' },
+            { icon: '<svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>', text: 'Open Daily 10:30 AM – 11 PM' },
+            { icon: '', text: 'Gourmet Pizza' }, { icon: '', text: 'Indian Pizza' }, { icon: '', text: 'Donairs & Wraps' }, { icon: '', text: 'Wings & Chicken' }, { icon: '', text: 'Momos & Dumplings' }, { icon: '', text: 'Order Online Now' }
+        ];
+        var tEl = document.getElementById('tickerTrack'), th = '';
+        for (var r = 0; r < 2; r++) { tickerItems.forEach(function (item, i) { th += '<span class="ticker-item">' + item.icon + ' ' + item.text + '</span>'; if (i < tickerItems.length - 1) th += '<span class="ticker-sep">|</span>'; }); if (r === 0) th += '<span class="ticker-sep">|</span>'; }
+        tEl.innerHTML = th;
+
+        // ===== SCREENS =====
+        function showScr(id) { document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active') }); document.getElementById(id).classList.add('active'); window.scrollTo(0, 0); history.pushState({ sp: id }, ''); }
+        function scrollHero() { var h = document.getElementById('heroSection'); if (h) h.scrollIntoView({ behavior: 'smooth' }) }
+        function toggleMob() { document.getElementById('mobNav').classList.toggle('open') }
+        function closeMob() { document.getElementById('mobNav').classList.remove('open') }
+
+        // ===== DELIVERY FORM =====
+        function openDf() { oInfo.type = 'delivery'; document.getElementById('dfOv').classList.add('open'); document.body.style.overflow = 'hidden' }
+        function closeDf() { document.getElementById('dfOv').classList.remove('open'); document.body.style.overflow = '' }
+        function submitDf() {
+            oInfo.addr = document.getElementById('dfA').value.trim(); oInfo.city = document.getElementById('dfC').value.trim();
+            oInfo.postal = document.getElementById('dfP').value.trim(); oInfo.phone = document.getElementById('dfPh').value.trim();
+            if (!oInfo.addr) { alert('Please enter your delivery address'); return }
+            if (!oInfo.postal) { alert('Please enter your postal code'); return }
+            if (!oInfo.phone) { alert('Please enter your phone number'); return }
+            closeDf(); saveState(); goMenu()
+        }
+        function startPickup() { oInfo.type = 'pickup'; saveState(); goMenu() }
+        function goMenu() { document.getElementById('otBadge').textContent = oInfo.type === 'delivery' ? 'Delivery Order' : 'Pickup Order'; showScr('screen2'); if (!menu) loadMenu() }
+
+        // ===== MENU =====
+        async function loadMenu() {
+            try { var r = await fetch('/api/menu.php'); var d = await r.json(); if (!d.success) throw 0; menu = d; renderCatGrid(d.categories) }
+            catch (e) { document.getElementById('catGrid').innerHTML = '<p style="text-align:center;color:var(--gray)">Could not load menu. <button onclick="loadMenu()" style="color:var(--red);background:none;border:none;cursor:pointer;font-weight:600">Retry</button></p>' }
+        }
+        function renderCatGrid(cats) {
+            var g = document.getElementById('catGrid'), h = '';
+            cats.forEach(function (c, i) {
+                var fi = c.items[0], img = fi ? '/api/image.php?id=' + fi.id + '&name=' + encodeURIComponent(fi.name) : '';
+                h += '<div class="cat-card" onclick="openCat(\'' + c.id + '\')" style="animation-delay:' + (i * .05) + 's">';
+                h += img ? '<img class="cat-card-img" src="' + img + '" alt="' + esc(c.name) + '" onerror="this.outerHTML=\'<div class=cat-card-ph></div>\'" loading="lazy">' : '<div class="cat-card-ph"></div>';
+                h += '<div class="cat-card-body"><div class="cat-card-name">' + esc(c.name) + '</div><div class="cat-card-count">' + c.items_count + ' items</div></div></div>'
+            }); g.innerHTML = h
+        }
+        function openCat(id) {
+            if (!menu) return; var c = menu.categories.find(function (x) { return x.id === id }); if (!c) return;
+            var h = '<h2 class="s3-title">' + esc(c.name) + ' <span class="s3-count">' + c.items_count + ' items</span></h2><div class="items-grid">';
+            c.items.forEach(function (it, i) {
+                var u = !it.available ? ' out' : '';
+                h += '<div class="item-card' + u + '" onclick="openIt(\'' + c.id + '\',\'' + it.id + '\')" style="animation-delay:' + (i * .03) + 's">';
+                h += '<img class="itm-img" src="/api/image.php?id=' + it.id + '&name=' + encodeURIComponent(it.name) + '" alt="' + esc(it.name) + '" onerror="this.classList.add(\'hid\')" loading="lazy">';
+                h += '<div class="itm-info"><div><div class="itm-name">' + esc(it.name) + '</div>';
+                if (it.description) h += '<div class="itm-desc">' + esc(it.description) + '</div>';
+                h += '</div><div class="itm-bot"><span class="itm-price">$' + it.price + '</span>';
+                h += it.available ? '<div class="itm-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>' : '<span style="font-size:.7rem;color:var(--gray-dark)">Sold out</span>';
+                h += '</div></div></div>'
+            }); h += '</div>'; document.getElementById('catItems').innerHTML = h; showScr('screen3')
+        }
+
+        // ===== ITEM MODAL =====
+        function openIt(cid, iid) { if (!menu) return; var it = null, cn = ''; for (var i = 0; i < menu.categories.length; i++) { var f = menu.categories[i].items.find(function (x) { return x.id === iid }); if (f) { it = f; cn = menu.categories[i].name; break } } if (!it) return; curItem = it; curItem._cn = cn; mQty = 1; selMods = {}; (it.modifier_groups || []).forEach(function (mg) { selMods[mg.id] = [] }); renderMo(); document.getElementById('itemMo').classList.add('open'); document.body.style.overflow = 'hidden' }
+        function renderMo() {
+            var it = curItem; if (!it) return;
+            document.getElementById('moImg').innerHTML = '<img class="mo-img" src="/api/image.php?id=' + it.id + '&name=' + encodeURIComponent(it.name) + '" alt="' + esc(it.name) + '" onerror="this.classList.add(\'hid\')">';
+            var h = '<div class="mo-name">' + esc(it.name) + '</div>'; if (it.description) h += '<div class="mo-desc">' + esc(it.description) + '</div>'; h += '<div class="mo-price">$' + it.price + '</div>';
+            (it.modifier_groups || []).forEach(function (mg) {
+                var mm = mg.min > 0 ? 'Required \u00b7 Choose ' + mg.min + (mg.max > mg.min ? '-' + mg.max : '') : 'Optional \u00b7 Up to ' + (mg.max || 'any');
+                h += '<div class="mg"><div class="mg-t">' + esc(mg.name) + '</div><div class="mg-h">' + mm + '</div>';
+                (mg.modifiers || []).forEach(function (m) {
+                    var s = (selMods[mg.id] || []).indexOf(m.id) > -1, p = parseFloat(m.price) > 0 ? '+$' + m.price : '';
+                    h += '<div class="mg-o ' + (s ? 'sel' : '') + '" onclick="tMod(\'' + mg.id + '\',\'' + m.id + '\',' + (mg.max || 99) + ')"><div class="mg-ol"><div class="mg-cb">' + (s ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : '') + '</div><span>' + esc(m.name) + '</span></div><span style="font-size:.82rem;color:var(--gray);font-weight:600">' + p + '</span></div>'
+                }); h += '</div>'
+            });
+            h += '<div class="si"><label>Special Instructions</label><textarea id="sN" placeholder="Any allergies or special requests..."></textarea></div>';
+            var tot = calcTot(); h += '<div class="mo-ft"><div class="qc"><button class="qb" onclick="cQty(-1)">\u2212</button><span class="qv">' + mQty + '</span><button class="qb" onclick="cQty(1)">+</button></div><button class="atc" onclick="addCart()">Add to Cart \u00b7 $' + tot + '</button></div>';
+            document.getElementById('moBody').innerHTML = h
+        }
+        function closeMo() { document.getElementById('itemMo').classList.remove('open'); document.body.style.overflow = ''; curItem = null }
+        function tMod(g, m, mx) { var s = selMods[g] || [], i = s.indexOf(m); if (i > -1) s.splice(i, 1); else { if (mx === 1) s = [m]; else if (s.length < mx) s.push(m) } selMods[g] = s; renderMo() }
+        function cQty(d) { mQty = Math.max(1, Math.min(20, mQty + d)); renderMo() }
+        function calcTot() { if (!curItem) return '0.00'; var t = curItem.price_cents; (curItem.modifier_groups || []).forEach(function (mg) { var s = selMods[mg.id] || []; (mg.modifiers || []).forEach(function (m) { if (s.indexOf(m.id) > -1) t += m.price_cents }) }); return ((t * mQty) / 100).toFixed(2) }
+
+        // ===== CART =====
+        function addCart() { if (!curItem) return; var n = document.getElementById('sN') ? document.getElementById('sN').value : '', ms = []; (curItem.modifier_groups || []).forEach(function (mg) { var s = selMods[mg.id] || []; (mg.modifiers || []).forEach(function (m) { if (s.indexOf(m.id) > -1) ms.push({ group_id: mg.id, group_name: mg.name, id: m.id, name: m.name, price_cents: m.price_cents }) }) }); cart.push({ id: curItem.id, name: curItem.name, price_cents: curItem.price_cents, quantity: mQty, modifiers: ms, notes: n, added_at: Date.now() }); saveCart(); closeMo(); showToast(curItem.name + ' added!'); if (!document.getElementById('cartSb').classList.contains('open')) toggleCart() }
+        function rmCart(i) { cart.splice(i, 1); saveCart() } function uQty(i, d) { cart[i].quantity = Math.max(1, Math.min(20, cart[i].quantity + d)); saveCart() }
+        function saveCart() { localStorage.setItem('sp_cart', JSON.stringify(cart)); renderCart(); uBadge() }
+        function uBadge() { document.getElementById('cartBadge').textContent = cart.reduce(function (s, i) { return s + i.quantity }, 0) }
+        function renderCart() {
+            var el = document.getElementById('cartBody'), ft = document.getElementById('cartFt');
+            if (!cart.length) { el.innerHTML = '<div class="cart-empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gray-dark)" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><p style="margin-top:16px">Your cart is empty</p></div>'; ft.innerHTML = ''; return }
+            var h = '', sub = 0; cart.forEach(function (it, i) {
+                var t = it.price_cents; it.modifiers.forEach(function (m) { t += m.price_cents }); t *= it.quantity; sub += t; var mn = it.modifiers.map(function (m) { return m.name }).join(', ');
+                h += '<div class="ci"><div class="ci-info"><div class="ci-name">' + esc(it.name) + '</div>'; if (mn) h += '<div class="ci-mods">' + esc(mn) + '</div>'; if (it.notes) h += '<div class="ci-notes">"' + esc(it.notes) + '"</div>'; h += '<div class="ci-bot"><span class="ci-price">$' + (t / 100).toFixed(2) + '</span><div class="ci-qty"><button onclick="uQty(' + i + ',-1)">\u2212</button><span>' + it.quantity + '</span><button onclick="uQty(' + i + ',1)">+</button></div></div><button class="ci-rm" onclick="rmCart(' + i + ')">Remove</button></div></div>'
+            }); el.innerHTML = h;
+            var tax = sub * TAX, df = oInfo.type === 'delivery' ? DFEE * 100 : 0, tot = sub + tax + df;
+            ft.innerHTML = '<div class="cl"><span>Subtotal</span><span>$' + (sub / 100).toFixed(2) + '</span></div><div class="cl"><span>HST (14%)</span><span>$' + (tax / 100).toFixed(2) + '</span></div>' + (df > 0 ? '<div class="cl"><span>Delivery Fee</span><span>$' + DFEE.toFixed(2) + '</span></div>' : '') + '<div class="cl tot"><span>Total</span><span>$' + (tot / 100).toFixed(2) + '</span></div><button class="co-btn" onclick="showUps()">PROCEED TO CHECKOUT</button>'
+        }
+        function toggleCart() { document.getElementById('cartSb').classList.toggle('open'); document.getElementById('cartOv').classList.toggle('open') }
+
+        // ===== UPSELL =====
+        function showUps() {
+            if (!cart.length) return; toggleCart(); if (!menu) { goChk(); return } var ui = [], ids = cart.map(function (c) { return c.id }); menu.categories.forEach(function (c) { if (UPSELL_CATS.indexOf(c.name) > -1) c.items.forEach(function (it) { if (it.available && ids.indexOf(it.id) === -1 && ui.length < 4) ui.push(it) }) }); if (!ui.length) { goChk(); return }
+            var h = '<h3 class="ups-t">COMPLETE YOUR ORDER</h3><p class="ups-s">Add something extra before checkout?</p>';
+            ui.forEach(function (it) { h += '<div class="ups-i"><img class="ups-img" src="/api/image.php?id=' + it.id + '&name=' + encodeURIComponent(it.name) + '" onerror="this.classList.add(\'hid\')"><div class="ups-inf"><div class="ups-n">' + esc(it.name) + '</div><div class="ups-p">$' + it.price + '</div></div><button class="ups-add" onclick="qAdd(\'' + it.id + '\',\'' + esc(it.name).replace(/'/g, "\\'") + '\',' + it.price_cents + ',this)">Add</button></div>' });
+            h += '<button class="ups-skip" onclick="closeUps();goChk()">No thanks, checkout</button>'; document.getElementById('upsBox').innerHTML = h; document.getElementById('upsOv').classList.add('open'); document.body.style.overflow = 'hidden'
+        }
+        function qAdd(id, n, p, b) { cart.push({ id: id, name: n, price_cents: p, quantity: 1, modifiers: [], notes: '', added_at: Date.now() }); saveCart(); b.textContent = 'Added!'; b.style.background = 'var(--green)'; b.disabled = true }
+        function closeUps() { document.getElementById('upsOv').classList.remove('open'); document.body.style.overflow = '' }
+
+        // ===== CHECKOUT =====
+        function goChk() { if (!cart.length) return; closeUps(); chkStep = 1; chkData = { order_type: oInfo.type, customer: { address: oInfo.addr, city: oInfo.city, postal: oInfo.postal, phone: oInfo.phone } }; renderChk(); document.getElementById('chkOv').classList.add('open'); document.body.style.overflow = 'hidden'; history.pushState({ sp: 'step1' }, ''); }
+        function closeChk() { document.getElementById('chkOv').classList.remove('open'); document.body.style.overflow = ''; clearState() }
+        function renderChk() { var w = document.getElementById('chkW'), st = '<div class="chk-steps"><div class="sd ' + (chkStep >= 1 ? 'on' : '') + ' ' + (chkStep > 1 ? 'ok' : '') + '"></div><div class="sd ' + (chkStep >= 2 ? 'on' : '') + '"></div></div>'; if (chkStep === 1) rC1(w, st); else if (chkStep === 2) rC2(w, st); else if (chkStep === 3) rConf(w) }
+        function switchOT(type) {
+            chkData.order_type = type;
+            var isDel = type === 'delivery';
+            var lbl = document.getElementById('otLabel');
+            if (lbl) lbl.textContent = (isDel ? 'Delivery' : 'Pickup') + ' Order';
+            var tp = document.getElementById('togPick');
+            var td = document.getElementById('togDel');
+            if (tp) { tp.style.background = isDel ? 'transparent' : 'var(--red)'; tp.style.color = isDel ? '#555' : '#fff' }
+            if (td) { td.style.background = isDel ? 'var(--red)' : 'transparent'; td.style.color = isDel ? '#fff' : '#555' }
+            window._dfCents = isDel ? Math.round(DFEE * 100) : 0;
+            var c = chkData.customer;
+            var oi = document.getElementById('otInfo');
+            if (oi) oi.innerHTML = esc(c.name || '') + ' · ' + esc(c.phone || '') + '<br>' + esc(c.email || '') + (isDel && c.address ? '<br>' + esc(c.address) + ', ' + esc(c.city) + ' ' + esc(c.postal) : '');
+            // Remove all existing df lines to avoid duplicates
+            var totRow = document.getElementById('chkTotals');
+            if (totRow) { [].forEach.call(totRow.querySelectorAll('#dfLine'), function (el) { el.remove() }); }
+            if (isDel) {
+                if (totRow) {
+                    var newLine = document.createElement('div');
+                    newLine.className = 'si2'; newLine.id = 'dfLine';
+                    newLine.innerHTML = '<span style="color:var(--gray)">Delivery Fee</span><span>$' + DFEE.toFixed(2) + '</span>';
+                    var tipLine = document.getElementById('tipLine');
+                    if (tipLine) totRow.insertBefore(newLine, tipLine);
+                    else { var totEl = totRow.querySelector('.si2.tot'); if (totEl) totRow.insertBefore(newLine, totEl); }
+                }
+            }
+            updTotals();
+            saveState();
+        }
+        function rC1(w, st) {
+            var c = chkData.customer, isDel = chkData.order_type === 'delivery';
+            w.innerHTML = '<div class="chk-hdr"><button class="chk-back" onclick="goBackFromStep1()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><h2>YOUR DETAILS</h2></div>' + st +
+                (isDel ? '<div class="os"><h4>Delivering To</h4><p style="font-size:.88rem;color:var(--gray-light)">' + esc(c.address || '') + ', ' + esc(c.city || '') + ' ' + esc(c.postal || '') + '<br>' + esc(c.phone || '') + '</p></div>' : '') +
+                '<div class="fg"><label class="fl">Full Name *</label><input class="fi" id="cn" placeholder="John Doe" value="' + esc(c.name || '') + '" autocomplete="name"></div>' +
+                '<div class="fr"><div class="fg"><label class="fl">Phone *</label><input class="fi" id="cp" type="tel" placeholder="(902) 555-0123" value="' + esc(c.phone || oInfo.phone || '') + '" autocomplete="tel"></div>' +
+                '<div class="fg"><label class="fl">Email *</label><input class="fi" id="ce" type="email" placeholder="john@email.com" value="' + esc(c.email || '') + '" autocomplete="email"></div></div>' +
+                '<div id="e1" class="chk-err"></div><button class="pay-btn" onclick="goS2()"><span class="pt">Continue to Payment</span></button>'
+        }
+        function goS2() {
+            chkData.customer.name = document.getElementById('cn').value.trim(); chkData.customer.phone = document.getElementById('cp').value.trim(); chkData.customer.email = document.getElementById('ce').value.trim();
+            var e = []; if (!chkData.customer.name || chkData.customer.name.length < 2) e.push('Name required'); if (!chkData.customer.phone || chkData.customer.phone.replace(/\D/g, '').length < 10) e.push('Valid phone required'); if (!chkData.customer.email || chkData.customer.email.indexOf('@') === -1) e.push('Valid email required');
+            if (e.length) { var el = document.getElementById('e1'); el.innerHTML = e.join('<br>'); el.classList.add('show'); return } chkStep = 2; saveState(); renderChk()
+        }
+        function rC2(w, st) {
+            var c = chkData.customer, isDel = chkData.order_type === 'delivery', sub = 0; cart.forEach(function (it) { var t = it.price_cents; it.modifiers.forEach(function (m) { t += m.price_cents }); sub += t * it.quantity });
+            var tax = Math.round(sub * TAX), df = isDel ? Math.round(DFEE * 100) : 0; window._tipAmt = 0; window._subCents = sub; window._taxCents = tax; window._dfCents = df; var tot = sub + tax + df; var ih = ''; cart.forEach(function (it) {
+                var lt = it.price_cents; it.modifiers.forEach(function (m) { lt += m.price_cents }); lt *= it.quantity; var mn = it.modifiers.map(function (m) { return m.name }).join(', ');
+                ih += '<div class="si2"><span>' + it.quantity + 'x ' + esc(it.name) + (mn ? ' <small style="color:var(--gray)">(' + esc(mn) + ')</small>' : '') + '</span><span>$' + (lt / 100).toFixed(2) + '</span></div>'
+            });
+            w.innerHTML = '<div class="chk-hdr"><button class="chk-back" onclick="chkStep=1;renderChk()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><h2>REVIEW & PAY</h2></div>' + st +
+                '<div class="os"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><h4 id="otLabel" style="margin:0">' + (isDel ? 'Delivery' : 'Pickup') + ' Order</h4><div style="display:flex;background:rgba(255,255,255,.05);border-radius:50px;padding:3px;gap:3px"><button id="togPick" onclick="switchOT(\'pickup\')" style="padding:6px 14px;border-radius:50px;font-size:.75rem;font-weight:700;transition:all .3s;background:' + (isDel ? 'transparent' : 'var(--red)') + ';color:' + (isDel ? '#555' : '#fff') + ';border:none;cursor:pointer">PICKUP</button><button id="togDel" onclick="switchOT(\'delivery\')" style="padding:6px 14px;border-radius:50px;font-size:.75rem;font-weight:700;transition:all .3s;background:' + (isDel ? 'var(--red)' : 'transparent') + ';color:' + (isDel ? '#fff' : '#555') + ';border:none;cursor:pointer">DELIVERY</button></div></div><div id="otInfo" style="font-size:.85rem;color:var(--gray);margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06)">' + esc(c.name) + ' \u00b7 ' + esc(c.phone) + '<br>' + esc(c.email) + (isDel ? '<br>' + esc(c.address) + ', ' + esc(c.city) + ' ' + esc(c.postal) : '') + '</div>' + ih + '</div>' +
+                '<div style="background:rgba(26,26,26,.6);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 24px;margin:16px 0"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg><span style="font-size:.85rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px">Leave a Tip</span></div><div style="display:flex;gap:8px;flex-wrap:wrap" id="tipBtns"><button class="tb act" onclick="pickTip(this,0)"><span class="tp">None</span><span class="ta">$0.00</span></button><button class="tb" onclick="pickTip(this,15)"><span class="tp">15%</span><span class="ta">$' + (Math.round(sub * .15) / 100).toFixed(2) + '</span></button><button class="tb" onclick="pickTip(this,18)"><span class="tp">18%</span><span class="ta">$' + (Math.round(sub * .18) / 100).toFixed(2) + '</span></button><button class="tb" onclick="pickTip(this,20)"><span class="tp">20%</span><span class="ta">$' + (Math.round(sub * .20) / 100).toFixed(2) + '</span></button><button class="tb" onclick="pickTip(this,30)"><span class="tp">30%</span><span class="ta">$' + (Math.round(sub * .30) / 100).toFixed(2) + '</span></button><button class="tb" onclick="showCustTip(this)"><span class="tp">Custom</span><span class="ta">Enter</span></button></div><div id="custTip" style="display:none;margin-top:10px;position:relative"><span style="position:absolute;left:12px;top:13px;color:#888;font-weight:700">$</span><input type="number" id="custTipIn" placeholder="0.00" min="0" step="0.01" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px 12px 28px;color:#fff;font-size:.95rem;font-weight:600;font-family:inherit"><button onclick="applyCustTip()" style="position:absolute;right:8px;top:8px;background:#f5a623;color:#000;padding:8px 16px;border-radius:8px;font-weight:700;font-size:.82rem;border:none;cursor:pointer">Apply</button></div><p style="text-align:center;font-size:.75rem;color:#555;margin-top:10px">Tips go directly to the store team. Thank you!</p></div>' +
+                '<div class="os" id="chkTotals"><div class="si2"><span style="color:var(--gray)">Subtotal</span><span>$' + (sub / 100).toFixed(2) + '</span></div><div class="si2"><span style="color:var(--gray)">HST (14%)</span><span>$' + (tax / 100).toFixed(2) + '</span></div>' + (isDel ? '<div class="si2" id="dfLine"><span style="color:var(--gray)">Delivery Fee</span><span>$' + (df / 100).toFixed(2) + '</span></div>' : '') + '<div class="si2" id="tipLine" style="display:none"><span style="color:#f5a623">Tip</span><span style="color:#f5a623" id="tipVal">$0.00</span></div><div class="si2 tot"><span>Total</span><span id="chkTot">$' + (tot / 100).toFixed(2) + '</span></div></div>' +
+                '<div class="ps"><h4>Payment Details</h4><div><span class="clbl">Card Number</span><div id="card-number" style="height:50px"></div></div><div class="cr"><div><span class="clbl">Expiry</span><div id="card-date" style="height:50px"></div></div><div><span class="clbl">CVV</span><div id="card-cvv" style="height:50px"></div></div><div><span class="clbl">ZIP/Postal</span><div id="card-zip" style="height:50px"></div></div></div></div>' +
+                '<div id="payErr" class="chk-err"></div><button class="pay-btn" id="payBtn" onclick="doPay()"><div class="psp"></div><span class="pt" id="payBtnTxt">Pay $' + (tot / 100).toFixed(2) + '</span></button>' +
+                '<div class="sbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Secure payment powered by Clover</div>'; initPay()
+        }
+        function pickTip(btn, pct) { document.querySelectorAll('.tb').forEach(function (b) { b.classList.remove('act') }); btn.classList.add('act'); document.getElementById('custTip').style.display = 'none'; if (pct === 0) { window._tipAmt = 0 } else { window._tipAmt = Math.round(window._subCents * pct / 100) } updTotals() }
+        function showCustTip(btn) { document.querySelectorAll('.tb').forEach(function (b) { b.classList.remove('act') }); btn.classList.add('act'); document.getElementById('custTip').style.display = 'block'; document.getElementById('custTipIn').focus() }
+        function applyCustTip() { var v = parseFloat(document.getElementById('custTipIn').value || '0'); if (v < 0) v = 0; if (v > 500) v = 500; window._tipAmt = Math.round(v * 100); updTotals() }
+        function updTotals() { var tip = window._tipAmt || 0; var tot = window._subCents + window._taxCents + window._dfCents + tip; var tl = document.getElementById('tipLine'), tv = document.getElementById('tipVal'), ct = document.getElementById('chkTot'), pb = document.getElementById('payBtnTxt'); if (tip > 0) { tl.style.display = 'flex'; tv.textContent = '$' + (tip / 100).toFixed(2) } else { tl.style.display = 'none' } if (ct) ct.textContent = '$' + (tot / 100).toFixed(2); if (pb) pb.textContent = 'Pay $' + (tot / 100).toFixed(2) }
+
+        // ===== CLOVER SDK =====
+        async function loadCfg() { try { var r = await fetch('/api/frontend-config.php'); sCfg = await r.json() } catch (e) { console.error('Config fail', e) } }
+        async function initPay() {
+            try {
+                if (!sCfg) await loadCfg(); if (!window.Clover) { await new Promise(function (ok, no) { var s = document.createElement('script'); s.src = sCfg.checkout_js; s.onload = function () { console.log('SDK loaded'); ok() }; s.onerror = no; document.head.appendChild(s) }) }
+                clover = new Clover(sCfg.api_token, { merchantId: sCfg.merchant_id }); console.log('Clover ready'); var el = clover.elements(), sty = { input: { fontSize: '16px', color: '#fff', backgroundColor: 'transparent', fontFamily: '"Outfit",sans-serif' } };
+                cardEl.n = el.create('CARD_NUMBER', { style: sty }); cardEl.d = el.create('CARD_DATE', { style: sty }); cardEl.c = el.create('CARD_CVV', { style: sty }); cardEl.z = el.create('CARD_POSTAL_CODE', { style: sty });
+                cardEl.n.mount('#card-number'); cardEl.d.mount('#card-date'); cardEl.c.mount('#card-cvv'); cardEl.z.mount('#card-zip'); console.log('Cards mounted')
+            } catch (e) { console.error('Pay init:', e); var el = document.getElementById('payErr'); if (el) { el.textContent = 'Payment system failed. Refresh page.'; el.classList.add('show') } }
+        }
+        async function doPay() {
+            var btn = document.getElementById('payBtn'), err = document.getElementById('payErr'); btn.classList.add('ld'); btn.disabled = true; err.classList.remove('show');
+            try {
+                if (!clover) throw new Error('Payment not ready'); console.log('Tokenizing...'); var tr = await clover.createToken(); console.log('Token:', JSON.stringify(tr));
+                if (tr.errors) { var em = Object.keys(tr.errors).map(function (k) { return k + ': ' + tr.errors[k] }).join(', '); throw new Error(em) }
+                var tk = tr.token || tr.id; if (!tk) throw new Error('Card not verified');
+                var tip = window._tipAmt || 0;
+                var res = await fetch('/api/checkout.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cart: cart, customer: chkData.customer, order_type: chkData.order_type, payment_token: tk, tip_amount: tip }) });
+                var r = await res.json(); console.log('Result:', JSON.stringify(r)); if (r.error) throw new Error(r.message || (r.messages ? r.messages.join(', ') : 'Payment failed'));
+                chkData.conf = r.order; cart = []; saveCart(); chkStep = 3; renderChk()
+            } catch (e) { console.error('Pay error:', e); err.textContent = e.message || 'Something went wrong'; err.classList.add('show'); btn.classList.remove('ld'); btn.disabled = false }
+        }
+        function rConf(w) {
+            var o = chkData.conf; if (!o) { closeChk(); return }
+            var tipHtml = o.tip && o.tip !== '0.00' ? '<div class="conf-r"><span style="color:#f5a623">Tip</span><span style="color:#f5a623">$' + o.tip + '</span></div>' : '';
+            w.innerHTML = '<div class="conf"><div class="conf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div><h2 class="conf-t">ORDER CONFIRMED!</h2><p class="conf-s">Order #' + esc(o.number) + ' placed successfully</p><div class="conf-d">' +
+                '<div class="conf-r"><span>Order #</span><span>#' + esc(o.number) + '</span></div><div class="conf-r"><span>Type</span><span>' + (o.type === 'delivery' ? 'Delivery' : 'Pickup') + '</span></div><div class="conf-r"><span>Name</span><span>' + esc(o.customer.name || '') + '</span></div><div class="conf-r"><span>Phone</span><span>' + esc(o.customer.phone || '') + '</span></div>' +
+                '<div class="conf-r"><span>Subtotal</span><span>$' + o.subtotal + '</span></div><div class="conf-r"><span>HST</span><span>$' + o.tax + '</span></div>' + (o.delivery_fee !== '0.00' ? '<div class="conf-r"><span>Delivery</span><span>$' + o.delivery_fee + '</span></div>' : '') + tipHtml +
+                '<div class="conf-r" style="font-weight:700;border:none"><span>Total</span><span style="color:var(--green)">$' + o.total + '</span></div>' + (o.payment && o.payment.brand ? '<div class="conf-r"><span>Card</span><span>' + o.payment.brand + ' ****' + o.payment.last4 + '</span></div>' : '') +
+                '</div>' + (o.tracking_url ? '<a href="' + o.tracking_url + '" style="display:block;text-align:center;padding:14px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:50px;color:#22c55e;font-weight:700;font-size:.9rem;margin:16px 0">Track Your Order</a>' : '') +
+                '<p style="color:var(--gray);font-size:.85rem;margin-bottom:24px">' + (o.type === 'delivery' ? 'Your order is being prepared for delivery.' : 'Pick it up at Slice+.') + '<br>Confirmation sent to your email.</p><button class="neo-btn" onclick="clearState();closeChk();location.reload()">Place Another Order</button></div>'
+        }
+
+        // ===== HELPERS =====
+        function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML }
+        function showToast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show') }, 2500) }
+        document.getElementById('itemMo').addEventListener('click', function (e) { if (e.target === this) closeMo() });
+        document.getElementById('dfOv').addEventListener('click', function (e) { if (e.target === this) closeDf() });
+        document.getElementById('upsOv').addEventListener('click', function (e) { if (e.target === this) { closeUps(); goChk() } });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeMo(); closeDf(); if (document.getElementById('cartSb').classList.contains('open')) toggleCart() } });
+
+        // ===== TODAY'S DEAL ALERT =====
+        (function () {
+            var sp = [
+                { day: 1, full: 'Monday', name: 'Donair Monday', desc: 'Buy any donair, get second 50% off!', price: '50% OFF' },
+                { day: 2, full: 'Tuesday', name: 'Toonie Tuesday', desc: 'Buy medium pizza, get second for just $2!', price: '$2' },
+                { day: 3, full: 'Wednesday', name: 'Wings Wednesday', desc: '10 pcs wings, choice of sauce.', price: '$9.99' },
+                { day: 4, full: 'Thursday', name: 'BOGO Footlong Thursday', desc: 'Buy one footlong pizza, get the 2nd half off!', price: '50% OFF' },
+                { day: 5, full: 'Friday', name: 'Feast Friday', desc: 'XL 3-topping + 10 wings + wedges + 2L pop!', price: '$34.99' },
+                { day: 6, full: 'Saturday', name: 'Nacho Saturday', desc: 'Large loaded nachos + 2L pop.', price: '$16.99' },
+                { day: 0, full: 'Sunday', name: 'Snackdown Sunday', desc: '3 slices + 1 cookie + 1 pop.', price: '$14.99' }
+            ];
+            var d = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Halifax' }));
+            var today = d.getDay(); var s = sp.find(function (x) { return x.day === today });
+            var ae = document.getElementById('dealAlert'), pb = document.getElementById('alertProgress');
+            if (!ae || !s) return;
+            document.getElementById('alertDay').textContent = s.full + ' Special';
+            document.getElementById('alertName').textContent = s.name;
+            document.getElementById('alertDesc').textContent = s.desc;
+            document.getElementById('alertPrice').textContent = s.price;
+            var _ac = null; function warmA() { if (!_ac) { try { _ac = new (window.AudioContext || window.webkitAudioContext)() } catch (e) { } } if (_ac && _ac.state === 'suspended') _ac.resume() }
+            ['click', 'touchstart', 'scroll'].forEach(function (e) { document.addEventListener(e, warmA, { passive: true }) });
+            function ding() { warmA(); if (!_ac) return; try { var t = _ac.currentTime; var g1 = _ac.createGain(); g1.connect(_ac.destination); g1.gain.setValueAtTime(.25, t); g1.gain.exponentialRampToValueAtTime(.001, t + .5); var o1 = _ac.createOscillator(); o1.connect(g1); o1.type = 'sine'; o1.frequency.setValueAtTime(880, t); o1.frequency.setValueAtTime(1174, t + .12); o1.start(t); o1.stop(t + .5) } catch (e) { } }
+            if (localStorage.getItem('sp_deal_closed') === '1') return;
+            function showDA() { ae.classList.add('show'); ding(); if (pb) { pb.style.animation = 'none'; pb.style.width = '100%' } }
+            window.closeDealAlert = function () { ae.classList.remove('show'); localStorage.setItem('sp_deal_closed', '1') };
+            setTimeout(showDA, 2000);
+        })();
+
+        // ===== SESSION STATE =====
+        function saveState() {
+            try {
+                sessionStorage.setItem('sp_oInfo', JSON.stringify(oInfo));
+                sessionStorage.setItem('sp_chkData', JSON.stringify(chkData));
+                sessionStorage.setItem('sp_chkStep', chkStep);
+            } catch (e) { }
+        }
+        function clearState() {
+            try {
+                sessionStorage.removeItem('sp_oInfo');
+                sessionStorage.removeItem('sp_chkData');
+                sessionStorage.removeItem('sp_chkStep');
+            } catch (e) { }
+        }
+        function restoreState() {
+            try {
+                var oi = sessionStorage.getItem('sp_oInfo');
+                var cd = sessionStorage.getItem('sp_chkData');
+                var cs = sessionStorage.getItem('sp_chkStep');
+                if (!oi || !cd || !cs) return;
+                oInfo = JSON.parse(oi);
+                chkData = JSON.parse(cd);
+                chkStep = parseInt(cs) || 1;
+                // Wait for DOM to be fully ready
+                setTimeout(function () {
+                    try {
+                        var badge = document.getElementById('otBadge');
+                        if (badge) badge.textContent = oInfo.type === 'delivery' ? 'Delivery Order' : 'Pickup Order';
+                        var chkOv = document.getElementById('chkOv');
+                        var chkW = document.getElementById('chkW');
+                        if (!chkOv || !chkW) return;
+                        // Set dfCents correctly based on restored order type
+                        window._dfCents = chkData.order_type === 'delivery' ? Math.round(DFEE * 100) : 0;
+                        chkOv.classList.add('open');
+                        document.body.style.overflow = 'hidden';
+                        renderChk();
+                    } catch (e) { clearState(); }
+                }, 300);
+            } catch (e) { clearState(); }
+        }
+
+        // ===== BACK NAVIGATION =====
+        function goBackFromStep1() {
+            document.getElementById('chkOv').classList.remove('open');
+            document.body.style.overflow = '';
+            clearState();
+            var s2 = document.getElementById('screen2');
+            var s1 = document.getElementById('screen1');
+            document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active') });
+            if (s2 && s2.innerHTML.trim().length > 50) { s2.classList.add('active'); }
+            else { s1.classList.add('active'); }
+            window.scrollTo(0, 0);
+            history.pushState({ sp: 'screen2' }, '');
+        }
+
+        window.addEventListener('popstate', function (e) {
+            var chkOv = document.getElementById('chkOv');
+            var chkOpen = chkOv && chkOv.classList.contains('open');
+            if (chkOpen) {
+                if (chkStep === 2) {
+                    chkStep = 1; saveState(); renderChk();
+                    history.pushState({ sp: 'step1' }, '');
+                } else {
+                    goBackFromStep1();
+                }
+                return;
+            }
+            var st = e.state && e.state.sp;
+            if (st === 'screen3') { document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active') }); document.getElementById('screen3').classList.add('active'); window.scrollTo(0, 0); }
+            else if (st === 'screen2') { document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active') }); document.getElementById('screen2').classList.add('active'); window.scrollTo(0, 0); }
+            else { document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active') }); document.getElementById('screen1').classList.add('active'); window.scrollTo(0, 0); }
+        });
+
+        // ===== INIT =====
+        uBadge(); renderCart(); loadCfg(); history.replaceState({ sp: 'screen1' }, ''); restoreState();
+    </script>
+    <script src="sp-bundle.js"></script>
+    <script src="smart-upsell.js"></script>
+    <script src="pay-style.js"></script>
+</body>
+
+</html>

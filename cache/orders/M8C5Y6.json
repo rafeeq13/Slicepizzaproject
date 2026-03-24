@@ -1,0 +1,50 @@
+{
+    "number": "M8C5Y6",
+    "clover_id": "T21VVWSM8C5Y6",
+    "type": "pickup",
+    "status": "placed",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-07T23:21:09+00:00",
+            "note": "Order placed and paid"
+        }
+    ],
+    "customer": {
+        "name": "Sweny Dalal",
+        "phone": "6479049373",
+        "email": "sweny.dalal762@gmail.com",
+        "address": "",
+        "city": "Halifax",
+        "postal": ""
+    },
+    "items": [
+        {
+            "name": "Chilli Chicken Pizza",
+            "quantity": 1,
+            "total": 1899,
+            "modifiers": [
+                {
+                    "group_id": "6T6VBTTS4M65E",
+                    "group_name": "Choice of Pizza",
+                    "id": "VBE20TJQGC2E6",
+                    "name": "Medium 12Inch",
+                    "price_cents": 900
+                }
+            ]
+        }
+    ],
+    "subtotal": "18.99",
+    "tax": "2.85",
+    "delivery_fee": "0.00",
+    "total": "21.84",
+    "payment": {
+        "status": "paid",
+        "last4": "1902",
+        "brand": "VISA"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=M8C5Y6",
+    "placed_at": "2026-03-07T23:21:09+00:00",
+    "updated_at": "2026-03-07T23:21:09+00:00",
+    "estimated_time": "20-30 min"
+}

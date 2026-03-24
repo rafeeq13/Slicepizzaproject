@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slice+ Convenience & Pizzeria | Order Online | Halifax</title>
+<meta name="description" content="Slice+ — Halifax's best gourmet pizza, donairs, Indian pizza, wings, momos. Order online for delivery or pickup.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" rel="stylesheet">
+<style>
+:root{--red:#df2b2b;--red-dark:#b91c1c;--black:#0a0a0a;--dark:#111111;--dark2:#1a1a1a;--dark3:#222222;--white:#ffffff;--gold:#f5a623;--green:#06C167;--doordash:#FF3008;--gray:#888;--gray-light:#aaa;--gray-dark:#555;--font-display:'Bebas Neue',sans-serif;--font-body:'Outfit',sans-serif;--radius:16px;--radius-sm:10px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+a{text-decoration:none;color:inherit;}img{max-width:100%;display:block;}button{cursor:pointer;border:none;font-family:var(--font-body);}
+.header{background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.06);position:fixed;top:0;left:0;right:0;z-index:100;}
+.header-inner{max-width:1300px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+.logo img{height:48px;width:auto;}
+.nav{display:flex;align-items:center;gap:20px;}
+.nav a{font-size:0.85rem;font-weight:600;letter-spacing:0.5px;color:var(--gray-light);transition:var(--transition);position:relative;}
+.nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:var(--transition);}
+.nav a:hover{color:var(--white);}.nav a:hover::after{width:100%;}
+.nav a.active{color:var(--white);}.nav a.active::after{width:100%;}
+.nav-cta{background:var(--red)!important;color:var(--white)!important;padding:10px 22px!important;border-radius:50px;font-weight:700!important;font-size:0.8rem!important;letter-spacing:1.2px!important;text-transform:uppercase;box-shadow:0 4px 20px rgba(223,43,43,0.3);}
+.nav-cta::after{display:none!important;}.nav-cta:hover{background:var(--red-dark)!important;transform:translateY(-2px);}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;background:none;padding:8px;}
+.mobile-toggle span{width:26px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition);}
+.mobile-nav{display:none;position:fixed;top:76px;left:0;right:0;bottom:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-size:1.2rem;font-weight:500;color:var(--gray-light);transition:var(--transition);}
+.mobile-nav a:hover{color:var(--red);}
+.main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 24px 30px;}
+.main-inner{max-width:1100px;width:100%;margin:0 auto;}
+.order-bar{text-align:center;margin-bottom:32px;}
+.order-bar h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:2px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.order-bar h2::before,.order-bar h2::after{content:'';width:50px;height:2px;background:var(--red);}
+.order-buttons{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.order-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:50px;font-weight:700;font-size:0.88rem;letter-spacing:0.8px;text-transform:uppercase;transition:var(--transition);box-shadow:0 4px 20px rgba(0,0,0,0.3);}
+.order-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.4);}
+.order-btn svg{width:20px;height:20px;fill:currentColor;flex-shrink:0;}
+.order-btn-direct{background:var(--red);color:var(--white);}.order-btn-direct:hover{background:var(--red-dark);}
+.order-btn-uber{background:var(--green);color:var(--white);}.order-btn-uber:hover{background:#05a857;}
+.order-btn-door{background:var(--doordash);color:var(--white);}.order-btn-door:hover{background:#e02a06;}
+.order-divider{font-size:0.85rem;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.deals-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.deal-link{position:relative;border-radius:var(--radius);overflow:hidden;display:block;transition:var(--transition);aspect-ratio:16/10;}
+.deal-link:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(223,43,43,0.2);}
+.deal-link img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.deal-link:hover img{transform:scale(1.04);}
+.deal-link-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.1) 50%,transparent 100%);display:flex;align-items:flex-end;justify-content:center;padding:20px;opacity:0;transition:var(--transition);}
+.deal-link:hover .deal-link-overlay{opacity:1;}
+.deal-order-btn{background:var(--red);color:var(--white);padding:12px 30px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:var(--transition);}
+.deal-order-btn svg{width:16px;height:16px;fill:currentColor;}
+.phone-bar{text-align:center;margin-top:24px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;padding:16px;background:var(--dark);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.05);}
+.phone-bar-item{display:flex;align-items:center;gap:8px;font-size:0.88rem;color:var(--gray-light);}
+.phone-bar-item svg{width:18px;height:18px;fill:var(--red);flex-shrink:0;}
+.phone-bar-item a,.phone-bar-item span{color:var(--gray-light);transition:var(--transition);font-weight:500;}
+.phone-bar-item a:hover{color:var(--white);}
+.footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.05);padding:40px 24px 24px;margin-top:auto;}
+.footer-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand img{height:40px;margin-bottom:12px;}
+.footer-brand p{color:var(--gray);font-size:0.82rem;line-height:1.6;max-width:280px;}
+.footer-col h4{font-family:var(--font-display);font-size:1rem;letter-spacing:2px;margin-bottom:12px;}
+.footer-col a{display:block;color:var(--gray);font-size:0.82rem;padding:4px 0;transition:var(--transition);}
+.footer-col a:hover{color:var(--red);transform:translateX(4px);}
+.footer-bottom{max-width:1300px;margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-bottom p{color:var(--gray-dark);font-size:0.75rem;}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.nav{display:none;}.mobile-toggle{display:flex;}.main{padding:90px 16px 20px;}.deals-grid{grid-template-columns:1fr;gap:12px;}.deal-link{aspect-ratio:16/9;}.deal-link-overlay{opacity:1;}.order-buttons{gap:10px;}.order-btn{padding:12px 24px;font-size:0.8rem;}.phone-bar{flex-direction:column;gap:12px;}.footer-inner{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
+@media(max-width:480px){.order-bar h2{font-size:1.6rem;}.order-bar h2::before,.order-bar h2::after{width:30px;}.order-buttons{flex-direction:column;width:100%;}.order-btn{width:100%;justify-content:center;}.order-divider{display:none;}}
+
+
+/* ===== TODAY'S DEAL ALERT ===== */
+.deal-alert{position:fixed;bottom:24px;right:24px;z-index:9999;max-width:380px;width:calc(100% - 48px);background:rgba(17,17,17,0.95);backdrop-filter:blur(20px);border:1px solid rgba(223,43,43,0.3);border-radius:16px;padding:0;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 30px rgba(223,43,43,0.1);transform:translateY(120%);opacity:0;transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1),opacity 0.4s ease;pointer-events:none}
+.deal-alert.show{transform:translateY(0);opacity:1;pointer-events:all}
+.deal-alert-top{background:#df2b2b;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+.deal-alert-label{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px;color:#fff}
+.deal-alert-label svg{width:14px;height:14px;fill:#fff;animation:da-ring 1.5s ease-in-out infinite}
+@keyframes da-ring{0%,100%{transform:rotate(0)}25%{transform:rotate(15deg)}50%{transform:rotate(-10deg)}75%{transform:rotate(5deg)}}
+.deal-alert-close{background:none;color:#fff;font-size:1.2rem;padding:2px 6px;border-radius:50%;transition:.3s;line-height:1;cursor:pointer;opacity:.8;border:none}.deal-alert-close:hover{opacity:1;background:rgba(255,255,255,0.15)}
+.deal-alert-body{padding:20px 24px;cursor:pointer;transition:.3s;display:block;text-decoration:none;color:#fff}.deal-alert-body:hover{background:rgba(223,43,43,0.05)}
+.deal-alert-day{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.deal-alert-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:1px;line-height:1.1;margin-bottom:6px;color:#fff}
+.deal-alert-desc{font-size:.85rem;color:#aaa;margin-bottom:10px;line-height:1.4}
+.deal-alert-price{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#f5a623;display:inline-block;margin-right:12px}
+.deal-alert-cta{display:inline-flex;align-items:center;gap:6px;background:#df2b2b;color:#fff;padding:8px 20px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;transition:.3s}.deal-alert-cta:hover{background:#b91c1c}
+.deal-alert-cta svg{width:12px;height:12px;fill:#fff}
+.deal-alert-progress{position:relative;width:100%;height:4px;background:rgba(255,255,255,0.08);overflow:hidden}
+.deal-alert-progress-bar{height:100%;background:linear-gradient(90deg,#df2b2b,#f5a623);width:100%;animation:none}
+@keyframes progressShrink{0%{width:100%}100%{width:0%}}
+@media(max-width:768px){.deal-alert{right:12px;left:auto;max-width:none;bottom:12px;width:calc(100% - 24px)}}
+
+
+.nav-cta-call{background:transparent!important;border:2px solid #df2b2b!important;color:#fff!important;box-shadow:none!important}
+.nav-cta-call:hover{background:#df2b2b!important}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner">
+<a href="index.html" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
+<nav class="nav">
+<a href="index.html" class="active">Home</a><a href="deals.html">Best Deals</a><a href="menu.html">Our Menu</a><a href="specials.html">Today Special Deal</a><a href="contact.html">Contact</a><a href="catering.html">Catering</a>
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank" class="nav-cta">Order Now</a>
+<a href="tel:9028004001" class="nav-cta nav-cta-call">Call Now</a>
+</nav>
+<button class="mobile-toggle" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mobile-nav" id="mn">
+<a href="index.html" onclick="document.getElementById('mn').classList.remove('open')">Home</a>
+<a href="deals.html" onclick="document.getElementById('mn').classList.remove('open')">Best Deals</a>
+<a href="menu.html" onclick="document.getElementById('mn').classList.remove('open')">Our Menu</a>
+<a href="specials.html" onclick="document.getElementById('mn').classList.remove('open')">Today Special Deal</a>
+<a href="contact.html" onclick="document.getElementById('mn').classList.remove('open')">Contact</a>
+<a href="catering.html" onclick="document.getElementById('mn').classList.remove('open')">Catering</a>
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank" style="background:#df2b2b;color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase" onclick="document.getElementById('mn').classList.remove('open')">Order Now</a>
+<a href="tel:9028004001" style="background:#1a1a1a;color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;border:2px solid #df2b2b" onclick="document.getElementById('mn').classList.remove('open')">Call Now</a>
+</div>
+<main class="main"><div class="main-inner">
+<div class="order-bar">
+<h2>START YOUR ORDER</h2>
+<div class="order-buttons">
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank" class="order-btn order-btn-direct"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l.04-.12L8.1 12h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 3H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7 16h12v-2H7l1.16-1.74z"/></svg>Direct Order</a>
+<span class="order-divider">or</span>
+<a href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY" target="_blank" class="order-btn order-btn-uber"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>UberEats</a>
+<span class="order-divider">or</span>
+<a href="https://www.doordash.com/store/sliceplus-halifax-37896069/?utm_campaign=gpa" target="_blank" class="order-btn order-btn-door"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>DoorDash</a>
+</div></div>
+<div class="deals-grid">
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax#M6ST96GW41CDR" target="_blank" class="deal-link"><img loading="lazy" decoding="async" src="assets/images/banner-3.jpg" alt="2 Footlong Pizzas $15.99"><div class="deal-link-overlay"><span class="deal-order-btn"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l.04-.12L8.1 12h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 3H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7 16h12v-2H7l1.16-1.74z"/></svg> Order Now</span></div></a>
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank" class="deal-link"><img loading="lazy" decoding="async" src="assets/images/banner-1.jpg" alt="1 Topping Pizza"><div class="deal-link-overlay"><span class="deal-order-btn"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l.04-.12L8.1 12h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 3H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7 16h12v-2H7l1.16-1.74z"/></svg> Order Now</span></div></a>
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank" class="deal-link"><img loading="lazy" decoding="async" src="assets/images/banner-5.jpg" alt="XL Pizza + Garlic Fingers + Pop"><div class="deal-link-overlay"><span class="deal-order-btn"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l.04-.12L8.1 12h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 3H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7 16h12v-2H7l1.16-1.74z"/></svg> Order Now</span></div></a>
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank" class="deal-link"><img loading="lazy" decoding="async" src="assets/images/banner-6.jpg" alt="2XL Pizza + Garlic Fingers"><div class="deal-link-overlay"><span class="deal-order-btn"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.16 14.26l.04-.12L8.1 12h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 3H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 14.37 5.48 16 7 16h12v-2H7l1.16-1.74z"/></svg> Order Now</span></div></a>
+</div>
+<div class="phone-bar">
+<div class="phone-bar-item"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:9028004001">(902) 800-4001</a></div>
+<div class="phone-bar-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><a href="https://maps.google.com/?q=6169+Quinpool+Rd+111+Halifax+NS" target="_blank">6169 Quinpool Rd #111, Halifax</a></div>
+<div class="phone-bar-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><span>Open Daily 10:30 AM – 11 PM</span></div>
+</div>
+</div></main>
+<footer class="footer"><div class="footer-inner">
+<div class="footer-brand"><img src="assets/images/1__3_.png" alt="Slice+"><p>Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties, wings, momos & more.</p></div>
+<div class="footer-col"><h4>PAGES</h4><a href="index.html">Home</a><a href="deals.html">Best Deals</a><a href="menu.html">Our Menu</a><a href="specials.html">Today Special Deal</a><a href="contact.html">Contact</a><a href="catering.html">Catering</a></div>
+<div class="footer-col"><h4>ORDER</h4><a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank">Order Direct (Clover)</a><a href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY" target="_blank">UberEats</a><a href="https://www.doordash.com/store/sliceplus-halifax-37896069/?utm_campaign=gpa" target="_blank">DoorDash</a><a href="tel:9028004001">Call (902) 800-4001</a></div>
+<div class="footer-col"><h4>VISIT US</h4><a href="https://maps.google.com/?q=6169+Quinpool+Rd+111+Halifax+NS" target="_blank">6169 Quinpool Rd #111</a><a>Halifax, Nova Scotia</a><a href="tel:9028004001">(902) 800-4001</a><a>10:30 AM – 11 PM Daily</a></div>
+</div><div class="footer-bottom"><p>&copy; 2026 Slice+ Convenience & Pizzeria. All Rights Reserved.</p><p>Crafted with ❤️ in Halifax</p></div></footer>
+
+
+<!-- TODAY'S DEAL ALERT -->
+<div class="deal-alert" id="dealAlert">
+<div class="deal-alert-top">
+<span class="deal-alert-label"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg> TODAY'S SPECIAL</span>
+<button class="deal-alert-close" onclick="closeDealAlert()" aria-label="Close">&times;</button>
+</div>
+<a href="https://www.clover.com/online-ordering/sliceplus-halifax" target="_blank" class="deal-alert-body">
+<div class="deal-alert-day" id="alertDay"></div>
+<div class="deal-alert-name" id="alertName"></div>
+<div class="deal-alert-desc" id="alertDesc"></div>
+<div><span class="deal-alert-price" id="alertPrice"></span><span class="deal-alert-cta">Order Now <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></div>
+</a>
+<div class="deal-alert-progress"><div class="deal-alert-progress-bar" id="alertProgress"></div></div>
+</div>
+<script>
+(function(){
+var sp=[
+  {day:1,full:'Monday',name:'Donair Monday',desc:'Buy any donair, get second 50% off!',price:'50% OFF'},
+  {day:2,full:'Tuesday',name:'Toonie Tuesday',desc:'Buy medium pizza, get second for just $2!',price:'$2'},
+  {day:3,full:'Wednesday',name:'Wings Wednesday',desc:'10 pcs wings, choice of sauce.',price:'$9.99'},
+  {day:4,full:'Thursday',name:'Healthy Thursday',desc:'Any salad — add protein for $1.99.',price:'$7.99'},
+  {day:5,full:'Friday',name:'Feast Friday',desc:'XL 3-topping + 10 wings + wedges + 2L pop!',price:'$34.99'},
+  {day:6,full:'Saturday',name:'Nacho Saturday',desc:'Large loaded nachos + 2L pop.',price:'$16.99'},
+  {day:0,full:'Sunday',name:'Snackdown Sunday',desc:'3 slices + 1 cookie + 1 pop.',price:'$14.99'}
+];
+var d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Halifax'}));
+var today=d.getDay();
+var s=sp.find(function(x){return x.day===today;});
+var ae=document.getElementById('dealAlert');
+var pb=document.getElementById('alertProgress');
+if(!ae||!s)return;
+document.getElementById('alertDay').textContent=s.full+' Special';
+document.getElementById('alertName').textContent=s.name;
+document.getElementById('alertDesc').textContent=s.desc;
+document.getElementById('alertPrice').textContent=s.price;
+
+// Sound
+var _ac=null;
+function warmAudio(){
+  if(!_ac){try{_ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+  if(_ac&&_ac.state==='suspended')_ac.resume();
+}
+['click','touchstart','scroll','keydown','mousemove'].forEach(function(evt){
+  document.addEventListener(evt,warmAudio,{passive:true});
+});
+warmAudio();
+function ding(){
+  warmAudio();if(!_ac)return;
+  try{
+    var t=_ac.currentTime;
+    var g1=_ac.createGain();g1.connect(_ac.destination);
+    g1.gain.setValueAtTime(0.25,t);g1.gain.exponentialRampToValueAtTime(0.001,t+0.5);
+    var o1=_ac.createOscillator();o1.connect(g1);o1.type='sine';
+    o1.frequency.setValueAtTime(880,t);o1.frequency.setValueAtTime(1174,t+0.12);
+    o1.start(t);o1.stop(t+0.5);
+    var g2=_ac.createGain();g2.connect(_ac.destination);
+    g2.gain.setValueAtTime(0.18,t+0.18);g2.gain.exponentialRampToValueAtTime(0.001,t+0.7);
+    var o2=_ac.createOscillator();o2.connect(g2);o2.type='sine';
+    o2.frequency.setValueAtTime(1318,t+0.18);
+    o2.start(t+0.18);o2.stop(t+0.65);
+  }catch(e){}
+}
+
+// Alert logic: show 30s → hide → wait 40s → repeat
+var ht=null,nt=null;
+function showDA(){
+  clearTimeout(ht);clearTimeout(nt);
+  ae.classList.add('show');
+  ding();
+  pb.style.animation='none';
+  pb.offsetHeight;
+  pb.style.animation='progressShrink 30s linear forwards';
+  ht=setTimeout(hideDA,30000);
+}
+function hideDA(){
+  clearTimeout(ht);
+  ae.classList.remove('show');
+  pb.style.animation='none';
+  nt=setTimeout(showDA,40000);
+}
+window.closeDealAlert=function(){hideDA()};
+setTimeout(showDA,2000);
+})();
+</script>
+
+</body></html>

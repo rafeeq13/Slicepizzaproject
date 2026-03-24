@@ -1,0 +1,73 @@
+{
+    "number": "52GX7P",
+    "clover_id": "JWG4KYV52GX7P",
+    "type": "pickup",
+    "status": "placed",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-21T19:59:35+00:00",
+            "note": "Order placed and paid"
+        }
+    ],
+    "customer": {
+        "name": "Scott Fleck",
+        "phone": "9024897989",
+        "email": "flecksr@yahoo.ca",
+        "address": "",
+        "city": "Halifax",
+        "postal": ""
+    },
+    "items": [
+        {
+            "name": "Any Medium 1 Topping Pizza",
+            "quantity": 2,
+            "total": 3198,
+            "modifiers": [
+                {
+                    "group_id": "AGZGCCRGYH4S4",
+                    "group_name": "Choice of Pizza Size",
+                    "id": "994SY98HRJQXW",
+                    "name": "XL",
+                    "price_cents": 200
+                },
+                {
+                    "group_id": "MYEGKE335BDAP",
+                    "group_name": "Choose Any 1 Topping For Pizza",
+                    "id": "JJEFHB7PGN8PC",
+                    "name": "Pepperoni",
+                    "price_cents": 0
+                }
+            ]
+        },
+        {
+            "name": "Hawaiian Classic Pizza",
+            "quantity": 1,
+            "total": 2399,
+            "modifiers": [
+                {
+                    "group_id": "4FHTDEBSK0YJA",
+                    "group_name": "Choice of Size",
+                    "id": "TXR8GWD36QKN4",
+                    "name": "XL 16Inch",
+                    "price_cents": 1400
+                }
+            ]
+        }
+    ],
+    "subtotal": "55.97",
+    "tax": "7.84",
+    "delivery_fee": "0.00",
+    "tip": "6.19",
+    "total": "70.00",
+    "payment": {
+        "status": "paid",
+        "last4": "0699",
+        "brand": "VISA"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=52GX7P",
+    "uber_delivery": null,
+    "placed_at": "2026-03-21T19:59:35+00:00",
+    "updated_at": "2026-03-21T19:59:35+00:00",
+    "estimated_time": "20-30 min"
+}

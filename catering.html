@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catering | Slice+ Convenience & Pizzeria | Halifax</title>
+<meta name="description" content="Slice+ Catering — Let us cater your next event! Pizza, donairs, wings, momos & more for corporate events, parties, weddings & gatherings in Halifax.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" rel="stylesheet">
+<style>
+:root{--red:#df2b2b;--red-dark:#b91c1c;--black:#0a0a0a;--dark:#111;--dark2:#1a1a1a;--dark3:#222;--white:#fff;--gold:#f5a623;--green:#22c55e;--gray:#888;--gray-light:#aaa;--gray-dark:#555;--font-display:'Bebas Neue',sans-serif;--font-body:'Outfit',sans-serif;--radius:16px;--radius-sm:10px;--shadow-red:0 4px 30px rgba(223,43,43,0.25);--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.6;position:relative}
+a{text-decoration:none;color:inherit}img{max-width:100%;display:block}button{cursor:pointer;border:none;font-family:var(--font-body)}
+body::before{content:'';position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse 120% 80% at 15% 5%,rgba(223,43,43,.07) 0%,transparent 40%),radial-gradient(ellipse 100% 60% at 85% 20%,rgba(180,30,30,.05) 0%,transparent 35%),radial-gradient(ellipse 80% 80% at 50% 100%,rgba(223,43,43,.04) 0%,transparent 40%),linear-gradient(180deg,#080808 0%,#0c0a09 20%,#0a0a0a 50%,#0c0909 80%,#080808 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");background-size:200px 200px}
+.bg-bokeh{position:fixed;z-index:-2;pointer-events:none;border-radius:50%}
+.bg-bokeh-1{width:300px;height:300px;top:5%;left:8%;background:radial-gradient(circle,rgba(223,43,43,.06) 0%,transparent 70%);animation:bk 25s ease-in-out infinite}
+.bg-bokeh-2{width:200px;height:200px;top:15%;right:12%;background:radial-gradient(circle,rgba(245,166,35,.04) 0%,transparent 70%);animation:bk 30s ease-in-out infinite reverse}
+.bg-bokeh-3{width:400px;height:400px;bottom:20%;left:50%;background:radial-gradient(circle,rgba(223,43,43,.04) 0%,transparent 60%);animation:bk 35s ease-in-out infinite}
+@keyframes bk{0%,100%{transform:translate(0,0) scale(1);opacity:.7}50%{transform:translate(-20px,15px) scale(.9);opacity:.5}}
+.bg-vignette{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 40%,rgba(0,0,0,.4) 100%)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .8s ease,transform .8s ease}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .8s ease,transform .8s ease}.reveal-right.visible{opacity:1;transform:translateX(0)}
+.header{position:fixed;top:42px;left:0;right:0;z-index:1000;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05);transition:var(--transition)}.header.scrolled{background:rgba(10,10,10,.95);box-shadow:0 4px 30px rgba(0,0,0,.5)}
+.header-inner{max-width:1300px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo img{height:50px}.nav{display:flex;align-items:center;gap:24px}
+.nav a{font-size:.88rem;font-weight:500;letter-spacing:.5px;color:var(--gray-light);transition:var(--transition);position:relative}
+.nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:var(--transition)}.nav a:hover{color:var(--white)}.nav a:hover::after{width:100%}.nav a.active{color:var(--white)}.nav a.active::after{width:100%}
+.nav-cta{background:var(--red)!important;color:var(--white)!important;padding:10px 22px!important;border-radius:50px;font-weight:600!important;font-size:.82rem!important;letter-spacing:1px!important;text-transform:uppercase;box-shadow:var(--shadow-red)}.nav-cta::after{display:none!important}.nav-cta:hover{background:var(--red-dark)!important;transform:translateY(-2px)}
+.nav-cta-call{background:transparent!important;border:2px solid var(--red)!important;color:var(--white)!important;box-shadow:none!important}.nav-cta-call:hover{background:var(--red)!important}
+.cart-btn{display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(255,255,255,.05);border-radius:50%;position:relative;transition:var(--transition)}.cart-btn:hover{background:rgba(255,255,255,.1)}
+.cart-badge{position:absolute;top:-2px;right:-2px;background:var(--red);color:var(--white);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;border:2px solid var(--black)}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;background:none;padding:8px}.mobile-toggle span{width:26px;height:2px;background:var(--white);border-radius:2px}
+.mobile-nav{display:none;position:fixed;top:116px;left:0;right:0;bottom:0;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px}.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:1.3rem;font-weight:500;color:var(--gray-light);transition:var(--transition)}.mobile-nav a:hover{color:var(--red)}
+.mob-btns{display:flex;flex-direction:column;gap:12px;width:80%;max-width:300px;margin-top:20px}
+.mob-btns a{display:block;text-align:center;padding:14px;border-radius:50px;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase}
+.info-ticker{background:var(--red);padding:10px 0;overflow:hidden;position:fixed;top:0;left:0;right:0;z-index:1001}
+.ticker-track{display:flex;animation:ticker 45s linear infinite;white-space:nowrap}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 36px;font-weight:600;font-size:.85rem;letter-spacing:.8px;text-transform:uppercase}.ticker-item svg{width:20px;height:20px;fill:currentColor;opacity:.9;flex-shrink:0}
+.ticker-sep{display:inline-flex;align-items:center;padding:0 4px;opacity:.4;font-size:1.2rem}
+.page-hero{position:relative;padding:190px 24px 100px;text-align:center;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(223,43,43,.08) 0%,transparent 40%,transparent 60%,rgba(223,43,43,.04) 100%);pointer-events:none}
+.page-hero-pattern{position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle at 2px 2px,rgba(255,255,255,.4) 1px,transparent 0);background-size:40px 40px;pointer-events:none}
+.page-hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.page-hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(223,43,43,.15);border:1px solid rgba(223,43,43,.3);padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:600;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;animation:pg 3s ease-in-out infinite}
+@keyframes pg{0%,100%{box-shadow:0 0 0 0 rgba(223,43,43,.2)}50%{box-shadow:0 0 25px 8px rgba(223,43,43,.12)}}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(3rem,6vw,5.5rem);line-height:.95;letter-spacing:2px;margin-bottom:20px}.hl{color:var(--red)}
+.page-hero-desc{font-size:1.1rem;color:var(--gray-light);max-width:600px;margin:0 auto 36px;line-height:1.7}
+.page-hero-stats{display:flex;gap:40px;justify-content:center;margin-top:40px}
+.page-stat{text-align:center}.page-stat-num{font-family:var(--font-display);font-size:2.5rem;color:var(--red);line-height:1}.page-stat-label{font-size:.8rem;color:var(--gray);margin-top:4px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:var(--white);padding:16px 36px;border-radius:50px;font-weight:600;font-size:.95rem;transition:var(--transition);box-shadow:var(--shadow-red)}.btn-primary:hover{background:var(--red-dark);transform:translateY(-3px)}
+.section{padding:80px 24px;position:relative;overflow:hidden}.section-dark{background:rgba(17,17,17,.5)}.section-darker{background:rgba(10,10,10,.5)}.container{max-width:1300px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;color:var(--red);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}.section-label::before{content:'';width:30px;height:2px;background:var(--red)}
+.section-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);letter-spacing:1px;line-height:1;margin-bottom:20px}
+.section-desc{color:var(--gray);font-size:1.05rem;max-width:600px;line-height:1.7}
+/* ===== CATERING PACKAGES ===== */
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px;}
+.package-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:40px 30px;position:relative;overflow:hidden;transition:var(--transition);}
+.package-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red);transform:scaleX(0);transition:var(--transition);transform-origin:left;}
+.package-card:hover::before{transform:scaleX(1);}
+.package-card:hover{transform:translateY(-8px);border-color:rgba(223,43,43,0.2);box-shadow:0 12px 50px rgba(0,0,0,0.3);}
+.package-card.featured{border-color:var(--red);background:rgba(223,43,43,0.05);}
+.package-card.featured::before{transform:scaleX(1);}
+.package-featured-badge{position:absolute;top:16px;right:16px;background:var(--red);color:var(--white);padding:4px 12px;border-radius:50px;font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.package-icon{width:60px;height:60px;border-radius:50%;background:rgba(223,43,43,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.package-icon svg{width:28px;height:28px;fill:var(--red);}
+.package-card h3{font-family:var(--font-display);font-size:1.6rem;letter-spacing:1px;margin-bottom:8px;}
+.package-card .package-desc{color:var(--gray);font-size:0.9rem;line-height:1.6;margin-bottom:20px;}
+.package-includes{list-style:none;margin-bottom:24px;}
+.package-includes li{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:0.88rem;color:var(--gray-light);}
+.package-includes li svg{width:16px;height:16px;fill:var(--green);flex-shrink:0;margin-top:3px;}
+.package-price{font-family:var(--font-display);font-size:2rem;color:var(--red);letter-spacing:1px;}
+.package-price span{font-family:var(--font-body);font-size:0.8rem;color:var(--gray);font-weight:400;}
+
+/* ===== HOW IT WORKS ===== */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:50px;position:relative;}
+.steps-grid::before{content:'';position:absolute;top:45px;left:10%;right:10%;height:2px;background:linear-gradient(to right,transparent,rgba(223,43,43,0.3),rgba(223,43,43,0.3),transparent);z-index:0;}
+.step-card{text-align:center;position:relative;z-index:1;}
+.step-num{width:60px;height:60px;border-radius:50%;background:var(--dark2);border:2px solid var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:1.5rem;color:var(--red);transition:var(--transition);}
+.step-card:hover .step-num{background:var(--red);color:var(--white);}
+.step-card h4{font-family:var(--font-display);font-size:1.2rem;letter-spacing:1px;margin-bottom:8px;}
+.step-card p{font-size:0.85rem;color:var(--gray);line-height:1.6;max-width:220px;margin:0 auto;}
+
+/* ===== CATERING FORM ===== */
+.catering-form-section{background:var(--dark);}
+.form-layout{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:50px;}
+.catering-form{display:flex;flex-direction:column;gap:20px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group label{font-size:0.85rem;font-weight:600;color:var(--gray-light);}
+.form-group label .req{color:var(--red);font-size:0.75rem;font-weight:500;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-input,.form-select,.form-textarea{background:var(--dark2);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:14px 18px;color:var(--white);font-family:var(--font-body);font-size:0.9rem;transition:var(--transition);width:100%;appearance:none;-webkit-appearance:none;}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23888'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer;}
+.form-select option{background:var(--dark2);color:var(--white);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(223,43,43,0.1);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--gray-dark);}
+.form-textarea{min-height:120px;resize:vertical;}
+.form-input[type="date"]{color-scheme:dark;}
+.form-radio-group{display:flex;gap:12px;flex-wrap:wrap;}
+.form-radio{display:flex;align-items:center;gap:8px;cursor:pointer;}
+.form-radio input{display:none;}
+.form-radio .radio-mark{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;transition:var(--transition);flex-shrink:0;}
+.form-radio input:checked + .radio-mark{border-color:var(--red);}
+.form-radio input:checked + .radio-mark::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--red);}
+.form-radio span:last-child{font-size:0.9rem;color:var(--gray-light);}
+.form-submit{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:var(--white);padding:16px 40px;border-radius:50px;font-weight:600;font-size:0.95rem;letter-spacing:0.5px;transition:var(--transition);box-shadow:var(--shadow-red);border:none;cursor:pointer;align-self:flex-start;margin-top:8px;}
+.form-submit:hover{background:var(--red-dark);transform:translateY(-3px);box-shadow:0 8px 40px rgba(223,43,43,0.4);}
+
+/* ===== FORM SIDEBAR ===== */
+.form-sidebar{display:flex;flex-direction:column;gap:24px;}
+.sidebar-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius);padding:30px;transition:var(--transition);}
+.sidebar-card:hover{border-color:rgba(223,43,43,0.15);}
+.sidebar-card h4{font-family:var(--font-display);font-size:1.3rem;letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.sidebar-card h4 svg{width:22px;height:22px;fill:var(--red);}
+.sidebar-item{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.sidebar-item:last-child{border-bottom:none;}
+.sidebar-icon{width:38px;height:38px;border-radius:50%;background:rgba(223,43,43,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sidebar-icon svg{width:16px;height:16px;fill:var(--red);}
+.sidebar-item-text h5{font-size:0.85rem;font-weight:600;margin-bottom:2px;}
+.sidebar-item-text p{font-size:0.82rem;color:var(--gray);}
+.sidebar-item-text a{color:var(--red);transition:var(--transition);}
+.sidebar-item-text a:hover{color:var(--white);}
+.rating-stars{display:flex;gap:3px;margin-bottom:8px;}
+.rating-stars svg{width:20px;height:20px;fill:var(--gold);}
+.rating-text{font-size:0.9rem;color:var(--gray-light);}
+.rating-text strong{color:var(--white);}
+.review-item{padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.review-item:last-child{border-bottom:none;}
+.review-stars{display:flex;gap:2px;margin-bottom:6px;}
+.review-stars svg{width:14px;height:14px;fill:var(--gold);}
+.review-text{font-size:0.83rem;color:var(--gray-light);line-height:1.5;font-style:italic;margin-bottom:6px;}
+.review-author{font-size:0.75rem;color:var(--gray);font-weight:600;}
+.info-bar{background:rgba(17,17,17,.8);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:20px 24px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.info-bar a,.info-bar span{display:flex;align-items:center;gap:10px;color:var(--gray-light);font-size:.9rem;font-weight:500;transition:var(--transition)}.info-bar a:hover{color:var(--white)}
+.info-bar svg{width:18px;height:18px;fill:none;stroke:var(--red);stroke-width:2;flex-shrink:0}
+.footer{background:rgba(17,17,17,.8);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.05);padding:60px 24px 30px;position:relative;z-index:1}
+.footer-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand img{height:45px;margin-bottom:16px}.footer-brand p{color:var(--gray);font-size:.85rem;line-height:1.7;max-width:300px}
+.footer-col h4{font-family:var(--font-display);font-size:1.1rem;letter-spacing:2px;margin-bottom:16px}
+.footer-col a{display:block;color:var(--gray);font-size:.85rem;padding:5px 0;transition:var(--transition)}.footer-col a:hover{color:var(--red);transform:translateX(4px)}
+.footer-bottom{max-width:1300px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}.footer-bottom p{color:var(--gray-dark);font-size:.8rem}
+.op-bg{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}.op-bg.open{display:flex}
+.op-box{background:var(--dark);border-radius:20px;max-width:420px;width:100%;padding:36px;border:1px solid rgba(255,255,255,.06);box-shadow:0 24px 80px rgba(0,0,0,.6);text-align:center;position:relative}
+.op-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.05);color:var(--gray);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:var(--transition)}.op-x:hover{background:var(--red);color:var(--white)}
+.op-box h3{font-family:var(--font-display);font-size:2rem;letter-spacing:1px;margin-bottom:6px}.op-box p{color:var(--gray);font-size:.9rem;margin-bottom:28px}
+.op-btns{display:flex;gap:14px}
+.op-btn{flex:1;padding:22px 16px;border-radius:var(--radius);border:2px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);transition:var(--transition);text-align:center;color:var(--white);display:block}.op-btn:hover{border-color:rgba(223,43,43,.4);background:rgba(223,43,43,.05);transform:translateY(-2px)}
+.op-btn svg{width:36px;height:36px;margin:0 auto 10px;display:block;stroke:var(--gray);fill:none;transition:var(--transition)}.op-btn:hover svg{stroke:var(--red)}
+.op-btn strong{display:block;font-size:1rem;margin-bottom:4px}.op-btn span{font-size:.78rem;color:var(--gray-dark)}
+.c-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1400}.c-bg.open{display:block}
+.c-sb{position:fixed;top:0;right:-440px;width:420px;height:100vh;background:var(--dark);z-index:1500;border-left:1px solid rgba(255,255,255,.06);transition:right .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.5)}.c-sb.open{right:0}
+.c-h{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between}.c-h h3{font-family:var(--font-display);font-size:1.4rem;letter-spacing:1px}
+.c-xb{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.05);color:var(--gray);display:flex;align-items:center;justify-content:center;transition:var(--transition)}.c-xb:hover{background:var(--red);color:var(--white)}
+.c-body{flex:1;overflow-y:auto;padding:16px 24px}
+.c-i{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05)}.c-i-info{flex:1}.c-i-name{font-weight:600;font-size:.9rem}.c-i-mods{font-size:.75rem;color:var(--gray);margin-top:2px}
+.c-i-bot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}.c-i-price{font-weight:700;font-size:.9rem;color:var(--green)}
+.c-i-qty{display:flex;align-items:center;background:rgba(255,255,255,.05);border-radius:50px}.c-i-qty button{width:28px;height:28px;background:transparent;color:var(--white);font-size:.85rem;font-weight:700;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:var(--transition)}.c-i-qty button:hover{background:rgba(255,255,255,.1)}
+.c-i-qty em{width:28px;text-align:center;font-weight:700;font-size:.82rem;font-style:normal}
+.c-i-rm{color:var(--gray-dark);font-size:.72rem;background:none;transition:var(--transition);margin-top:4px}.c-i-rm:hover{color:var(--red)}
+.c-ft{padding:20px 24px;border-top:1px solid rgba(255,255,255,.06);background:rgba(17,17,17,.8)}
+.c-l{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:8px;color:var(--gray)}.c-l.tot{font-size:1.1rem;font-weight:800;color:var(--white);margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}.c-l.tot span:last-child{color:var(--green)}
+.c-go{display:block;width:100%;margin-top:16px;background:var(--red);color:var(--white);padding:16px;border-radius:50px;font-weight:700;font-size:1rem;text-align:center;box-shadow:var(--shadow-red);transition:var(--transition)}.c-go:hover{background:var(--red-dark)}
+.da{position:fixed;bottom:24px;right:24px;z-index:9999;max-width:380px;width:calc(100% - 48px);background:rgba(17,17,17,.95);backdrop-filter:blur(20px);border:1px solid rgba(223,43,43,.3);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 30px rgba(223,43,43,.1);transform:translateY(120%);opacity:0;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;pointer-events:none}.da.show{transform:translateY(0);opacity:1;pointer-events:all}
+.da-top{background:var(--red);padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+.da-lbl{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px}.da-lbl svg{width:14px;height:14px;fill:currentColor;animation:rng 1.5s ease-in-out infinite}
+@keyframes rng{0%{transform:rotate(0)}20%{transform:rotate(15deg)}40%{transform:rotate(-10deg)}60%{transform:rotate(5deg)}100%{transform:rotate(0)}}
+.da-x{background:none;color:var(--white);font-size:1.2rem;padding:2px 6px;border-radius:50%;transition:.3s;line-height:1;opacity:.8}.da-x:hover{opacity:1;background:rgba(255,255,255,.15)}
+.da-body{padding:20px 24px;cursor:pointer;transition:.3s;display:block;color:var(--white)}.da-body:hover{background:rgba(223,43,43,.05)}
+.da-day{font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.da-name{font-family:var(--font-display);font-size:1.5rem;letter-spacing:1px;line-height:1.1;margin-bottom:6px}
+.da-desc{font-size:.85rem;color:var(--gray-light);margin-bottom:10px;line-height:1.4}
+.da-price{font-family:var(--font-display);font-size:2rem;color:var(--gold);display:inline-block;margin-right:12px}
+.da-cta{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:var(--white);padding:8px 20px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;transition:.3s}.da-cta:hover{background:var(--red-dark)}.da-cta svg{width:12px;height:12px;fill:currentColor}
+.da-prog{width:100%;height:4px;background:rgba(255,255,255,.08);overflow:hidden}.da-prog-bar{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));width:100%}
+@keyframes progShrink{0%{width:100%}100%{width:0}}
+@media(max-width:1024px){.nav{display:none}.mobile-toggle{display:flex}.packages-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:repeat(2,1fr);gap:32px}.steps-grid::before{display:none}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.header{top:36px!important}.mobile-nav{top:110px!important}.page-hero{padding:150px 16px 70px}.page-hero h1{font-size:3rem}.page-hero-stats{gap:24px;flex-wrap:wrap}.packages-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr 1fr}.form-layout{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.da{right:12px;max-width:none;bottom:12px;width:calc(100% - 24px)}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.info-bar{flex-direction:column;gap:12px;align-items:center}.c-sb{width:100%;right:-100%}.op-btns{flex-direction:column}.section{padding:60px 16px}}
+@media(max-width:480px){.page-hero h1{font-size:2.5rem}.steps-grid{grid-template-columns:1fr}.section-title{font-size:2rem}}
+</style></head>
+<body>
+<div class="bg-bokeh bg-bokeh-1"></div><div class="bg-bokeh bg-bokeh-2"></div><div class="bg-bokeh bg-bokeh-3"></div><div class="bg-vignette"></div>
+<div class="info-ticker"><div class="ticker-track" id="tickerTrack"></div></div>
+<header class="header" id="header"><div class="header-inner">
+<a href="/" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
+<nav class="nav">
+<a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html" class="active">Catering</a>
+<a href="#" class="nav-cta" onclick="event.preventDefault();openOP()">Order Now</a>
+<a href="tel:9028004001" class="nav-cta nav-cta-call">Call Now</a>
+</nav>
+<button class="cart-btn" onclick="toggleC()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><span class="cart-badge" id="cBadge">0</span></button>
+<button class="mobile-toggle" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</div></header>
+<div class="mobile-nav" id="mobNav">
+<a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a>
+<div class="mob-btns">
+<a href="#" onclick="event.preventDefault();closeMob();openOP()" style="background:var(--red);color:var(--white)">Order Now</a>
+<a href="tel:9028004001" style="border:2px solid var(--red);color:var(--white)">Call (902) 800-4001</a>
+</div></div>
+<section class="page-hero"><div class="page-hero-pattern"></div>
+<div class="page-hero-content">
+<div class="page-hero-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#df2b2b" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> Events & Catering</div>
+<h1>LET US <span class="hl">CATER</span><br>YOUR NEXT EVENT</h1>
+<p class="page-hero-desc">From corporate lunches to birthday parties, weddings to game days — Slice+ brings fresh, hot, delicious food straight to your event in Halifax.</p>
+<a href="#catering-form" class="btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> Request a Quote</a>
+<div class="page-hero-stats">
+<div class="page-stat"><div class="page-stat-num">500+</div><div class="page-stat-label">Events Catered</div></div>
+<div class="page-stat"><div class="page-stat-num">50+</div><div class="page-stat-label">Menu Options</div></div>
+<div class="page-stat"><div class="page-stat-num">4.5★</div><div class="page-stat-label">Google Rating</div></div>
+</div></div></section>
+<!-- CATERING PACKAGES -->
+<section class="section section-darker">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">What We Offer</div>
+      <div class="section-title">CATERING PACKAGES</div>
+      <p class="section-desc" style="margin:0 auto;">Choose a package or customize your own — we work with any budget and group size.</p>
+    </div>
+    <div class="packages-grid">
+      <div class="package-card reveal">
+        <div class="package-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+        <h3>CORPORATE & OFFICE</h3>
+        <p class="package-desc">Perfect for team meetings, office lunches, and corporate events.</p>
+        <ul class="package-includes">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Assorted pizza platters</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Wings & garlic fingers</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Salads & beverages</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Setup & delivery included</li>
+        </ul>
+        <div class="package-price">FROM $12 <span>/ person</span></div>
+      </div>
+      <div class="package-card featured reveal">
+        <div class="package-featured-badge">MOST POPULAR</div>
+        <div class="package-icon"><svg viewBox="0 0 24 24"><path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.1 17.29 4.58 17.7 3.28 17.22L2 22h20l-1.28-4.78c-1.29.48-2.82.07-4.12-1.23zM18 9h-5V7h-2v2H6c-1.66 0-3 1.34-3 3v1.54c0 1.08.88 1.96 1.96 1.96.52 0 1.02-.2 1.38-.57l2.14-2.13 2.13 2.13c.74.74 2.03.74 2.77 0l2.14-2.13 2.13 2.13c.37.37.86.57 1.38.57 1.08 0 1.96-.88 1.96-1.96V12C21 10.34 19.66 9 18 9z"/></svg></div>
+        <h3>PARTY & CELEBRATION</h3>
+        <p class="package-desc">Birthdays, graduations, game days, and get-togethers.</p>
+        <ul class="package-includes">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Custom pizza selection</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Donair & momo platters</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Wings, nachos & sides</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Desserts & drinks</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Free setup & serving trays</li>
+        </ul>
+        <div class="package-price">FROM $15 <span>/ person</span></div>
+      </div>
+      <div class="package-card reveal">
+        <div class="package-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+        <h3>WEDDING & SPECIAL</h3>
+        <p class="package-desc">Large-scale events, weddings, and premium catering needs.</p>
+        <ul class="package-includes">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Full menu customization</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Indian & gourmet options</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Dedicated event coordinator</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Setup, serving & cleanup</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Flexible billing</li>
+        </ul>
+        <div class="package-price">CUSTOM <span>quote</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Simple Process</div>
+      <div class="section-title">HOW IT WORKS</div>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <h4>FILL THE FORM</h4>
+        <p>Tell us about your event, date, guest count, and preferences.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">2</div>
+        <h4>GET A QUOTE</h4>
+        <p>We'll send you a custom quote within 24 hours.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">3</div>
+        <h4>CONFIRM & PAY</h4>
+        <p>Approve the menu, confirm date, and lock in your order.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">4</div>
+        <h4>WE DELIVER</h4>
+        <p>Fresh, hot food delivered and set up at your venue on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING FORM + SIDEBAR -->
+<section class="section catering-form-section" id="catering-form">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Ready to Order?</div>
+      <div class="section-title">REQUEST CATERING</div>
+      <p class="section-desc" style="margin:0 auto;">Fill out the form below and we'll get back to you within 24 hours with a custom quote.</p>
+    </div>
+    <div class="form-layout">
+      <!-- FORM -->
+      <form class="catering-form reveal-left" action="https://formspree.io/f/maqpnyqg" method="POST">
+        <input type="hidden" name="_subject" value="New Catering Inquiry — Slice+">
+        
+        <!-- Name -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="req">(required)</span></label>
+            <input type="text" name="first_name" class="form-input" placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="req">(required)</span></label>
+            <input type="text" name="last_name" class="form-input" placeholder="Last Name" required>
+          </div>
+        </div>
+
+        <!-- Email & Phone -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email <span class="req">(required)</span></label>
+            <input type="email" name="email" class="form-input" placeholder="you@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" class="form-input" placeholder="(902) 000-0000">
+          </div>
+        </div>
+
+        <!-- Catering Type -->
+        <div class="form-group">
+          <label>Catering Type <span class="req">(required)</span></label>
+          <select name="catering_type" class="form-select" required>
+            <option value="" disabled selected>Select event type...</option>
+            <option value="Corporate / Office Lunch">Corporate / Office Lunch</option>
+            <option value="Birthday Party">Birthday Party</option>
+            <option value="Wedding Reception">Wedding Reception</option>
+            <option value="Graduation Party">Graduation Party</option>
+            <option value="Game Day / Sports Event">Game Day / Sports Event</option>
+            <option value="Fundraiser / Charity Event">Fundraiser / Charity Event</option>
+            <option value="School / University Event">School / University Event</option>
+            <option value="Holiday Party">Holiday Party</option>
+            <option value="Family Gathering">Family Gathering</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Date & Guests -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" name="preferred_date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label>How many guests?</label>
+            <select name="guest_count" class="form-select">
+              <option value="" disabled selected>Select...</option>
+              <option value="10-20">10 – 20 guests</option>
+              <option value="20-40">20 – 40 guests</option>
+              <option value="40-60">40 – 60 guests</option>
+              <option value="60-100">60 – 100 guests</option>
+              <option value="100+">100+ guests</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Budget -->
+        <div class="form-group">
+          <label>What is your budget?</label>
+          <select name="budget" class="form-select">
+            <option value="" disabled selected>Select budget range...</option>
+            <option value="Under $200">Under $200</option>
+            <option value="$200 - $500">$200 – $500</option>
+            <option value="$500 - $1000">$500 – $1,000</option>
+            <option value="$1000 - $2000">$1,000 – $2,000</option>
+            <option value="$2000+">$2,000+</option>
+            <option value="Not sure">Not sure yet</option>
+          </select>
+        </div>
+
+        <!-- Location -->
+        <div class="form-group">
+          <label>Which location?</label>
+          <div class="form-radio-group">
+            <label class="form-radio">
+              <input type="radio" name="location" value="Delivery to my venue" checked>
+              <span class="radio-mark"></span>
+              <span>Delivery to my venue</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="location" value="Pickup from Slice+">
+              <span class="radio-mark"></span>
+              <span>Pickup from Slice+</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Delivery Address -->
+        <div class="form-group">
+          <label>Delivery Address <span style="font-weight:400;color:var(--gray-dark);">(if applicable)</span></label>
+          <input type="text" name="delivery_address" class="form-input" placeholder="Event venue address">
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label>Message <span class="req">(required)</span></label>
+          <textarea name="message" class="form-textarea" placeholder="Tell us about your event — any dietary requirements, specific items you'd like, special requests..." required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          Submit Catering Request
+        </button>
+      </form>
+
+      <!-- SIDEBAR -->
+      <div class="form-sidebar reveal-right">
+        <!-- Contact Info -->
+        <div class="sidebar-card">
+          <h4><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Contact & Location</h4>
+          <div class="sidebar-item">
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+            <div class="sidebar-item-text"><h5>Phone</h5><p><a href="tel:9028004001">(902) 800-4001</a></p></div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <div class="sidebar-item-text"><h5>Address</h5><p><a href="https://maps.google.com/?q=6169+Quinpool+Rd+111+Halifax+NS" target="_blank">6169 Quinpool Rd #111<br>Halifax, Nova Scotia</a></p></div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+            <div class="sidebar-item-text"><h5>Hours</h5><p>Open Daily 10:30 AM – 11 PM</p></div>
+          </div>
+        </div>
+
+        <!-- Google Rating -->
+        <div class="sidebar-card">
+          <h4><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> Google Reviews</h4>
+          <div class="rating-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2L14.55 8.17 12 7.77 9.45 8.17 12 2zM22 9.27l-6.91-.01L12 2l-3.09 7.26L2 9.27l5 4.87L5.82 21.02 12 17.77l6.18 3.25L17 14.14l5-4.87z"/></svg>
+          </div>
+          <p class="rating-text"><strong>4.5</strong> out of 5 — Based on Google Reviews</p>
+          <div class="review-item">
+            <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+            <p class="review-text">"Ordered catering for our office party — the pizza was incredible and everyone loved the garlic fingers! Will order again."</p>
+            <p class="review-author">— Sarah M.</p>
+          </div>
+          <div class="review-item">
+            <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+            <p class="review-text">"Best Indian pizza in Halifax! We had them cater our birthday and the butter chicken pizza was a huge hit."</p>
+            <p class="review-author">— Ahmed R.</p>
+          </div>
+          <div class="review-item">
+            <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2L14.55 8.17 12 7.77 9.45 8.17 12 2zM22 9.27l-6.91-.01L12 2l-3.09 7.26L2 9.27l5 4.87L5.82 21.02 12 17.77l6.18 3.25L17 14.14l5-4.87z"/></svg></div>
+            <p class="review-text">"Great value for catering. Donair wraps and momos were the stars of our graduation party!"</p>
+            <p class="review-author">— Emily T.</p>
+          </div>
+        </div>
+
+        <!-- Quick Menu -->
+        <div class="sidebar-card">
+          <h4><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg> Popular for Catering</h4>
+          <div class="sidebar-item"><div class="sidebar-item-text"><h5>Gourmet & Indian Pizza</h5><p>M from $8.99 | XL from $16.99</p></div></div>
+          <div class="sidebar-item"><div class="sidebar-item-text"><h5>Chicken Wings</h5><p>8pc $13.99 | 10pc $16.99</p></div></div>
+          <div class="sidebar-item"><div class="sidebar-item-text"><h5>Garlic Fingers</h5><p>M from $12.99 | XL from $16.99</p></div></div>
+          <div class="sidebar-item"><div class="sidebar-item-text"><h5>Momos & Dumplings</h5><p>6pc $10.99 | 14pc $15.99</p></div></div>
+          <div class="sidebar-item"><div class="sidebar-item-text"><h5>Donair Wraps</h5><p>R $8.99 | L $14.99</p></div></div>
+          <div class="sidebar-item" style="border-bottom:none;padding-top:12px;"><a href="/index.html" style="color:var(--red);font-weight:600;font-size:0.85rem;display:inline-flex;align-items:center;gap:6px;">View Full Menu <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="info-bar">
+<a href="tel:9028004001"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>(902) 800-4001</a>
+<a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>6169 Quinpool Rd #111, Halifax</a>
+<span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Open Daily 10:30 AM – 11 PM</span>
+</div>
+<footer class="footer"><div class="footer-inner">
+<div class="footer-brand"><img src="assets/images/1__3_.png" alt="Slice+"><p>Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties, wings, momos & more.</p></div>
+<div class="footer-col"><h4>PAGES</h4><a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a></div>
+<div class="footer-col"><h4>ORDER</h4><a href="#" onclick="event.preventDefault();openOP()">Order Direct</a><a href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY" target="_blank">UberEats</a><a href="https://www.doordash.com/store/sliceplus-halifax-37896069/?utm_campaign=gpa" target="_blank">DoorDash</a><a href="tel:9028004001">Call (902) 800-4001</a></div>
+<div class="footer-col"><h4>VISIT US</h4><a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank">6169 Quinpool Rd #111, Halifax, NS</a><a href="tel:9028004001">(902) 800-4001</a><a>10:30 AM – 11 PM Daily</a></div>
+</div><div class="footer-bottom"><p>&copy; 2026 Slice+ Convenience & Pizzeria. All Rights Reserved.</p><p>Crafted with ❤️ in Halifax | Developed by <a href="https://usamagrowth.com/" target="_blank" style="color:#df2b2b;text-decoration:none;font-weight:600;transition:opacity .3s">Muhammad Usama</a></p></div></footer>
+<div class="op-bg" id="opBg"><div class="op-box">
+<button class="op-x" onclick="closeOP()">&times;</button>
+<h3>HOW WOULD YOU LIKE IT?</h3><p>Choose your preferred order method</p>
+<div class="op-btns">
+<a href="/index.html?flow=delivery" class="op-btn"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><strong>Delivery</strong><span>$3.99 fee · 30-45 min</span></a>
+<a href="/index.html?flow=pickup" class="op-btn"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3"/><path d="M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg><strong>Pickup</strong><span>Ready in 20-30 min</span></a>
+</div></div></div>
+<div class="c-bg" id="cBg" onclick="toggleC()"></div>
+<div class="c-sb" id="cSb"><div class="c-h"><h3>YOUR ORDER</h3><button class="c-xb" onclick="toggleC()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button></div><div class="c-body" id="cBody"></div><div class="c-ft" id="cFt"></div></div>
+<div class="da" id="daEl">
+<div class="da-top"><span class="da-lbl"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg> TODAY'S SPECIAL</span><button class="da-x" onclick="hideDA()">&times;</button></div>
+<a href="#" onclick="event.preventDefault();hideDA();openOP()" class="da-body">
+<div class="da-day" id="daDay"></div><div class="da-name" id="daName"></div><div class="da-desc" id="daDesc"></div>
+<div><span class="da-price" id="daPrice"></span><span class="da-cta">Order Now <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></div>
+</a><div class="da-prog"><div class="da-prog-bar" id="daPB"></div></div></div>
+<script>
+function openOP(){document.getElementById('opBg').classList.add('open');document.body.style.overflow='hidden'}
+function closeOP(){document.getElementById('opBg').classList.remove('open');document.body.style.overflow=''}
+document.getElementById('opBg').addEventListener('click',function(e){if(e.target===this)closeOP()});
+function toggleC(){document.getElementById('cSb').classList.toggle('open');document.getElementById('cBg').classList.toggle('open');renderC()}
+function getCart(){try{return JSON.parse(localStorage.getItem('sp_cart')||'[]')}catch(e){return[]}}
+function saveCart(c){localStorage.setItem('sp_cart',JSON.stringify(c));renderC()}
+function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML}
+function renderC(){var cart=getCart(),bg=document.getElementById('cBadge');if(bg)bg.textContent=cart.reduce(function(s,i){return s+(i.quantity||1)},0);var body=document.getElementById('cBody'),ft=document.getElementById('cFt');if(!body||!ft)return;if(!cart.length){body.innerHTML='<div style="text-align:center;color:#888;padding:60px 20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><p style="margin-top:16px">Your cart is empty</p></div>';ft.innerHTML='<a href="/index.html" class="c-go">Browse Menu</a>';return}var h='',sub=0;cart.forEach(function(it,i){var t=it.price_cents||0;if(it.modifiers)it.modifiers.forEach(function(m){t+=(m.price_cents||0)});t*=(it.quantity||1);sub+=t;var mn=it.modifiers?it.modifiers.map(function(m){return m.name}).join(', '):'';h+='<div class="c-i"><div class="c-i-info"><div class="c-i-name">'+esc(it.name)+'</div>';if(mn)h+='<div class="c-i-mods">'+esc(mn)+'</div>';h+='<div class="c-i-bot"><span class="c-i-price">$'+(t/100).toFixed(2)+'</span><div class="c-i-qty"><button onclick="uQ('+i+',-1)">\u2212</button><em>'+(it.quantity||1)+'</em><button onclick="uQ('+i+',1)">+</button></div></div><button class="c-i-rm" onclick="rmC('+i+')">Remove</button></div></div>'});body.innerHTML=h;var tax=Math.round(sub*.14);ft.innerHTML='<div class="c-l"><span>Subtotal</span><span>$'+(sub/100).toFixed(2)+'</span></div><div class="c-l"><span>HST (14%)</span><span>$'+(tax/100).toFixed(2)+'</span></div><div class="c-l tot"><span>Total</span><span>$'+((sub+tax)/100).toFixed(2)+'</span></div><a href="/index.html?flow=checkout" class="c-go">View Order & Checkout</a>'}
+function uQ(i,d){var c=getCart();if(c[i]){c[i].quantity=Math.max(1,Math.min(20,(c[i].quantity||1)+d));saveCart(c)}}
+function rmC(i){var c=getCart();c.splice(i,1);saveCart(c)}
+
+var sp=[{day:1,full:'Monday',name:'Donair Monday',desc:'Buy any donair, get second 50% off!',price:'50% OFF'},{day:2,full:'Tuesday',name:'Toonie Tuesday',desc:'Buy medium pizza, get second for just $2!',price:'$2'},{day:3,full:'Wednesday',name:'Wings Wednesday',desc:'10 pcs wings, choice of sauce.',price:'$9.99'},{day:4,full:'Thursday',name:'BOGO Footlong Thursday',desc:'Buy one footlong pizza, get the 2nd half off!',price:'50% OFF'},{day:5,full:'Friday',name:'Feast Friday',desc:'XL 3-topping + 10 wings + wedges + 2L pop!',price:'$34.99'},{day:6,full:'Saturday',name:'Nacho Saturday',desc:'Large loaded nachos + 2L pop.',price:'$16.99'},{day:0,full:'Sunday',name:'Snackdown Sunday',desc:'3 slices + 1 cookie + 1 pop.',price:'$14.99'}];
+var today=(function(){var d=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Halifax'}));return d.getDay()})();
+var ts=sp.find(function(x){return x.day===today});
+if(ts){document.getElementById('daDay').textContent=ts.full+' Special';document.getElementById('daName').textContent=ts.name;document.getElementById('daDesc').textContent=ts.desc;document.getElementById('daPrice').textContent=ts.price}
+var daE=document.getElementById('daEl'),daPB=document.getElementById('daPB');
+var _dealClosed=localStorage.getItem('sp_deal_closed')==='1';
+var _ac=null;function warmA(){if(!_ac)try{_ac=new(window.AudioContext||window.webkitAudioContext)}catch(e){};if(_ac&&_ac.state==='suspended')_ac.resume()}
+['click','touchstart','scroll'].forEach(function(e){document.addEventListener(e,warmA,{passive:true})});
+function ding(){warmA();if(!_ac)return;try{var t=_ac.currentTime;var g=_ac.createGain();g.connect(_ac.destination);g.gain.setValueAtTime(.25,t);g.gain.exponentialRampToValueAtTime(.001,t+.5);var o=_ac.createOscillator();o.connect(g);o.type='sine';o.frequency.setValueAtTime(880,t);o.frequency.setValueAtTime(1174,t+.12);o.start(t);o.stop(t+.5)}catch(e){}}
+function showDA(){if(_dealClosed)return;daE.classList.add('show');ding();if(daPB){daPB.style.animation='none';daPB.style.width='100%'}}
+function hideDA(){daE.classList.remove('show');localStorage.setItem('sp_deal_closed','1')}
+if(!_dealClosed)setTimeout(showDA,2000);
+
+function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
+function closeMob(){document.getElementById('mobNav').classList.remove('open')}
+window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>50)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeOP();closeMob()}});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){obs.observe(el)});
+var dateInput=document.querySelector('input[type="date"]');if(dateInput){var td=new Date().toISOString().split('T')[0];dateInput.setAttribute('min',td)}
+var tickerItems=[{icon:'<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>',text:'6169 Quinpool Rd, Halifax'},{icon:'<svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>',text:'(902) 800-4001'},{icon:'<svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>',text:'Open Daily 10:30 AM – 11 PM'},{icon:'',text:'Gourmet Pizza'},{icon:'',text:'Indian Pizza'},{icon:'',text:'Donairs & Wraps'},{icon:'',text:'Wings & Chicken'},{icon:'',text:'Momos & Dumplings'},{icon:'',text:'Order Online Now'}];
+var tEl=document.getElementById('tickerTrack'),th='';for(var r=0;r<2;r++){tickerItems.forEach(function(item,i){th+='<span class="ticker-item">'+item.icon+' '+item.text+'</span>';if(i<tickerItems.length-1)th+='<span class="ticker-sep">|</span>';});if(r===0)th+='<span class="ticker-sep">|</span>';}tEl.innerHTML=th;
+renderC();
+</script>
+<script src="/mobile-header.js"></script>
+<script src="/form-ajax.js"></script>
+</body></html>

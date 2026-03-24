@@ -1,0 +1,217 @@
+[
+    {
+        "id": "H06E1QXTFG7HW",
+        "name": "Slices",
+        "sort_order": 0
+    },
+    {
+        "id": "6XS8MT7CQMAG0",
+        "name": "Best Deals",
+        "sort_order": 1
+    },
+    {
+        "id": "M6ST96GW41CDR",
+        "name": "Weekly Special Deals",
+        "sort_order": 2
+    },
+    {
+        "id": "TE36ET0R9MT7C",
+        "name": "Indian Pizza",
+        "sort_order": 3
+    },
+    {
+        "id": "84H4NBQEF4VAP",
+        "name": "Gourmet Pizzas",
+        "sort_order": 4
+    },
+    {
+        "id": "9ZP6487W2STTP",
+        "name": "Build Your Own Pizza",
+        "sort_order": 5
+    },
+    {
+        "id": "TQJY9Q0SGNV9A",
+        "name": "Subs",
+        "sort_order": 6
+    },
+    {
+        "id": "Z99KFYK0D8BD0",
+        "name": "Wraps",
+        "sort_order": 7
+    },
+    {
+        "id": "08A3BMASG7782",
+        "name": "MOMO'S \/ DUMPLINGS",
+        "sort_order": 8
+    },
+    {
+        "id": "51X70PX9NE27Y",
+        "name": "Crispy Chicken",
+        "sort_order": 9
+    },
+    {
+        "id": "YQFMPY28HN02T",
+        "name": "Garlic Fingers",
+        "sort_order": 11
+    },
+    {
+        "id": "DYTGRHJH1HV7T",
+        "name": "Salads",
+        "sort_order": 13
+    },
+    {
+        "id": "YD9QFKHBKR4HY",
+        "name": "Sides",
+        "sort_order": 14
+    },
+    {
+        "id": "F959HMD1ZKCT8",
+        "name": "Combos",
+        "sort_order": 15
+    },
+    {
+        "id": "3RY3PVEBY5RMC",
+        "name": "Pizza",
+        "sort_order": 16
+    },
+    {
+        "id": "WD1MM3W0GMD84",
+        "name": "Desi",
+        "sort_order": 17
+    },
+    {
+        "id": "ARSDTF3H2FPN0",
+        "name": "Sub's",
+        "sort_order": 18
+    },
+    {
+        "id": "STP18YPZN2N6E",
+        "name": "Salad's",
+        "sort_order": 19
+    },
+    {
+        "id": "69N3FN1T26NAR",
+        "name": "Side's",
+        "sort_order": 20
+    },
+    {
+        "id": "XSM7GHF28C17C",
+        "name": "Desserts",
+        "sort_order": 21
+    },
+    {
+        "id": "545NKBHPWFFR4",
+        "name": "Chips",
+        "sort_order": 22
+    },
+    {
+        "id": "SYR10P9V4ERWA",
+        "name": "Energy Drink",
+        "sort_order": 23
+    },
+    {
+        "id": "GVQTYMP4FX5AG",
+        "name": "Juice",
+        "sort_order": 24
+    },
+    {
+        "id": "TKYV5CR985P32",
+        "name": "Water",
+        "sort_order": 25
+    },
+    {
+        "id": "ZVJ1M78A2SPB0",
+        "name": "Milk",
+        "sort_order": 26
+    },
+    {
+        "id": "R25ZM735TXS0C",
+        "name": "Soda",
+        "sort_order": 27
+    },
+    {
+        "id": "7MV9VQJ2B0EWE",
+        "name": "Sports Drink",
+        "sort_order": 28
+    },
+    {
+        "id": "KPACV293ZBEG4",
+        "name": "Chocolate",
+        "sort_order": 29
+    },
+    {
+        "id": "M6P6324Z5ND6R",
+        "name": "Cake",
+        "sort_order": 30
+    },
+    {
+        "id": "90MDWSEEJYCVY",
+        "name": "Meat Snacks",
+        "sort_order": 31
+    },
+    {
+        "id": "Z4ZHWA6555W3Y",
+        "name": "Nuts",
+        "sort_order": 32
+    },
+    {
+        "id": "92V1PCWZVCB7R",
+        "name": "Candy",
+        "sort_order": 33
+    },
+    {
+        "id": "PDDHX02BVDB34",
+        "name": "Gum",
+        "sort_order": 34
+    },
+    {
+        "id": "G1V93JEJARW5J",
+        "name": "Ice Cream",
+        "sort_order": 35
+    },
+    {
+        "id": "85MRCRH2MNR8G",
+        "name": "Dips",
+        "sort_order": 36
+    },
+    {
+        "id": "0Y8AHYYQ6R310",
+        "name": "Cigarettes",
+        "sort_order": 37
+    },
+    {
+        "id": "Z1AS3GPM7H22A",
+        "name": "Vape",
+        "sort_order": 38
+    },
+    {
+        "id": "D3SQKN525DQBE",
+        "name": "Scratch Cards",
+        "sort_order": 39
+    },
+    {
+        "id": "78Y4G57Z20RWC",
+        "name": "Lotto",
+        "sort_order": 40
+    },
+    {
+        "id": "KBBNDST9RFM16",
+        "name": "Webcash",
+        "sort_order": 41
+    },
+    {
+        "id": "M3KQD2HZNCDJR",
+        "name": "Footlong Pizza",
+        "sort_order": 42
+    },
+    {
+        "id": "WDVJ88EBJJ8VE",
+        "name": "Donair",
+        "sort_order": 43
+    },
+    {
+        "id": "YMT1C2P8ZXWA8",
+        "name": "Dessert's",
+        "sort_order": 44
+    }
+]

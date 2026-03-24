@@ -1,0 +1,58 @@
+{
+    "number": "3VYJJT",
+    "clover_id": "HE0HJ9Y3VYJJT",
+    "type": "pickup",
+    "status": "placed",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-20T21:50:04+00:00",
+            "note": "Order placed and paid"
+        }
+    ],
+    "customer": {
+        "name": "Jacob Newhook",
+        "phone": "17059782784",
+        "email": "jacob.newhook14@gmail.com",
+        "address": "",
+        "city": "Halifax",
+        "postal": ""
+    },
+    "items": [
+        {
+            "name": "Donair Wrap",
+            "quantity": 1,
+            "total": 899,
+            "modifiers": [
+                {
+                    "group_id": "45FE53J1MDCAW",
+                    "group_name": "Choose Wrap",
+                    "id": "498NVSNWNHJ9Y",
+                    "name": "Regular",
+                    "price_cents": 0
+                }
+            ]
+        },
+        {
+            "name": "Nachos",
+            "quantity": 1,
+            "total": 1199,
+            "modifiers": []
+        }
+    ],
+    "subtotal": "20.98",
+    "tax": "2.94",
+    "delivery_fee": "0.00",
+    "tip": "0.00",
+    "total": "23.92",
+    "payment": {
+        "status": "paid",
+        "last4": "3903",
+        "brand": "MC"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=3VYJJT",
+    "uber_delivery": null,
+    "placed_at": "2026-03-20T21:50:04+00:00",
+    "updated_at": "2026-03-20T21:50:04+00:00",
+    "estimated_time": "20-30 min"
+}

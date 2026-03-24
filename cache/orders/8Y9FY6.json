@@ -1,0 +1,97 @@
+{
+    "number": "8Y9FY6",
+    "clover_id": "WHQDRHY8Y9FY6",
+    "type": "delivery",
+    "status": "delivered",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-22T01:30:59+00:00",
+            "note": "Order placed and paid"
+        },
+        {
+            "status": "preparing",
+            "time": "2026-03-22T01:31:03+00:00",
+            "note": "Uber Direct rider dispatched"
+        },
+        {
+            "status": "placed",
+            "time": "2026-03-22T01:31:09+00:00",
+            "note": "Uber webhook: Pending"
+        },
+        {
+            "status": "preparing",
+            "time": "2026-03-22T01:37:53+00:00",
+            "note": "Uber webhook: Pickup"
+        },
+        {
+            "status": "out_for_delivery",
+            "time": "2026-03-22T01:49:17+00:00",
+            "note": "Uber webhook: Pickup complete"
+        },
+        {
+            "status": "delivered",
+            "time": "2026-03-22T01:59:51+00:00",
+            "note": "Uber webhook: Delivered"
+        }
+    ],
+    "customer": {
+        "name": "Mohammed Alsayaghi",
+        "phone": "9027897078",
+        "email": "moeyahya9@gmail.com",
+        "address": "5150 salter st",
+        "city": "Halifax",
+        "postal": "B3j0A1"
+    },
+    "items": [
+        {
+            "name": "Any 2 Subs",
+            "quantity": 1,
+            "total": 1699,
+            "modifiers": [
+                {
+                    "group_id": "NTHH23BQ0E1PW",
+                    "group_name": "Choice of First Sub",
+                    "id": "H297AQPT292VM",
+                    "name": "Chicken Caesar Sub",
+                    "price_cents": 0
+                },
+                {
+                    "group_id": "S5AG6JAP4D8AA",
+                    "group_name": "Choice of Second Sub",
+                    "id": "MK352XN5Z72FW",
+                    "name": "Mediterranean Veggie Sub",
+                    "price_cents": 0
+                }
+            ]
+        }
+    ],
+    "subtotal": "16.99",
+    "tax": "2.38",
+    "delivery_fee": "3.99",
+    "tip": "2.55",
+    "total": "25.91",
+    "payment": {
+        "status": "paid",
+        "last4": "2888",
+        "brand": "VISA"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=8Y9FY6",
+    "uber_delivery": {
+        "id": "del_QjOA8bC9Q1aopVft1uQOxA",
+        "status": "delivered",
+        "tracking_url": "https:\/\/delivery.uber.com\/ca\/orders\/423380f1-b0bd-4356-a8a5-57edd6e40ec4",
+        "pickup_eta": null,
+        "dropoff_eta": null,
+        "fee": 797,
+        "courier": {
+            "name": "Gurdeep S.",
+            "phone": "+19027068597",
+            "vehicle": "car"
+        },
+        "time": "2026-03-22T01:31:03+00:00"
+    },
+    "placed_at": "2026-03-22T01:30:59+00:00",
+    "updated_at": "2026-03-22T01:59:51+00:00",
+    "estimated_time": "30-45 min"
+}

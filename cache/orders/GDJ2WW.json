@@ -1,0 +1,102 @@
+{
+    "number": "GDJ2WW",
+    "clover_id": "MP3DEC2GDJ2WW",
+    "type": "delivery",
+    "status": "delivered",
+    "status_history": [
+        {
+            "status": "placed",
+            "time": "2026-03-12T20:25:48+00:00",
+            "note": "Order placed and paid"
+        },
+        {
+            "status": "preparing",
+            "time": "2026-03-12T20:25:54+00:00",
+            "note": "Uber Direct rider dispatched"
+        },
+        {
+            "status": "placed",
+            "time": "2026-03-12T20:25:57+00:00",
+            "note": "Uber webhook: Pending"
+        },
+        {
+            "status": "preparing",
+            "time": "2026-03-12T20:30:39+00:00",
+            "note": "Uber webhook: Pickup"
+        },
+        {
+            "status": "out_for_delivery",
+            "time": "2026-03-12T21:04:45+00:00",
+            "note": "Uber webhook: Pickup complete"
+        },
+        {
+            "status": "delivered",
+            "time": "2026-03-12T21:10:07+00:00",
+            "note": "Uber webhook: Delivered"
+        }
+    ],
+    "customer": {
+        "name": "Ahmed Alwarith",
+        "phone": "9024882228",
+        "email": "ahmedalwarith@gmail.com",
+        "address": "1891 vernon street",
+        "city": "Halifax",
+        "postal": "b3h3n6"
+    },
+    "items": [
+        {
+            "name": "Any Medium 1 Topping Pizza",
+            "quantity": 1,
+            "total": 1599,
+            "modifiers": [
+                {
+                    "group_id": "AGZGCCRGYH4S4",
+                    "group_name": "Choice of Pizza Size",
+                    "id": "994SY98HRJQXW",
+                    "name": "XL",
+                    "price_cents": 200
+                },
+                {
+                    "group_id": "VC1V6MKP9VN6M",
+                    "group_name": "Select Any 1-Pizza",
+                    "id": "8X2NEYQREK43E",
+                    "name": "Pepperoni Pizza",
+                    "price_cents": 0
+                }
+            ]
+        },
+        {
+            "name": "Parmesan Bites",
+            "quantity": 1,
+            "total": 699,
+            "modifiers": []
+        }
+    ],
+    "subtotal": "22.98",
+    "tax": "3.45",
+    "delivery_fee": "3.99",
+    "total": "30.42",
+    "payment": {
+        "status": "paid",
+        "last4": "4824",
+        "brand": "VISA"
+    },
+    "tracking_url": "https:\/\/sliceplus.ca\/track.html?order=GDJ2WW",
+    "uber_delivery": {
+        "id": "del_q2uMNO5cTHeLSIX27kJoLg",
+        "status": "delivered",
+        "tracking_url": "https:\/\/delivery.uber.com\/ca\/orders\/ab6b8c34-ee5c-4c77-8b48-85f6ee42682e",
+        "pickup_eta": null,
+        "dropoff_eta": null,
+        "fee": 797,
+        "courier": {
+            "name": "PARDEEP K.",
+            "phone": "+19027068593",
+            "vehicle": "car"
+        },
+        "time": "2026-03-12T20:25:54+00:00"
+    },
+    "placed_at": "2026-03-12T20:25:48+00:00",
+    "updated_at": "2026-03-12T21:10:07+00:00",
+    "estimated_time": "30-45 min"
+}

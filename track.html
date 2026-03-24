@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Your Order | Slice+ Convenience & Pizzeria</title>
+<meta name="description" content="Track your Slice+ order in real-time. See your order status from preparation to delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" rel="stylesheet">
+<style>
+:root{--red:#df2b2b;--red-dark:#b91c1c;--black:#0a0a0a;--dark:#111;--dark2:#1a1a1a;--white:#fff;--gold:#f5a623;--green:#22c55e;--blue:#3b82f6;--gray:#888;--gray-light:#aaa;--gray-dark:#555;--font-display:'Bebas Neue',sans-serif;--font-body:'Outfit',sans-serif;--radius:16px;--radius-sm:10px;--shadow-red:0 4px 30px rgba(223,43,43,0.25);--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}body{font-family:var(--font-body);background:var(--black);color:var(--white);line-height:1.6;min-height:100vh;position:relative}
+a{text-decoration:none;color:inherit}img{max-width:100%;display:block}button{cursor:pointer;border:none;font-family:var(--font-body)}
+body::before{content:'';position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse 120% 80% at 15% 5%,rgba(223,43,43,.07) 0%,transparent 40%),radial-gradient(ellipse 100% 60% at 85% 20%,rgba(180,30,30,.05) 0%,transparent 35%),linear-gradient(180deg,#080808 0%,#0c0a09 20%,#0a0a0a 50%,#0c0909 80%,#080808 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");background-size:200px 200px}
+
+/* Header */
+.t-hdr{background:rgba(10,10,10,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;max-width:100%}
+.t-hdr-in{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;width:100%}
+.t-hdr img{height:42px}
+.t-hdr-links{display:flex;gap:12px}
+.t-hdr-link{font-size:.82rem;font-weight:600;color:var(--gray);padding:8px 16px;border-radius:50px;transition:var(--transition)}.t-hdr-link:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.t-hdr-order{background:var(--red);color:var(--white);font-size:.82rem;font-weight:700;padding:8px 20px;border-radius:50px;letter-spacing:.5px;transition:var(--transition)}.t-hdr-order:hover{background:var(--red-dark)}
+
+/* Main */
+.t-main{max-width:600px;margin:0 auto;padding:40px 24px 80px}
+
+/* Search box */
+.t-search{text-align:center;margin-bottom:40px}
+.t-search h1{font-family:var(--font-display);font-size:2.5rem;letter-spacing:2px;margin-bottom:8px}
+.t-search p{color:var(--gray);font-size:.95rem;margin-bottom:24px}
+.t-search-box{display:flex;gap:10px;max-width:400px;margin:0 auto}
+.t-search-input{flex:1;background:var(--dark2);border:1px solid rgba(255,255,255,.08);border-radius:50px;padding:14px 24px;color:var(--white);font-family:var(--font-body);font-size:1rem;letter-spacing:1px;transition:var(--transition)}.t-search-input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(223,43,43,.15)}.t-search-input::placeholder{color:var(--gray-dark)}
+.t-search-btn{background:var(--red);color:var(--white);padding:14px 28px;border-radius:50px;font-weight:700;font-size:.9rem;transition:var(--transition);white-space:nowrap}.t-search-btn:hover{background:var(--red-dark)}
+
+/* Loading */
+.t-loading{text-align:center;padding:60px 20px;display:none}
+.t-spinner{width:40px;height:40px;border:3px solid rgba(255,255,255,.08);border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Error */
+.t-error{display:none;text-align:center;padding:40px 20px}
+.t-error-icon{width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.t-error-icon svg{width:32px;height:32px;stroke:#ef4444;fill:none;stroke-width:2}
+.t-error h3{font-family:var(--font-display);font-size:1.5rem;letter-spacing:1px;margin-bottom:8px}
+.t-error p{color:var(--gray);font-size:.9rem}
+
+/* Order found */
+.t-order{display:none;animation:fadeIn .5s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* Status badge */
+.t-status-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:50px;font-weight:700;font-size:.85rem;letter-spacing:.5px;margin-bottom:24px}
+.t-status-placed{background:rgba(59,130,246,.1);color:var(--blue);border:1px solid rgba(59,130,246,.2)}
+.t-status-preparing{background:rgba(245,166,35,.1);color:var(--gold);border:1px solid rgba(245,166,35,.2)}
+.t-status-out_for_delivery{background:rgba(223,43,43,.1);color:var(--red);border:1px solid rgba(223,43,43,.2)}
+.t-status-delivered{background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2)}
+.t-status-cancelled{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+
+/* Timeline */
+.t-timeline{position:relative;padding:0 0 0 40px;margin:28px 0}
+.t-timeline::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,.06)}
+.t-step{position:relative;padding:16px 0 16px 24px}
+.t-step-dot{position:absolute;left:-33px;top:18px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;z-index:1}
+.t-step-dot.done{background:var(--green);color:#fff}
+.t-step-dot.active{background:var(--red);color:#fff;box-shadow:0 0 0 6px rgba(223,43,43,.2);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 6px rgba(223,43,43,.2)}50%{box-shadow:0 0 0 12px rgba(223,43,43,.1)}}
+.t-step-dot.pending{background:rgba(255,255,255,.05);color:var(--gray-dark);border:2px solid rgba(255,255,255,.08)}
+.t-step-dot svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:3}
+.t-step-title{font-weight:700;font-size:.95rem;margin-bottom:2px}
+.t-step-time{font-size:.78rem;color:var(--gray)}
+.t-step.active .t-step-title{color:var(--red)}
+.t-step.done .t-step-title{color:var(--green)}
+.t-step.pending .t-step-title{color:var(--gray-dark)}
+
+/* Cards */
+.t-card{background:rgba(26,26,26,.6);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
+.t-card-hdr{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px}
+.t-card-hdr svg{width:16px;height:16px;stroke:var(--red);fill:none;stroke-width:2}
+.t-card-body{padding:18px 20px}
+.t-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:.88rem;border-bottom:1px solid rgba(255,255,255,.03)}.t-row:last-child{border:none}
+.t-row span:first-child{color:var(--gray)}.t-row span:last-child{font-weight:600}
+.t-row.t-total{border-top:1px solid rgba(255,255,255,.08)!important;border-bottom:none!important;margin-top:6px;padding-top:14px;font-weight:800;font-size:1.05rem}
+.t-row.t-total span:first-child{color:var(--white)}.t-row.t-total span:last-child{color:var(--green);font-family:var(--font-display);font-size:1.3rem;letter-spacing:.5px}
+
+/* ETA */
+.t-eta{background:rgba(223,43,43,.05);border:1px solid rgba(223,43,43,.15);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.t-eta-icon{width:48px;height:48px;border-radius:50%;background:rgba(223,43,43,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.t-eta-icon svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:2}
+.t-eta h4{font-family:var(--font-display);font-size:1.2rem;letter-spacing:1px;margin-bottom:2px}.t-eta p{font-size:.8rem;color:var(--gray)}
+
+/* Auto refresh notice */
+.t-refresh{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--gray-dark);font-size:.75rem;padding:16px;margin-top:8px}
+.t-refresh-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Actions */
+.t-actions{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.t-btn{padding:12px 28px;border-radius:50px;font-weight:600;font-size:.88rem;transition:var(--transition);display:flex;align-items:center;gap:8px}
+.t-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.t-btn-outline{background:rgba(255,255,255,.05);color:var(--white);border:1px solid rgba(255,255,255,.08)}.t-btn-outline:hover{background:rgba(255,255,255,.1)}
+.t-btn-red{background:var(--red);color:var(--white);box-shadow:var(--shadow-red)}.t-btn-red:hover{background:var(--red-dark)}
+
+/* Items */
+.t-item{display:flex;justify-content:space-between;padding:8px 0;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.03)}.t-item:last-child{border:none}
+.t-item-name{color:var(--gray-light)}.t-item-price{font-weight:600}
+.t-item-mods{font-size:.72rem;color:var(--gray);margin-top:2px}
+
+@media(max-width:768px){.t-search h1{font-size:2rem}.t-search-box{flex-direction:column}.t-hdr-links{display:none}.t-eta{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="t-hdr"><div class="t-hdr-in">
+<a href="/index.html"><img src="assets/images/1__3_.png" alt="Slice+"></a>
+<div class="t-hdr-links">
+<a href="/index.html" class="t-hdr-link">Home</a>
+<a href="tel:9028004001" class="t-hdr-link">Call (902) 800-4001</a>
+</div>
+<a href="/index.html" class="t-hdr-order">Order Now</a>
+</div></div>
+
+<div class="t-main">
+
+<!-- SEARCH -->
+<div class="t-search" id="searchSection">
+<h1>TRACK YOUR ORDER</h1>
+<p>Enter your order number to see real-time status updates</p>
+<div class="t-search-box">
+<input class="t-search-input" id="orderInput" type="text" placeholder="e.g. SP-1234" autofocus>
+<button class="t-search-btn" onclick="trackOrder()">Track</button>
+</div>
+</div>
+
+<!-- LOADING -->
+<div class="t-loading" id="loadingSection">
+<div class="t-spinner"></div>
+<p style="color:var(--gray)">Looking up your order...</p>
+</div>
+
+<!-- ERROR -->
+<div class="t-error" id="errorSection">
+<div class="t-error-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+<h3>ORDER NOT FOUND</h3>
+<p id="errorMsg">We couldn't find that order. Please check the number and try again.</p>
+<button class="t-btn t-btn-outline" style="margin:20px auto 0" onclick="resetSearch()">Try Again</button>
+</div>
+
+<!-- ORDER TRACKING -->
+<div class="t-order" id="orderSection"></div>
+
+</div>
+
+<script>
+var refreshTimer = null;
+var currentOrder = null;
+
+// Auto-detect order from URL
+var params = new URLSearchParams(window.location.search);
+var urlOrder = params.get('order');
+if(urlOrder){
+    document.getElementById('orderInput').value = urlOrder;
+    setTimeout(trackOrder, 300);
+}
+
+// Track order
+function trackOrder(){
+    var num = document.getElementById('orderInput').value.trim().replace('#','');
+    if(!num){ alert('Please enter order number'); return; }
+    
+    currentOrder = num;
+    show('loadingSection');
+    
+    fetch('/api/track.php?order='+encodeURIComponent(num))
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+        if(!data.success){
+            document.getElementById('errorMsg').textContent = data.message || 'Order not found';
+            show('errorSection');
+            return;
+        }
+        renderOrder(data.order);
+        show('orderSection');
+        
+        // Auto refresh every 30 seconds
+        if(refreshTimer) clearInterval(refreshTimer);
+        refreshTimer = setInterval(function(){ silentRefresh(num); }, 30000);
+    })
+    .catch(function(err){
+        document.getElementById('errorMsg').textContent = 'Connection error. Please try again.';
+        show('errorSection');
+    });
+}
+
+function silentRefresh(num){
+    fetch('/api/track.php?order='+encodeURIComponent(num))
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+        if(data.success) renderOrder(data.order);
+    }).catch(function(){});
+}
+
+function show(id){
+    ['searchSection','loadingSection','errorSection','orderSection'].forEach(function(s){
+        document.getElementById(s).style.display = 'none';
+    });
+    document.getElementById(id).style.display = 'block';
+}
+
+function resetSearch(){
+    show('searchSection');
+    document.getElementById('orderInput').value = '';
+    document.getElementById('orderInput').focus();
+    if(refreshTimer) clearInterval(refreshTimer);
+}
+
+function renderOrder(o){
+    var s = o.status;
+    var isDel = o.type === 'delivery';
+    
+    var statusLabels = {
+        placed: 'Order Placed',
+        preparing: 'Preparing Your Food',
+        out_for_delivery: isDel ? 'Out for Delivery' : 'Ready for Pickup',
+        delivered: isDel ? 'Delivered' : 'Picked Up',
+        cancelled: 'Cancelled'
+    };
+    
+    var statusColors = {
+        placed: 'blue', preparing: 'gold', out_for_delivery: 'red', delivered: 'green', cancelled: 'cancelled'
+    };
+    
+    var steps = ['placed','preparing','out_for_delivery','delivered'];
+    var currentIdx = steps.indexOf(s);
+    if(s === 'cancelled') currentIdx = -1;
+    
+    // Build timeline
+    var timelineHtml = '';
+    var stepIcons = {
+        placed: '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>',
+        preparing: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>',
+        out_for_delivery: isDel ? '<svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>' : '<svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg>',
+        delivered: '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>'
+    };
+    
+    var stepLabels = {
+        placed: 'Order Placed', preparing: 'Preparing', 
+        out_for_delivery: isDel ? 'Out for Delivery' : 'Ready for Pickup',
+        delivered: isDel ? 'Delivered' : 'Picked Up'
+    };
+    
+    steps.forEach(function(step, idx){
+        var cls = idx < currentIdx ? 'done' : idx === currentIdx ? 'active' : 'pending';
+        var time = '';
+        if(o.status_history){
+            var h = o.status_history.find(function(x){ return x.status === step; });
+            if(h) time = formatTime(h.time);
+        }
+        
+        var dotContent = cls === 'done' ? '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>' : (idx+1);
+        
+        timelineHtml += '<div class="t-step '+cls+'">'+
+            '<div class="t-step-dot '+cls+'">'+dotContent+'</div>'+
+            '<div class="t-step-title">'+stepLabels[step]+'</div>'+
+            (time ? '<div class="t-step-time">'+time+'</div>' : '<div class="t-step-time">'+(cls==='active'?'In progress...':'Pending')+'</div>')+
+        '</div>';
+    });
+    
+    // Build items list
+    var itemsHtml = '';
+    if(o.items && o.items.length){
+        o.items.forEach(function(it){
+            itemsHtml += '<div class="t-item"><div><span class="t-item-name">'+(it.quantity||1)+'x '+esc(it.name)+'</span>';
+            if(it.modifiers && it.modifiers.length){
+                itemsHtml += '<div class="t-item-mods">'+it.modifiers.map(function(m){return m.name}).join(', ')+'</div>';
+            }
+            itemsHtml += '</div><span class="t-item-price">$'+((it.total||0)/100).toFixed(2)+'</span></div>';
+        });
+    }
+    
+    var html = '<div style="text-align:center;margin-bottom:8px">'+
+        '<div class="t-status-badge t-status-'+s+'">'+
+        (s==='cancelled'?'&#10005; ':'')+ statusLabels[s]+
+        '</div></div>'+
+        
+        '<div style="text-align:center;margin-bottom:28px">'+
+        '<h2 style="font-family:var(--font-display);font-size:1.8rem;letter-spacing:1px;margin-bottom:4px">Order #'+esc(o.number)+'</h2>'+
+        '<p style="color:var(--gray);font-size:.88rem">'+
+        (isDel?'Delivery':'Pickup')+' · Placed '+formatTime(o.placed_at)+
+        '</p></div>'+
+        
+        // ETA
+        (s!=='delivered'&&s!=='cancelled'?
+        '<div class="t-eta"><div class="t-eta-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>'+
+        '<div><h4>'+(isDel?'ESTIMATED DELIVERY':'ESTIMATED READY')+'</h4><p>'+(o.estimated_time||'30-45 min')+'</p></div></div>' : '') +
+        
+        // Timeline
+        '<div class="t-card"><div class="t-card-hdr"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Order Progress</div>'+
+        '<div class="t-card-body"><div class="t-timeline">'+timelineHtml+'</div></div></div>'+
+        
+        // Customer details
+        '<div class="t-card"><div class="t-card-hdr"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> '+
+        (isDel?'Delivery':'Pickup')+' Details</div><div class="t-card-body">'+
+        '<div class="t-row"><span>Name</span><span>'+esc(o.customer.name||'')+'</span></div>'+
+        '<div class="t-row"><span>Phone</span><span><a href="tel:'+esc(o.customer.phone||'')+'" style="color:var(--white)">'+esc(o.customer.phone||'')+'</a></span></div>'+
+        (isDel?'<div class="t-row"><span>Address</span><span>'+esc((o.customer.address||'')+', '+(o.customer.city||'')+' '+(o.customer.postal||''))+'</span></div>':'<div class="t-row"><span>Pickup</span><span>6169 Quinpool Rd #111, Halifax</span></div>')+
+        '</div></div>'+
+        
+        // Payment
+        '<div class="t-card"><div class="t-card-hdr"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Payment</div><div class="t-card-body">'+
+        '<div class="t-row"><span>Subtotal</span><span>$'+esc(o.subtotal||'0.00')+'</span></div>'+
+        '<div class="t-row"><span>HST (15%)</span><span>$'+esc(o.tax||'0.00')+'</span></div>'+
+        (parseFloat(o.delivery_fee||0)>0?'<div class="t-row"><span>Delivery Fee</span><span>$'+esc(o.delivery_fee)+'</span></div>':'')+
+        '<div class="t-row t-total"><span>Total</span><span>$'+esc(o.total||'0.00')+'</span></div>'+
+        '</div></div>'+
+        
+        // Auto refresh
+        '<div class="t-refresh"><span class="t-refresh-dot"></span> Auto-refreshing every 30 seconds</div>'+
+        
+        // Actions
+        '<div class="t-actions">'+
+        '<a href="/index.html" class="t-btn t-btn-outline"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Home</a>'+
+        '<a href="tel:9028004001" class="t-btn t-btn-red"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72"/></svg> Call Store</a>'+
+        '</div>';
+    
+    document.getElementById('orderSection').innerHTML = html;
+}
+
+function formatTime(iso){
+    if(!iso) return '';
+    var d = new Date(iso);
+    var now = new Date();
+    var diff = now - d;
+    
+    if(diff < 60000) return 'Just now';
+    if(diff < 3600000) return Math.floor(diff/60000)+' min ago';
+    if(diff < 86400000){
+        var h = d.getHours(), m = d.getMinutes();
+        var ampm = h >= 12 ? 'PM' : 'AM';
+        h = h % 12 || 12;
+        return h+':'+(m<10?'0':'')+m+' '+ampm;
+    }
+    return d.toLocaleDateString('en-CA',{month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en-CA',{hour:'numeric',minute:'2-digit'});
+}
+
+function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML}
+
+// Enter key
+document.getElementById('orderInput').addEventListener('keydown',function(e){if(e.key==='Enter')trackOrder()});
+</script>
+<script src="/track-uber.js"></script>
+</body></html>

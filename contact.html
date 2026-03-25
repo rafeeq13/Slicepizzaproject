@@ -439,7 +439,7 @@
 
     .page-hero {
       position: relative;
-      padding: 180px 24px 80px;
+      padding: 180px 24px 10px;
       text-align: center;
       overflow: hidden
     }
@@ -518,7 +518,7 @@
     }
 
     .section {
-      padding: 80px 24px;
+      padding: 10px 10px;
       position: relative;
       overflow: hidden
     }
@@ -553,6 +553,7 @@
       letter-spacing: 1px;
       line-height: 1;
       margin-bottom: 20px
+      /* color: var(--white) */
     }
 
     .section-desc {
@@ -810,6 +811,7 @@
     }
 
     .info-bar {
+      display: none !important;
       background: rgba(17, 17, 17, .8);
       backdrop-filter: blur(10px);
       border-top: 1px solid rgba(255, 255, 255, .05);
@@ -1424,11 +1426,11 @@
       }
 
       .mobile-nav {
-        top: 110px !important
+        top: 10px !important
       }
 
       .page-hero {
-        padding: 150px 16px 60px
+        padding: 150px 16px 10px
       }
 
       .page-hero h1 {
@@ -1464,6 +1466,7 @@
       }
 
       .info-bar {
+        display: none !important;
         flex-direction: column;
         gap: 12px;
         align-items: center
@@ -1515,7 +1518,7 @@
     <div class="header-inner">
       <a href="index.html" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
       <nav class="nav">
-        <a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html"
+        <a href="/index.html">Home</a><a href="/specials.html">Today's Special Deal</a><a href="/contact.html"
           class="active">Contact</a><a href="/catering.html">Catering</a>
         <a href="#" class="nav-cta" onclick="event.preventDefault();openOP()">Order Now</a>
         <a href="tel:9028004001" class="nav-cta nav-cta-call">Call Now</a>
@@ -1532,7 +1535,7 @@
 
   <!-- MOBILE NAV -->
   <div class="mobile-nav" id="mobNav">
-    <a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html">Contact</a><a
+    <a href="/index.html">Home</a><a href="/specials.html">Today's Special Deal</a><a href="/contact.html">Contact</a><a
       href="/catering.html">Catering</a>
     <div class="mob-btns">
       <a href="#" onclick="event.preventDefault();closeMob();openOP()"
@@ -1595,7 +1598,66 @@
       </div>
     </div>
   </section>
-
+  <!-- CONTACT FORM + MAP -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center">
+        <div class="section-label" style="justify-content:center">Reach Out</div>
+        <div class="section-title">SEND US A MESSAGE</div>
+      </div>
+      <div class="contact-grid">
+        <form class="contact-form reveal-left" action="https://formspree.io/f/meeroqze" method="POST">
+          <div class="form-row"><input type="text" name="name" class="form-input" placeholder="Your Name"
+              required><input type="email" name="email" class="form-input" placeholder="Your Email" required></div>
+          <input type="text" name="phone" class="form-input" placeholder="Phone Number (optional)">
+          <input type="text" name="subject" class="form-input" placeholder="Subject">
+          <textarea name="message" class="form-textarea" placeholder="Your Message..." required></textarea>
+          <button type="submit" class="btn-primary" style="align-self:flex-start"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg> Send Message</button>
+        </form>
+        <div class="contact-info-card reveal-right">
+          <iframe class="contact-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.0!2d-63.5974!3d44.6454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b5a23c8f56e6e1d%3A0x1234567890!2s6169+Quinpool+Rd+%23111%2C+Halifax%2C+NS!5e0!3m2!1sen!2sca!4v1700000000000"
+            loading="lazy" allowfullscreen></iframe>
+          <div class="contact-details">
+            <div class="contact-row">
+              <div class="contact-icon-wrap"><svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg></div>
+              <div>
+                <h4>Address</h4>
+                <p><a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank">6169 Quinpool Rd #111, Halifax,
+                    NS</a></p>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon-wrap"><svg viewBox="0 0 24 24">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg></div>
+              <div>
+                <h4>Phone</h4>
+                <p><a href="tel:9028004001" style="color:var(--red)">(902) 800-4001</a></p>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon-wrap"><svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg></div>
+              <div>
+                <h4>Hours</h4>
+                <p>Daily: 10:30 AM – 11:00 PM<br>Takeout until 12:00 AM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- FAQ -->
   <section class="section">
     <div class="container">
@@ -1658,66 +1720,7 @@
     </div>
   </section>
 
-  <!-- CONTACT FORM + MAP -->
-  <section class="section">
-    <div class="container">
-      <div class="reveal" style="text-align:center">
-        <div class="section-label" style="justify-content:center">Reach Out</div>
-        <div class="section-title">SEND US A MESSAGE</div>
-      </div>
-      <div class="contact-grid">
-        <form class="contact-form reveal-left" action="https://formspree.io/f/meeroqze" method="POST">
-          <div class="form-row"><input type="text" name="name" class="form-input" placeholder="Your Name"
-              required><input type="email" name="email" class="form-input" placeholder="Your Email" required></div>
-          <input type="text" name="phone" class="form-input" placeholder="Phone Number (optional)">
-          <input type="text" name="subject" class="form-input" placeholder="Subject">
-          <textarea name="message" class="form-textarea" placeholder="Your Message..." required></textarea>
-          <button type="submit" class="btn-primary" style="align-self:flex-start"><svg width="18" height="18"
-              viewBox="0 0 24 24" fill="currentColor">
-              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-            </svg> Send Message</button>
-        </form>
-        <div class="contact-info-card reveal-right">
-          <iframe class="contact-map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.0!2d-63.5974!3d44.6454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b5a23c8f56e6e1d%3A0x1234567890!2s6169+Quinpool+Rd+%23111%2C+Halifax%2C+NS!5e0!3m2!1sen!2sca!4v1700000000000"
-            loading="lazy" allowfullscreen></iframe>
-          <div class="contact-details">
-            <div class="contact-row">
-              <div class="contact-icon-wrap"><svg viewBox="0 0 24 24">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg></div>
-              <div>
-                <h4>Address</h4>
-                <p><a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank">6169 Quinpool Rd #111, Halifax,
-                    NS</a></p>
-              </div>
-            </div>
-            <div class="contact-row">
-              <div class="contact-icon-wrap"><svg viewBox="0 0 24 24">
-                  <path
-                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                </svg></div>
-              <div>
-                <h4>Phone</h4>
-                <p><a href="tel:9028004001" style="color:var(--red)">(902) 800-4001</a></p>
-              </div>
-            </div>
-            <div class="contact-row">
-              <div class="contact-icon-wrap"><svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg></div>
-              <div>
-                <h4>Hours</h4>
-                <p>Daily: 10:30 AM – 11:00 PM<br>Takeout until 12:00 AM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- INFO BAR -->
   <div class="info-bar">
@@ -1742,7 +1745,7 @@
         <p>Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties, wings, momos & more.</p>
       </div>
       <div class="footer-col">
-        <h4>PAGES</h4><a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a
+        <h4>PAGES</h4><a href="/index.html">Home</a><a href="/specials.html">Today's Special Deal</a><a
           href="/contact.html">Contact</a><a href="/catering.html">Catering</a>
       </div>
       <div class="footer-col">

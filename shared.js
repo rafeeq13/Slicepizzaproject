@@ -49,7 +49,7 @@ css.textContent=`
 .mob-sp-btns a{display:block;text-align:center;padding:14px;border-radius:50px;font-weight:700;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none}
 .info-ticker{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:1001!important}
 .header{top:42px!important}.mobile-nav{top:116px!important}
-@media(max-width:768px){.sp-cart{width:100%;right:-100%}.sp-popup-btns{flex-direction:column}.header{top:36px!important}.mobile-nav{top:110px!important}}
+@media(max-width:768px){.sp-cart{width:100%;right:-100%}.sp-popup-btns{flex-direction:column}.header{top:36px!important}.mobile-nav{top:10px!important}}
 `;
 document.head.appendChild(css);
 

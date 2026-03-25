@@ -48,8 +48,14 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-ev
 .ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 36px;font-weight:600;font-size:.85rem;letter-spacing:.8px;text-transform:uppercase}.ticker-item svg{width:20px;height:20px;fill:currentColor;opacity:.9;flex-shrink:0}
 .ticker-sep{display:inline-flex;align-items:center;padding:0 4px;opacity:.4;font-size:1.2rem}
 
+.d-none{
+
+    display:none !important;
+   
+}
+
 /* PAGE HERO */
-.page-hero{position:relative;padding:180px 24px 60px;text-align:center;overflow:hidden}
+.page-hero{position:relative;padding:180px 24px 10px;text-align:center;overflow:hidden}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(223,43,43,.08) 0%,transparent 40%,transparent 60%,rgba(223,43,43,.04) 100%);pointer-events:none}
 .page-hero-pattern{position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle at 2px 2px,rgba(255,255,255,.4) 1px,transparent 0);background-size:40px 40px;pointer-events:none}
 .page-hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
@@ -59,7 +65,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-ev
 .page-hero-desc{font-size:1.1rem;color:var(--gray-light);max-width:550px;margin:0 auto;line-height:1.7}
 
 /* SECTIONS */
-.section{padding:80px 24px;position:relative}.container{max-width:1300px;margin:0 auto}
+.section{padding:20px 10px;position:relative}.container{max-width:1300px;margin:0 auto}
 .section-label{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;color:var(--red);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}.section-label::before{content:'';width:30px;height:2px;background:var(--red)}
 .section-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);letter-spacing:1px;line-height:1;margin-bottom:20px}
 
@@ -94,7 +100,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-ev
 .biz-card p{color:var(--gray);font-size:.88rem;line-height:1.6}.biz-card a{color:var(--gray);transition:var(--transition)}.biz-card a:hover{color:var(--white)}
 
 /* INFO BAR */
-.info-bar{background:rgba(17,17,17,.8);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:20px 24px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.info-bar{background:rgba(17,17,17,.8);display:none !important;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:20px 24px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
 .info-bar a,.info-bar span{display:flex;align-items:center;gap:10px;color:var(--gray-light);font-size:.9rem;font-weight:500;transition:var(--transition)}.info-bar a:hover{color:var(--white)}
 .info-bar svg{width:18px;height:18px;fill:none;stroke:var(--red);stroke-width:2;flex-shrink:0}
 
@@ -149,7 +155,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-ev
 @keyframes progShrink{0%{width:100%}100%{width:0}}
 
 @media(max-width:1024px){.nav{display:none}.mobile-toggle{display:flex}.biz-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.header{top:36px!important}.mobile-nav{top:110px!important}.page-hero{padding:150px 16px 50px}.page-hero h1{font-size:3rem}.specials-grid{grid-template-columns:1fr}.special-order{opacity:1!important;transform:none!important}.da{right:12px;max-width:none;bottom:12px;width:calc(100% - 24px)}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.biz-grid{grid-template-columns:1fr}.info-bar{flex-direction:column;gap:12px;align-items:center}.c-sb{width:100%;right:-100%}.op-btns{flex-direction:column}}
+@media(max-width:768px){.d-xs-none{display:none !important;}.header{top:36px!important}.mobile-nav{top:10px!important}.page-hero{padding:150px 16px 10px}.page-hero h1{font-size:3rem}.specials-grid{grid-template-columns:1fr}.special-order{opacity:1!important;transform:none!important}.da{right:12px;max-width:none;bottom:12px;width:calc(100% - 24px)}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.biz-grid{grid-template-columns:1fr}.info-bar{flex-direction:column;gap:12px;align-items:center}.c-sb{width:100%;right:-100%}.op-btns{flex-direction:column}}
 .footer-bottom{
 display: flex !important;
 justify-content: center !important;
@@ -167,7 +173,7 @@ justify-content: center !important;
 <header class="header" id="header"><div class="header-inner">
 <a href="index.html" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
 <nav class="nav">
-<a href="/index.html">Home</a><a href="/specials.html" class="active">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a>
+<a href="/index.html">Home</a><a href="/specials.html" class="active">Today's Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a>
 <a href="#" class="nav-cta" onclick="event.preventDefault();openOP()">Order Now</a>
 <a href="tel:9028004001" class="nav-cta nav-cta-call">Call Now</a>
 </nav>
@@ -177,7 +183,7 @@ justify-content: center !important;
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobNav">
-<a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a>
+<a href="/index.html">Home</a><a href="/specials.html">Today's Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a>
 <div class="mob-btns">
 <a href="#" onclick="event.preventDefault();closeMob();openOP()" style="background:var(--red);color:var(--white)">Order Now</a>
 <a href="tel:9028004001" style="border:2px solid var(--red);color:var(--white)">Call (902) 800-4001</a>
@@ -189,7 +195,7 @@ justify-content: center !important;
 <div class="page-hero-content">
 <div class="page-hero-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#df2b2b" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> Save Every Day</div>
 <h1>WEEKLY <span class="hl">SPECIALS</span></h1>
-<p class="page-hero-desc">A different deal every day of the week. There's always a reason to order from Slice+!</p>
+<p class="page-hero-desc">A different deal every day of the week. There's always a reason to order from Sliceplus!</p>
 </div></section>
 
 <!-- SPECIALS GRID -->
@@ -217,7 +223,7 @@ justify-content: center !important;
 <!-- FOOTER -->
 <footer class="footer"><div class="footer-inner">
 <div class="footer-brand"><img src="assets/images/1__3_.png" alt="Slice+"><p>Halifax's favourite spot for gourmet pizza, authentic donairs, Indian specialties, wings, momos & more.</p></div>
-<div class="footer-col"><h4>PAGES</h4><a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a></div>
+<div class="footer-col"><h4>PAGES</h4><a href="/index.html">Home</a><a href="/specials.html">Today's Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a></div>
 <div class="footer-col"><h4>ORDER</h4><a href="#" onclick="event.preventDefault();openOP()">Order Direct</a><a href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY" target="_blank">UberEats</a><a href="https://www.doordash.com/store/sliceplus-halifax-37896069/?utm_campaign=gpa" target="_blank">DoorDash</a><a href="tel:9028004001">Call (902) 800-4001</a></div>
 <div class="footer-col"><h4>VISIT US</h4><a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank">6169 Quinpool Rd #111, Halifax, NS</a><a href="tel:9028004001">(902) 800-4001</a><a>10:30 AM – 11 PM Daily</a></div>
 </div><div class="footer-bottom"><p>&copy; 2026 Slice+ Convenience & Pizzeria. All Rights Reserved.</p><p class="d-none">Crafted with ❤️ in Halifax | Developed by <a href="https://usamagrowth.com/" target="_blank" style="color:#df2b2b;text-decoration:none;font-weight:600;transition:opacity .3s">Muhammad Usama</a></p></div></footer>

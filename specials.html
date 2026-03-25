@@ -150,6 +150,10 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-ev
 
 @media(max-width:1024px){.nav{display:none}.mobile-toggle{display:flex}.biz-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){.header{top:36px!important}.mobile-nav{top:110px!important}.page-hero{padding:150px 16px 50px}.page-hero h1{font-size:3rem}.specials-grid{grid-template-columns:1fr}.special-order{opacity:1!important;transform:none!important}.da{right:12px;max-width:none;bottom:12px;width:calc(100% - 24px)}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}.biz-grid{grid-template-columns:1fr}.info-bar{flex-direction:column;gap:12px;align-items:center}.c-sb{width:100%;right:-100%}.op-btns{flex-direction:column}}
+.footer-bottom{
+display: flex !important;
+justify-content: center !important;
+}
 </style>
 </head>
 <body>
@@ -161,7 +165,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-ev
 
 <!-- HEADER -->
 <header class="header" id="header"><div class="header-inner">
-<a href="/" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
+<a href="index.html" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
 <nav class="nav">
 <a href="/index.html">Home</a><a href="/specials.html" class="active">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a>
 <a href="#" class="nav-cta" onclick="event.preventDefault();openOP()">Order Now</a>
@@ -216,7 +220,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.035;pointer-ev
 <div class="footer-col"><h4>PAGES</h4><a href="/index.html">Home</a><a href="/specials.html">Today Special Deal</a><a href="/contact.html">Contact</a><a href="/catering.html">Catering</a></div>
 <div class="footer-col"><h4>ORDER</h4><a href="#" onclick="event.preventDefault();openOP()">Order Direct</a><a href="https://www.ubereats.com/ca/store/sliceplus-quinpool-rd/GrAe0IXMVuGjKvZW6ssmDg?diningMode=DELIVERY" target="_blank">UberEats</a><a href="https://www.doordash.com/store/sliceplus-halifax-37896069/?utm_campaign=gpa" target="_blank">DoorDash</a><a href="tel:9028004001">Call (902) 800-4001</a></div>
 <div class="footer-col"><h4>VISIT US</h4><a href="https://maps.app.goo.gl/exj8kZeiAGhVrHQN8" target="_blank">6169 Quinpool Rd #111, Halifax, NS</a><a href="tel:9028004001">(902) 800-4001</a><a>10:30 AM – 11 PM Daily</a></div>
-</div><div class="footer-bottom"><p>&copy; 2026 Slice+ Convenience & Pizzeria. All Rights Reserved.</p><p>Crafted with ❤️ in Halifax | Developed by <a href="https://usamagrowth.com/" target="_blank" style="color:#df2b2b;text-decoration:none;font-weight:600;transition:opacity .3s">Muhammad Usama</a></p></div></footer>
+</div><div class="footer-bottom"><p>&copy; 2026 Slice+ Convenience & Pizzeria. All Rights Reserved.</p><p class="d-none">Crafted with ❤️ in Halifax | Developed by <a href="https://usamagrowth.com/" target="_blank" style="color:#df2b2b;text-decoration:none;font-weight:600;transition:opacity .3s">Muhammad Usama</a></p></div></footer>
 
 <!-- ORDER POPUP -->
 <div class="op-bg" id="opBg"><div class="op-box">

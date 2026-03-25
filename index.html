@@ -2250,7 +2250,14 @@
             opacity: 1;
             transform: translateY(0)
         }
-
+            .section-header{
+                display: none !important;
+                padding-bottom: 10px;
+            }
+            .justify-content-center{
+            /* display: flex !important; */
+                justify-content: center !important;
+            }
         @media(max-width:1024px) {
             .nav {
                 display: none
@@ -2268,14 +2275,7 @@
                 grid-template-columns: 1fr 1fr
             }
         }
-            .section-header{
-                display: none !important;
-                padding-bottom: 10px;
-            }
-            .justify-content-center{
-            display: flex !important;
-                justify-content: center !important;
-            }
+            
         @media(max-width:768px) {
             .hero {
                 padding: 100px 16px 10px
@@ -2462,6 +2462,10 @@
         .tb.act .ta {
             color: #f5a623
         }
+        .footer-bottom{
+            display: flex !important;
+            justify-content: center !important;
+        }
     </style>
 </head>
 
@@ -2476,7 +2480,7 @@
     <!-- HEADER -->
     <header class="header" id="header">
         <div class="header-inner">
-            <a href="/" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
+            <a href="index.html" class="logo"><img src="assets/images/1__3_.png" alt="Slice+"></a>
             <nav class="nav">
                 <a href="/" class="active">Home</a>
                 <a href="specials.html">Today Special Deal</a>
@@ -2652,7 +2656,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Slice+ Convenience & Pizzeria. All Rights Reserved.</p>
-                <p>Crafted with ❤️ in Halifax | Developed by <a href="https://usamagrowth.com/" target="_blank"
+                <p class="d-none">Crafted with ❤️ in Halifax | Developed by <a href="https://usamagrowth.com/" target="_blank"
                         style="color:#df2b2b;text-decoration:none;font-weight:600;transition:opacity .3s">Muhammad
                         Usama</a></p>
             </div>

@@ -1567,6 +1567,10 @@ button {
         margin: 0 auto;
     }
 }
+.footer-bottom{
+display: flex !important;
+justify-content: center !important;
+}
 
 
 /* ============================================================

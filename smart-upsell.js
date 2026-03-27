@@ -60,7 +60,26 @@ css.textContent = `
 .ups-add{padding:10px 18px;background:#df2b2b;color:#fff;border-radius:50px;font-size:.78rem;font-weight:700;transition:all .3s;white-space:nowrap;flex-shrink:0;letter-spacing:.3px;box-shadow:0 2px 10px rgba(223,43,43,.2)}
 .ups-add:hover{background:#b91c1c;transform:scale(1.05)}
 .ups-add.added{background:#22c55e!important;box-shadow:0 2px 10px rgba(34,197,94,.2)}
+.ups-hdr{
+    position: relative;
+}
 
+.ups-close{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: transparent;
+    color:white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.ups-close:hover{
+    opacity: 0.7;
+}
 /* Footer */
 .ups-ft{padding:16px 28px 24px;border-top:1px solid rgba(255,255,255,.04)}
 .ups-skip{width:100%;padding:14px;background:rgba(255,255,255,.04);color:#aaa;border-radius:50px;font-weight:600;font-size:.9rem;transition:all .3s;text-align:center;border:1px solid rgba(255,255,255,.06)}
@@ -69,6 +88,7 @@ css.textContent = `
 
 @media(max-width:480px){.ups-box{max-height:85vh;border-radius:16px}.ups-hdr{padding:24px 20px 0}.ups-list{padding:12px 20px}.ups-ft{padding:12px 20px 20px}.ups-i{padding:12px;gap:10px}.ups-img,.ups-ph{width:60px;height:60px}}
 `;
+
 document.head.appendChild(css);
 
 // Override showUps
@@ -133,12 +153,13 @@ window.showUps = function(){
     
     if(!upsellItems.length){ goChk(); return; }
     
-    // Build HTML
-    var h = '<div class="ups-hdr">' +
-        '<div class="ups-badge"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> RECOMMENDED</div>' +
-        '<h3 class="ups-t">COMPLETE YOUR ORDER</h3>' +
-        '<p class="ups-s">Customers who ordered similar items also added these</p>' +
-        '</div>';
+            // Build HTML
+        var h = '<div class="ups-hdr">' +
+                '<button class="ups-close" type="button" onclick="closeUpsell()">&times;</button>' +
+                '<div class="ups-badge"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> RECOMMENDED</div>' +
+                '<h3 class="ups-t">COMPLETE YOUR ORDER</h3>' +
+                '<p class="ups-s">Customers who ordered similar items also added these</p>' +
+                '</div>';
     
     h += '<div class="ups-context"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg><span>' + esc(contextLabel) + '</span></div>';
     
@@ -174,7 +195,19 @@ window.qAdd = function(id, n, p, b){
         b.disabled = true;
     }
 };
+window.closeUpsell = function(){
+    // This upsell uses #upsOv/#upsBox (not .upsell-popup). Reuse closeUps() when available.
+    try {
+        if (typeof window.closeUps === 'function') {
+            window.closeUps();
+            return;
+        }
+    } catch (e) {}
 
+    var ov = document.getElementById('upsOv');
+    if (ov) ov.classList.remove('open');
+    document.body.style.overflow = '';
+};
 function esc(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
 
 })();

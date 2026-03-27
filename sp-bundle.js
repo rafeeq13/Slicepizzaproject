@@ -69,8 +69,14 @@
     document.querySelectorAll('.nav-cta').forEach(function (a) { if (a.textContent.trim() === 'Order Now') { a.href = '#'; a.onclick = function (e) { e.preventDefault(); openOnPopup() } } });
     document.querySelectorAll('.mob-btns a, .mobile-nav a').forEach(function (a) { if (a.textContent.trim().indexOf('Order Now') > -1) { a.href = '#'; a.onclick = function (e) { e.preventDefault(); if (typeof closeMob === 'function') closeMob(); openOnPopup() } } });
 
-    // Deal banners → scroll hero
-    document.querySelectorAll('.deal-card').forEach(function (c) { c.onclick = function () { if (typeof scrollHero === 'function') scrollHero() } });
+    // Deal banners (home) → open real deal item (syncs with Best Deals)
+    document.querySelectorAll('.deal-card').forEach(function (c) {
+        c.onclick = function () {
+            var nm = c.getAttribute('value') || c.getAttribute('data-deal') || '';
+            if (nm && typeof window.orderDealFromHome === 'function') { window.orderDealFromHome(nm); return; }
+            if (typeof scrollHero === 'function') scrollHero();
+        };
+    });
 
     // Deal alert → popup
     var daB = document.querySelector('.deal-alert-body');

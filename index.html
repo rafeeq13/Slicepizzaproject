@@ -1193,7 +1193,7 @@
         }
 
         .mo-x {
-            position: absolute;
+            position: fixed;
             top: 16px;
             right: 16px;
             width: 36px;
@@ -1714,16 +1714,23 @@
 
         /* CHECKOUT */
         .chk-ov {
-            display: none;
             position: fixed;
             inset: 0;
-            z-index: 3000;
+          
             background: var(--black);
-            overflow-y: auto
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .25s ease, visibility 0s linear .25s
         }
 
         .chk-ov.open {
-            display: block
+            z-index: 3600;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transition: opacity .25s ease
         }
 
         .chk-w {
@@ -2424,6 +2431,11 @@
             .deals-section {
                 padding: 10px 16px 20px;
             }
+            .mo-x {
+                position: fixed;
+                top: 16px;
+                background: rgba(230, 18, 18, 0.6);
+            }
         }
 
         .tb {
@@ -2473,6 +2485,36 @@
             display: flex !important;
             justify-content: center !important;
         }
+        .deal-card{
+position: relative;
+overflow: hidden;
+}
+
+.deal-card img{
+width:100%;
+display:block;
+border-radius:12px;
+}
+
+.deal-cta{
+position:absolute;
+bottom:10px;
+right:10px;
+background:#ff3c00;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:30px;
+font-size:12px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.deal-cta:hover{
+background:black;
+transform:scale(1.05);
+}
     </style>
 </head>
 
@@ -2574,24 +2616,24 @@
         <section class="deals-section">
             <h4 class="section-header justify-content-center">Our Top Deals</h4>
             <div class="deals-grid">
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-1.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-2.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-3.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-4.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-5.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-6.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-7.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card" onclick="scrollHero()"><img src="assets/images/banner-8.jpg" alt="Deal"
-                        loading="lazy"></div>
-                <div class="deal-card deal-card-full" onclick="scrollHero()"><img src="assets/images/banner-9.png"
-                        alt="Deal" loading="lazy"></div>
+                <div class="deal-card item-name"  onclick="scrollHero()" value="Any Medium 1 Topping Pizza"><img src="assets/images/banner-1.jpg"  alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any Medium Pizza + Small Garlic Fingers"><img src="assets/images/banner-2.jpg" alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any 2 Type Foot Long Pizzas"><img src="assets/images/banner-3.jpg" alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="2 Medium Donair Wrap + 710ml Bottle"><img src="assets/images/banner-4.jpg" alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any XL Pizza + XL Garlic Fingers + 2L Pop"><img src="assets/images/banner-5.jpg" alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any 2XL Pizza + XL Garlic Fingers + 2L Pop"><img src="assets/images/banner-6.jpg" alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any XL Pizza + 8 Pc Wings  +2L Pop"><img src="assets/images/banner-7.jpg" alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any 2 Salads"><img src="assets/images/banner-8.jpg" alt="Deal"
+                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card deal-card-full "  value="Any 2 Subs"  onclick="scrollHero()"><img src="assets/images/banner-9.png"
+                        alt="Deal" loading="lazy"> <button class="deal-cta">Order Now</button></div>
             </div>
         </section>
         <!-- 3RD PARTY ORDER -->
@@ -2752,8 +2794,9 @@
 
     <!-- CHECKOUT -->
     <div class="chk-ov" id="chkOv">
-        <div class="chk-w" id="chkW"></div>
+        <div class="chk-w border" id="chkW"></div>
     </div>
+
 
     <!-- TOAST -->
     <div class="toast" id="toast"></div>
@@ -2820,11 +2863,102 @@
             closeDf(); saveState(); goMenu()
         }
         function startPickup() { oInfo.type = 'pickup'; saveState(); goMenu() }
-        function goMenu() { document.getElementById('otBadge').textContent = oInfo.type === 'delivery' ? 'Delivery Order' : 'Pickup Order'; showScr('screen2'); if (!menu) loadMenu() }
+        function goMenu() {
+            document.getElementById('otBadge').textContent = oInfo.type === 'delivery' ? 'Delivery Order' : 'Pickup Order';
+            showScr('screen2');
+            if (!menu) loadMenu();
+            else setTimeout(maybeOpenPendingDeal, 0);
+        }
+
+        // ===== HOME DEALS → OPEN AS REAL MENU DEALS (sync with Best Deals) =====
+        var _spPendingDealName = null;
+        function _spDealKey(s) {
+            return (s || '')
+                .toLowerCase()
+                .replace(/&/g, 'and')
+                .replace(/\+/g, ' ')
+                .replace(/[^a-z0-9 ]+/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+        function _spDealTokens(s) {
+            return _spDealKey(s).split(' ').filter(function (t) { return t && t.length > 1; });
+        }
+        function _spTokScore(a, b) {
+            if (!a.length || !b.length) return 0;
+            var sa = {}; a.forEach(function (t) { sa[t] = 1; });
+            var sb = {}; b.forEach(function (t) { sb[t] = 1; });
+            var inter = 0, ca = 0, cb = 0;
+            Object.keys(sa).forEach(function (k) { ca++; if (sb[k]) inter++; });
+            Object.keys(sb).forEach(function () { cb++; });
+            return inter / Math.max(1, Math.min(ca, cb));
+        }
+        function _spResolveDealByName(name) {
+            if (!menu || !menu.categories || !name) return null;
+            var target = _spDealKey(name);
+            var tTok = _spDealTokens(name);
+            var preferred = [], rest = [];
+            menu.categories.forEach(function (c) {
+                var cn = _spDealKey(c.name);
+                if (cn === 'best deals' || cn === 'weekly special deals') preferred.push(c);
+                else rest.push(c);
+            });
+            var cats = preferred.concat(rest);
+
+            // Pass 1: exact key match (fast + reliable)
+            for (var i = 0; i < cats.length; i++) {
+                var c = cats[i];
+                for (var j = 0; j < (c.items || []).length; j++) {
+                    var it = c.items[j];
+                    if (_spDealKey(it.name) === target) return { cid: c.id, iid: it.id, name: it.name };
+                }
+            }
+
+            // Pass 2: best token similarity
+            var best = null, bestScore = 0;
+            for (var i2 = 0; i2 < cats.length; i2++) {
+                var c2 = cats[i2];
+                for (var j2 = 0; j2 < (c2.items || []).length; j2++) {
+                    var it2 = c2.items[j2];
+                    var sc = _spTokScore(tTok, _spDealTokens(it2.name));
+                    if (sc > bestScore) { bestScore = sc; best = { cid: c2.id, iid: it2.id, name: it2.name }; }
+                }
+            }
+            if (best && bestScore >= 0.65) return best;
+            return null;
+        }
+        function maybeOpenPendingDeal() {
+            if (!_spPendingDealName) return;
+            if (!menu) return;
+            var d = _spResolveDealByName(_spPendingDealName);
+            var nm = _spPendingDealName;
+            _spPendingDealName = null;
+            if (!d) { showToast('Deal not found: ' + nm); return; }
+            openIt(d.cid, d.iid);
+        }
+        window.orderDealFromHome = function (dealName) {
+            if (!dealName) return;
+            _spPendingDealName = dealName;
+
+            var s2 = document.getElementById('screen2');
+            var s3 = document.getElementById('screen3');
+            var alreadyOrdering = (s2 && s2.classList.contains('active')) || (s3 && s3.classList.contains('active'));
+            if (alreadyOrdering) {
+                if (!menu) loadMenu();
+                else setTimeout(maybeOpenPendingDeal, 0);
+                return;
+            }
+
+            if (typeof openOnPopup === 'function') openOnPopup();
+            else startPickup();
+        };
 
         // ===== MENU =====
         async function loadMenu() {
-            try { var r = await fetch('/api/menu.php'); var d = await r.json(); if (!d.success) throw 0; menu = d; renderCatGrid(d.categories) }
+            try {
+                var r = await fetch('/api/menu.php'); var d = await r.json(); if (!d.success) throw 0;
+                menu = d; renderCatGrid(d.categories); setTimeout(maybeOpenPendingDeal, 0);
+            }
             catch (e) { document.getElementById('catGrid').innerHTML = '<p style="text-align:center;color:var(--gray)">Could not load menu. <button onclick="loadMenu()" style="color:var(--red);background:none;border:none;cursor:pointer;font-weight:600">Retry</button></p>' }
         }
         function renderCatGrid(cats) {
@@ -2902,7 +3036,27 @@
         function closeUps() { document.getElementById('upsOv').classList.remove('open'); document.body.style.overflow = '' }
 
         // ===== CHECKOUT =====
-        function goChk() { if (!cart.length) return; closeUps(); chkStep = 1; chkData = { order_type: oInfo.type, customer: { address: oInfo.addr, city: oInfo.city, postal: oInfo.postal, phone: oInfo.phone } }; renderChk(); document.getElementById('chkOv').classList.add('open'); document.body.style.overflow = 'hidden'; history.pushState({ sp: 'step1' }, ''); }
+        function closeAllOverlays() {
+            try { if (typeof closeOnPopup === 'function') closeOnPopup(); } catch (e) { }
+            try { closeDf(); } catch (e) { var df = document.getElementById('dfOv'); if (df) df.classList.remove('open'); }
+            try { closeMo(); } catch (e) { var mo = document.getElementById('itemMo'); if (mo) mo.classList.remove('open'); curItem = null; }
+            try { closeUps(); } catch (e) { var u = document.getElementById('upsOv'); if (u) u.classList.remove('open'); }
+            try { closeMob(); } catch (e) { var m = document.getElementById('mobNav'); if (m) m.classList.remove('open'); }
+            var sb = document.getElementById('cartSb'); if (sb) sb.classList.remove('open');
+            var ov = document.getElementById('cartOv'); if (ov) ov.classList.remove('open');
+            var chk = document.getElementById('chkOv'); if (chk) chk.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function goChk() {
+            if (!cart.length) return;
+            closeAllOverlays();
+            chkStep = 1;
+            chkData = { order_type: oInfo.type, customer: { address: oInfo.addr, city: oInfo.city, postal: oInfo.postal, phone: oInfo.phone } };
+            renderChk();
+            document.getElementById('chkOv').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            history.pushState({ sp: 'step1' }, '');
+        }
         function closeChk() { document.getElementById('chkOv').classList.remove('open'); document.body.style.overflow = ''; clearState() }
         function renderChk() { var w = document.getElementById('chkW'), st = '<div class="chk-steps"><div class="sd ' + (chkStep >= 1 ? 'on' : '') + ' ' + (chkStep > 1 ? 'ok' : '') + '"></div><div class="sd ' + (chkStep >= 2 ? 'on' : '') + '"></div></div>'; if (chkStep === 1) rC1(w, st); else if (chkStep === 2) rC2(w, st); else if (chkStep === 3) rConf(w) }
         function switchOT(type) {
@@ -3111,7 +3265,13 @@
         });
 
         // ===== INIT =====
-        uBadge(); renderCart(); loadCfg(); history.replaceState({ sp: 'screen1' }, ''); restoreState();
+        uBadge();
+        renderCart();
+        loadCfg();
+        // On refresh: force-close all overlays and clear any checkout session state
+        closeAllOverlays();
+        clearState();
+        history.replaceState({ sp: 'screen1' }, '');
     </script>
     <script src="sp-bundle.js"></script>
     <script src="smart-upsell.js"></script>

@@ -1,0 +1,12 @@
+{
+    "9J6PN0FNV77C4": {
+        "id": "9J6PN0FNV77C4",
+        "name": "Donair Monday",
+        "description": "",
+        "price": "8.99",
+        "price_cents": 899,
+        "available": true,
+        "modifier_groups": [],
+        "sort_order": 999
+    }
+}

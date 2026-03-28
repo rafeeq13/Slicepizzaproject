@@ -98,7 +98,7 @@ pop.innerHTML=
 '<div class="sp-popup"><button class="sp-popup-x" id="spPX">&times;</button>'+
 '<h3>HOW WOULD YOU LIKE IT?</h3><p>Choose your preferred order method</p>'+
 '<div class="sp-popup-btns">'+
-'<a href="'+HOME+'?flow=delivery" class="sp-popup-btn"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><strong>Delivery</strong><span>$3.99 fee · 30-45 min</span></a>'+
+'<a href="'+HOME+'?flow=delivery" class="sp-popup-btn"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><strong>Delivery</strong><span>$7.99 fee · 30-45 min</span></a>'+
 '<a href="'+HOME+'?flow=pickup" class="sp-popup-btn"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3"/><path d="M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg><strong>Pickup</strong><span>Ready in 20-30 min</span></a>'+
 '</div></div>';
 document.body.appendChild(pop);

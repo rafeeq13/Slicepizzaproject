@@ -1194,8 +1194,8 @@
 
         .mo-x {
             position: fixed;
-            top: 16px;
-            right: 16px;
+            top: 10%;
+            right: 35%;
             width: 36px;
             height: 36px;
             border-radius: 50%;
@@ -1501,7 +1501,7 @@
         }
 
         .ci-rm {
-            color: var(--gray-dark);
+            color: white;
             font-size: .72rem;
             background: none;
             transition: var(--transition);
@@ -1716,7 +1716,7 @@
         .chk-ov {
             position: fixed;
             inset: 0;
-          
+
             background: var(--black);
             overflow-y: auto;
             opacity: 0;
@@ -2351,7 +2351,7 @@
 
             .cat-card-img,
             .cat-card-ph {
-                height: 10px
+                /*height: 10px*/
             }
 
             .cart-sb {
@@ -2431,10 +2431,12 @@
             .deals-section {
                 padding: 10px 16px 20px;
             }
+
             .mo-x {
                 position: fixed;
-                top: 16px;
+                top: 12%;
                 background: rgba(230, 18, 18, 0.6);
+                right: 5%;
             }
         }
 
@@ -2485,36 +2487,37 @@
             display: flex !important;
             justify-content: center !important;
         }
-        .deal-card{
-position: relative;
-overflow: hidden;
-}
 
-.deal-card img{
-width:100%;
-display:block;
-border-radius:12px;
-}
+        .deal-card {
+            position: relative;
+            overflow: hidden;
+        }
 
-.deal-cta{
-position:absolute;
-bottom:10px;
-right:10px;
-background:#ff3c00;
-color:white;
-border:none;
-padding:8px 14px;
-border-radius:30px;
-font-size:12px;
-font-weight:600;
-cursor:pointer;
-transition:0.3s;
-}
+        .deal-card img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
 
-.deal-cta:hover{
-background:black;
-transform:scale(1.05);
-}
+        .deal-cta {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #ff3c00;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .deal-cta:hover {
+            background: black;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -2616,24 +2619,33 @@ transform:scale(1.05);
         <section class="deals-section">
             <h4 class="section-header justify-content-center">Our Top Deals</h4>
             <div class="deals-grid">
-                <div class="deal-card item-name"  onclick="scrollHero()" value="Any Medium 1 Topping Pizza"><img src="assets/images/banner-1.jpg"  alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card " onclick="scrollHero()" value="Any Medium Pizza + Small Garlic Fingers"><img src="assets/images/banner-2.jpg" alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card " onclick="scrollHero()" value="Any 2 Type Foot Long Pizzas"><img src="assets/images/banner-3.jpg" alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card " onclick="scrollHero()" value="2 Medium Donair Wrap + 710ml Bottle"><img src="assets/images/banner-4.jpg" alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card " onclick="scrollHero()" value="Any XL Pizza + XL Garlic Fingers + 2L Pop"><img src="assets/images/banner-5.jpg" alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card " onclick="scrollHero()" value="Any 2XL Pizza + XL Garlic Fingers + 2L Pop"><img src="assets/images/banner-6.jpg" alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card " onclick="scrollHero()" value="Any XL Pizza + 8 Pc Wings  +2L Pop"><img src="assets/images/banner-7.jpg" alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card " onclick="scrollHero()" value="Any 2 Salads"><img src="assets/images/banner-8.jpg" alt="Deal"
-                        loading="lazy"> <button class="deal-cta">Order Now</button></div>
-                <div class="deal-card deal-card-full "  value="Any 2 Subs"  onclick="scrollHero()"><img src="assets/images/banner-9.png"
-                        alt="Deal" loading="lazy"> <button class="deal-cta">Order Now</button></div>
+                <div class="deal-card item-name" onclick="scrollHero()" value="Any Medium 1 Topping Pizza"><img
+                        src="assets/images/banner-1.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any Medium Pizza + Small Garlic Fingers"><img
+                        src="assets/images/banner-2.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any 2 Type Foot Long Pizzas"><img
+                        src="assets/images/banner-3.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="2 Medium Donair Wrap + 710ml Bottle"><img
+                        src="assets/images/banner-4.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any XL Pizza + XL Garlic Fingers + 2L Pop"><img
+                        src="assets/images/banner-5.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any 2XL Pizza + XL Garlic Fingers + 2L Pop"><img
+                        src="assets/images/banner-6.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any XL Pizza + 8 Pc Wings  +2L Pop"><img
+                        src="assets/images/banner-7.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card " onclick="scrollHero()" value="Any 2 Salads"><img
+                        src="assets/images/banner-8.jpg" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
+                <div class="deal-card deal-card-full " value="Any 2 Subs" onclick="scrollHero()"><img
+                        src="assets/images/banner-9.png" alt="Deal" loading="lazy"> <button class="deal-cta">Order
+                        Now</button></div>
             </div>
         </section>
         <!-- 3RD PARTY ORDER -->
@@ -2954,55 +2966,77 @@ transform:scale(1.05);
         };
 
         // ===== MENU =====
-        async function loadMenu() {
-            try {
-                var r = await fetch('/api/menu.php'); var d = await r.json(); if (!d.success) throw 0;
-                menu = d; renderCatGrid(d.categories); setTimeout(maybeOpenPendingDeal, 0);
-            }
-            catch (e) { document.getElementById('catGrid').innerHTML = '<p style="text-align:center;color:var(--gray)">Could not load menu. <button onclick="loadMenu()" style="color:var(--red);background:none;border:none;cursor:pointer;font-weight:600">Retry</button></p>' }
+    // ===== MENU =====
+async function loadMenu() {
+    try {
+        var r = await fetch('/api/menu.php'); var d = await r.json(); if (!d.success) throw 0;
+        menu = d;
+        // Process categories to ensure items have image_name if missing
+        if (menu.categories) {
+            menu.categories.forEach(function(cat) {
+                if (cat.items) {
+                    cat.items.forEach(function(item) {
+                        // Ensure image_name is set from item name if not present
+                        if (!item.image_name && item.name) {
+                            item.image_name = item.name;
+                        }
+                    });
+                }
+            });
         }
-        function renderCatGrid(cats) {
-            var g = document.getElementById('catGrid'), h = '';
-            cats.forEach(function (c, i) {
-                var fi = c.items[0], img = fi ? '/api/image.php?id=' + fi.id + '&name=' + encodeURIComponent(fi.name) : '';
-                h += '<div class="cat-card" onclick="openCat(\'' + c.id + '\')" style="animation-delay:' + (i * .05) + 's">';
-                h += img ? '<img class="cat-card-img" src="' + img + '" alt="' + esc(c.name) + '" onerror="this.outerHTML=\'<div class=cat-card-ph></div>\'" loading="lazy">' : '<div class="cat-card-ph"></div>';
-                h += '<div class="cat-card-body"><div class="cat-card-name">' + esc(c.name) + '</div><div class="cat-card-count">' + c.items_count + ' items</div></div></div>'
-            }); g.innerHTML = h
-        }
-        function openCat(id) {
-            if (!menu) return; var c = menu.categories.find(function (x) { return x.id === id }); if (!c) return;
-            var h = '<h2 class="s3-title">' + esc(c.name) + ' <span class="s3-count">' + c.items_count + ' items</span></h2><div class="items-grid">';
-            c.items.forEach(function (it, i) {
-                var u = !it.available ? ' out' : '';
-                h += '<div class="item-card' + u + '" onclick="openIt(\'' + c.id + '\',\'' + it.id + '\')" style="animation-delay:' + (i * .03) + 's">';
-                h += '<img class="itm-img" src="/api/image.php?id=' + it.id + '&name=' + encodeURIComponent(it.name) + '" alt="' + esc(it.name) + '" onerror="this.classList.add(\'hid\')" loading="lazy">';
-                h += '<div class="itm-info"><div><div class="itm-name">' + esc(it.name) + '</div>';
-                if (it.description) h += '<div class="itm-desc">' + esc(it.description) + '</div>';
-                h += '</div><div class="itm-bot"><span class="itm-price">$' + it.price + '</span>';
-                h += it.available ? '<div class="itm-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>' : '<span style="font-size:.7rem;color:var(--gray-dark)">Sold out</span>';
-                h += '</div></div></div>'
-            }); h += '</div>'; document.getElementById('catItems').innerHTML = h; showScr('screen3')
-        }
+        renderCatGrid(d.categories); setTimeout(maybeOpenPendingDeal, 0);
+    }
+    catch (e) { document.getElementById('catGrid').innerHTML = '<p style="text-align:center;color:var(--gray)">Could not load menu. <button onclick="loadMenu()" style="color:var(--red);background:none;border:none;cursor:pointer;font-weight:600">Retry</button></p>' }
+}
+function renderCatGrid(cats) {
+    var g = document.getElementById('catGrid'), h = '';
+    cats.forEach(function (c, i) {
+        var fi = c.items[0];
+        // Use image_name if available, otherwise fallback to item name for image path
+        var imgName = fi && fi.image_name ? encodeURIComponent(fi.image_name) : (fi ? encodeURIComponent(fi.name) : '');
+        var img = fi ? '/api/image.php?id=' + fi.id + '&name=' + imgName : '';
+        h += '<div class="cat-card" onclick="openCat(\'' + c.id + '\')" style="animation-delay:' + (i * .05) + 's">';
+        h += img ? '<img class="cat-card-img" src="' + img + '" alt="' + esc(c.name) + '" onerror="this.outerHTML=\'<div class=cat-card-ph></div>\'" loading="lazy">' : '<div class="cat-card-ph"></div>';
+        h += '<div class="cat-card-body"><div class="cat-card-name">' + esc(c.name) + '</div><div class="cat-card-count">' + c.items_count + ' items</div></div></div>'
+    }); g.innerHTML = h
+}
+function openCat(id) {
+    if (!menu) return; var c = menu.categories.find(function (x) { return x.id === id }); if (!c) return;
+    var h = '<h2 class="s3-title">' + esc(c.name) + ' <span class="s3-count">' + c.items_count + ' items</span></h2><div class="items-grid">';
+    c.items.forEach(function (it, i) {
+        var u = !it.available ? ' out' : '';
+        // Use image_name if available, otherwise fallback to item name
+        var imgName = it.image_name ? encodeURIComponent(it.image_name) : encodeURIComponent(it.name);
+        h += '<div class="item-card' + u + '" onclick="openIt(\'' + c.id + '\',\'' + it.id + '\')" style="animation-delay:' + (i * .03) + 's">';
+        h += '<img class="itm-img" src="/api/image.php?id=' + it.id + '&name=' + imgName + '" alt="' + esc(it.name) + '" onerror="this.classList.add(\'hid\')" loading="lazy">';
+        h += '<div class="itm-info"><div><div class="itm-name">' + esc(it.name) + '</div>';
+        if (it.description) h += '<div class="itm-desc">' + esc(it.description) + '</div>';
+        h += '</div><div class="itm-bot"><span class="itm-price">$' + it.price + '</span>';
+        h += it.available ? '<div class="itm-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div>' : '<span style="font-size:.7rem;color:var(--gray-dark)">Sold out</span>';
+        h += '</div></div></div>'
+    }); h += '</div>'; document.getElementById('catItems').innerHTML = h; showScr('screen3')
+}
 
         // ===== ITEM MODAL =====
         function openIt(cid, iid) { if (!menu) return; var it = null, cn = ''; for (var i = 0; i < menu.categories.length; i++) { var f = menu.categories[i].items.find(function (x) { return x.id === iid }); if (f) { it = f; cn = menu.categories[i].name; break } } if (!it) return; curItem = it; curItem._cn = cn; mQty = 1; selMods = {}; (it.modifier_groups || []).forEach(function (mg) { selMods[mg.id] = [] }); renderMo(); document.getElementById('itemMo').classList.add('open'); document.body.style.overflow = 'hidden' }
-        function renderMo() {
-            var it = curItem; if (!it) return;
-            document.getElementById('moImg').innerHTML = '<img class="mo-img" src="/api/image.php?id=' + it.id + '&name=' + encodeURIComponent(it.name) + '" alt="' + esc(it.name) + '" onerror="this.classList.add(\'hid\')">';
-            var h = '<div class="mo-name">' + esc(it.name) + '</div>'; if (it.description) h += '<div class="mo-desc">' + esc(it.description) + '</div>'; h += '<div class="mo-price">$' + it.price + '</div>';
-            (it.modifier_groups || []).forEach(function (mg) {
-                var mm = mg.min > 0 ? 'Required \u00b7 Choose ' + mg.min + (mg.max > mg.min ? '-' + mg.max : '') : 'Optional \u00b7 Up to ' + (mg.max || 'any');
-                h += '<div class="mg"><div class="mg-t">' + esc(mg.name) + '</div><div class="mg-h">' + mm + '</div>';
-                (mg.modifiers || []).forEach(function (m) {
-                    var s = (selMods[mg.id] || []).indexOf(m.id) > -1, p = parseFloat(m.price) > 0 ? '+$' + m.price : '';
-                    h += '<div class="mg-o ' + (s ? 'sel' : '') + '" onclick="tMod(\'' + mg.id + '\',\'' + m.id + '\',' + (mg.max || 99) + ')"><div class="mg-ol"><div class="mg-cb">' + (s ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : '') + '</div><span>' + esc(m.name) + '</span></div><span style="font-size:.82rem;color:var(--gray);font-weight:600">' + p + '</span></div>'
-                }); h += '</div>'
-            });
-            h += '<div class="si"><label>Special Instructions</label><textarea id="sN" placeholder="Any allergies or special requests..."></textarea></div>';
-            var tot = calcTot(); h += '<div class="mo-ft"><div class="qc"><button class="qb" onclick="cQty(-1)">\u2212</button><span class="qv">' + mQty + '</span><button class="qb" onclick="cQty(1)">+</button></div><button class="atc" onclick="addCart()">Add to Cart \u00b7 $' + tot + '</button></div>';
-            document.getElementById('moBody').innerHTML = h
-        }
+function renderMo() {
+    var it = curItem; if (!it) return;
+    // Use image_name if available, otherwise fallback to item name
+    var imgName = it.image_name ? encodeURIComponent(it.image_name) : encodeURIComponent(it.name);
+    document.getElementById('moImg').innerHTML = '<img class="mo-img" src="/api/image.php?id=' + it.id + '&name=' + imgName + '" alt="' + esc(it.name) + '" onerror="this.classList.add(\'hid\')">';
+    var h = '<div class="mo-name">' + esc(it.name) + '</div>'; if (it.description) h += '<div class="mo-desc">' + esc(it.description) + '</div>'; h += '<div class="mo-price">$' + it.price + '</div>';
+    (it.modifier_groups || []).forEach(function (mg) {
+        var mm = mg.min > 0 ? 'Required \u00b7 Choose ' + mg.min + (mg.max > mg.min ? '-' + mg.max : '') : 'Optional \u00b7 Up to ' + (mg.max || 'any');
+        h += '<div class="mg"><div class="mg-t">' + esc(mg.name) + '</div><div class="mg-h">' + mm + '</div>';
+        (mg.modifiers || []).forEach(function (m) {
+            var s = (selMods[mg.id] || []).indexOf(m.id) > -1, p = parseFloat(m.price) > 0 ? '+$' + m.price : '';
+            h += '<div class="mg-o ' + (s ? 'sel' : '') + '" onclick="tMod(\'' + mg.id + '\',\'' + m.id + '\',' + (mg.max || 99) + ')"><div class="mg-ol"><div class="mg-cb">' + (s ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>' : '') + '</div><span>' + esc(m.name) + '</span></div><span style="font-size:.82rem;color:var(--gray);font-weight:600">' + p + '</span></div>'
+        }); h += '</div>'
+    });
+    h += '<div class="si"><label>Special Instructions</label><textarea id="sN" placeholder="Any allergies or special requests..."></textarea></div>';
+    var tot = calcTot(); h += '<div class="mo-ft"><div class="qc"><button class="qb" onclick="cQty(-1)">\u2212</button><span class="qv">' + mQty + '</span><button class="qb" onclick="cQty(1)">+</button></div><button class="atc" onclick="addCart()">Add to Cart \u00b7 $' + tot + '</button></div>';
+    document.getElementById('moBody').innerHTML = h
+}
         function closeMo() { document.getElementById('itemMo').classList.remove('open'); document.body.style.overflow = ''; curItem = null }
         function tMod(g, m, mx) { var s = selMods[g] || [], i = s.indexOf(m); if (i > -1) s.splice(i, 1); else { if (mx === 1) s = [m]; else if (s.length < mx) s.push(m) } selMods[g] = s; renderMo() }
         function cQty(d) { mQty = Math.max(1, Math.min(20, mQty + d)); renderMo() }
@@ -3026,12 +3060,15 @@ transform:scale(1.05);
         function toggleCart() { document.getElementById('cartSb').classList.toggle('open'); document.getElementById('cartOv').classList.toggle('open') }
 
         // ===== UPSELL =====
-        function showUps() {
-            if (!cart.length) return; toggleCart(); if (!menu) { goChk(); return } var ui = [], ids = cart.map(function (c) { return c.id }); menu.categories.forEach(function (c) { if (UPSELL_CATS.indexOf(c.name) > -1) c.items.forEach(function (it) { if (it.available && ids.indexOf(it.id) === -1 && ui.length < 4) ui.push(it) }) }); if (!ui.length) { goChk(); return }
-            var h = '<h3 class="ups-t">COMPLETE YOUR ORDER</h3><p class="ups-s">Add something extra before checkout?</p>';
-            ui.forEach(function (it) { h += '<div class="ups-i"><img class="ups-img" src="/api/image.php?id=' + it.id + '&name=' + encodeURIComponent(it.name) + '" onerror="this.classList.add(\'hid\')"><div class="ups-inf"><div class="ups-n">' + esc(it.name) + '</div><div class="ups-p">$' + it.price + '</div></div><button class="ups-add" onclick="qAdd(\'' + it.id + '\',\'' + esc(it.name).replace(/'/g, "\\'") + '\',' + it.price_cents + ',this)">Add</button></div>' });
-            h += '<button class="ups-skip" onclick="closeUps();goChk()">No thanks, checkout</button>'; document.getElementById('upsBox').innerHTML = h; document.getElementById('upsOv').classList.add('open'); document.body.style.overflow = 'hidden'
-        }
+function showUps() {
+    if (!cart.length) return; toggleCart(); if (!menu) { goChk(); return } var ui = [], ids = cart.map(function (c) { return c.id }); menu.categories.forEach(function (c) { if (UPSELL_CATS.indexOf(c.name) > -1) c.items.forEach(function (it) { if (it.available && ids.indexOf(it.id) === -1 && ui.length < 4) ui.push(it) }) }); if (!ui.length) { goChk(); return }
+    var h = '<h3 class="ups-t">COMPLETE YOUR ORDER</h3><p class="ups-s">Add something extra before checkout?</p>';
+    ui.forEach(function (it) {
+        var imgName = it.image_name ? encodeURIComponent(it.image_name) : encodeURIComponent(it.name);
+        h += '<div class="ups-i"><img class="ups-img" src="/api/image.php?id=' + it.id + '&name=' + imgName + '" onerror="this.classList.add(\'hid\')"><div class="ups-inf"><div class="ups-n">' + esc(it.name) + '</div><div class="ups-p">$' + it.price + '</div></div><button class="ups-add" onclick="qAdd(\'' + it.id + '\',\'' + esc(it.name).replace(/'/g, "\\'") + '\',' + it.price_cents + ',this)">Add</button></div>'
+    });
+    h += '<button class="ups-skip" onclick="closeUps();goChk()">No thanks, checkout</button>'; document.getElementById('upsBox').innerHTML = h; document.getElementById('upsOv').classList.add('open'); document.body.style.overflow = 'hidden'
+}
         function qAdd(id, n, p, b) { cart.push({ id: id, name: n, price_cents: p, quantity: 1, modifiers: [], notes: '', added_at: Date.now() }); saveCart(); b.textContent = 'Added!'; b.style.background = 'var(--green)'; b.disabled = true }
         function closeUps() { document.getElementById('upsOv').classList.remove('open'); document.body.style.overflow = '' }
 

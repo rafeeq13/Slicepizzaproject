@@ -21,6 +21,20 @@ function sp_norm_key($text) {
     return trim($text);
 }
 
+function sp_ensure_image_name(&$cats) {
+    if (!is_array($cats)) return;
+    foreach ($cats as &$cat) {
+        if (empty($cat['items']) || !is_array($cat['items'])) continue;
+        foreach ($cat['items'] as &$it) {
+            if (empty($it['image_name']) && !empty($it['name'])) {
+                $it['image_name'] = $it['name'];
+            }
+        }
+        unset($it);
+    }
+    unset($cat);
+}
+
 function sp_read_json_any($file) {
     if (!file_exists($file)) { return null; }
     $d = json_decode(file_get_contents($file), true);
@@ -76,11 +90,11 @@ function sp_try_fetch_clover_item($itemId) {
 function sp_apply_category_display_names(&$cats) {
     if (!is_array($cats)) return;
     $catRename = [
-        'Candy'        => 'Bulk Candies',
-        'Energy Drink' => 'Energy Drinks',
-        'Chocolate'    => 'Chocolate Bars',
-        'Soda'         => 'Pop (Cans & 2L)',
-        'Sports Drink' => 'Sports Drinks',
+        // 'Candy'        => 'Bulk Candies',
+        // 'Energy Drink' => 'Energy Drinks',
+        // 'Chocolate'    => 'Chocolate Bars',
+        // 'Soda'         => 'Pop (Cans & 2L)',
+        // 'Sports Drink' => 'Sports Drinks',
     ];
     foreach ($cats as &$cat) {
         $name = $cat['name'] ?? '';
@@ -114,7 +128,7 @@ function sp_apply_menu_overrides(&$cats) {
             $picked = [];
             foreach ($cat['items'] as $it) {
                 $k = sp_norm_key($it['name'] ?? '');
-                if (!isset($want[$k])) continue; // hide extras (ex: Any 2 Salads)
+                // if (!isset($want[$k])) continue; // hide extras (ex: Any 2 Salads)
 
                 // Display fixes
                 if ($k === 'any 2 type foot long pizzas') {
@@ -389,26 +403,29 @@ $ONLINE_CATEGORIES = [
     'Subs',
     'Wraps',
     "MOMO'S / DUMPLINGS",
-    'Chicken Fingers',
+    'Chicken Fingers', // not in clover 
     'Chicken Wings',
     'Garlic Fingers',
     'Chicken Bites',
+    'Crispy Chicken',
     'Salads',
     'Sides',
     "Dessert's",
     // Convenience store items (requested)
-    // 'Candy',
-    // 'Energy Drink',
-    // 'Chocolate',
-    // 'Chips',
-    // 'Soda',
-    // 'Sports Drink',
-    // 'Dips',
+    'Candy',
+    'Energy Drinks',
+    'Beverages',
+    'Chocolate',
+    'Chips',
+    'Soda',
+    'Sports Drink',
+    'Dip Sauces',
+    "Munchies",
     // Munchies (snacks) — merged into one category by overrides
-    'Meat Snacks',
-    'Nuts',
-    'Gum',
-    'Ice Cream'
+    // 'Meat Snacks',
+    // 'Nuts',
+    // 'Gum',
+    // 'Ice Cream'
 ];
 
 $categoryFilter = $_GET['category'] ?? null;
@@ -433,6 +450,9 @@ if (!$forceFresh) {
                 return $cat['id'] === $categoryFilter || strtolower($cat['name']) === strtolower($categoryFilter);
             }));
         }
+
+        // Backfill `image_name` for older cache files (must happen before overrides mutate `name`)
+        sp_ensure_image_name($cats);
 
         // Apply display/order overrides on cached data
         sp_apply_menu_overrides($cats);
@@ -536,6 +556,7 @@ foreach ($categories as $cat) {
         $catItems[] = [
             'id'              => $item['id'],
             'name'            => $item['name'],
+            'image_name'      => $item['name'],
             'description'     => $item['description'] ?? '',
             'price'           => isset($item['price']) ? format_price($item['price']) : '0.00',
             'price_cents'     => $item['price'] ?? 0,
@@ -584,6 +605,7 @@ if ($categoryFilter) {
 }
 
 // Apply display/order overrides on response data
+sp_ensure_image_name($menuCategories);
 sp_apply_menu_overrides($menuCategories);
 sp_apply_category_display_names($menuCategories);
 

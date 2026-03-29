@@ -1240,9 +1240,10 @@ function renderMenu(categories) {
         
         cat.items.forEach((item, ii) => {
             const unavail = !item.available ? ' unavailable' : '';
+            const imgName = item.image_name || item.name || '';
             html += `
                 <div class="item-card${unavail}" onclick="openItem('${cat.id}','${item.id}')" style="animation-delay:${(ci * 0.05) + (ii * 0.03)}s">
-                    <img class="item-img" src="/api/image.php?id=${item.id}&name=${encodeURIComponent(item.name)}" alt="${escHtml(item.name)}" 
+                    <img class="item-img" src="/api/image.php?id=${item.id}&name=${encodeURIComponent(imgName)}" alt="${escHtml(item.name)}" 
                          onerror="this.classList.add('img-hidden')" loading="lazy">
                     <div class="item-info">
                         <div>
@@ -1298,8 +1299,9 @@ function renderModal() {
     if (!item) return;
     
     // Image
+    const imgName = item.image_name || item.name || '';
     document.getElementById('modalImage').innerHTML = `
-        <img class="modal-img" src="/api/image.php?id=${item.id}&name=${encodeURIComponent(item.name)}" alt="${escHtml(item.name)}"
+        <img class="modal-img" src="/api/image.php?id=${item.id}&name=${encodeURIComponent(imgName)}" alt="${escHtml(item.name)}"
              onerror="this.classList.add('img-hidden')">
     `;
     

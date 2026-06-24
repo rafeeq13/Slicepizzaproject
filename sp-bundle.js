@@ -9,7 +9,9 @@
     // =============== FLOW DETECTION (instant, before render) ===============
     var params = new URLSearchParams(window.location.search);
     var flow = params.get('flow');
-    if (flow) { document.documentElement.style.opacity = '0'; document.documentElement.style.transition = 'none'; window.history.replaceState({}, document.title, window.location.pathname) }
+    var dealParam = params.get('deal');
+    if (flow) { document.documentElement.style.opacity = '0'; document.documentElement.style.transition = 'none'; }
+    if (flow || dealParam) { window.history.replaceState({}, document.title, window.location.pathname) }
 
     // =============== ALL CSS IN ONE BLOCK ===============
     var css = document.createElement('style');
@@ -59,11 +61,18 @@
 
     // =============== ORDER NOW POPUP ===============
     if (!document.getElementById('onPopup')) {
-        document.body.insertAdjacentHTML('beforeend', '<div class="on-popup-ov" id="onPopup"><div class="on-popup"><button class="on-popup-x" onclick="closeOnPopup()">&times;</button><h3>HOW WOULD YOU LIKE IT?</h3><p>Choose your preferred order method</p><div class="on-popup-btns"><div class="on-popup-btn" onclick="closeOnPopup();openDf()"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><strong>Delivery</strong><span>$7.99 fee · 30-45 min</span></div><div class="on-popup-btn" onclick="closeOnPopup();startPickup()"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3"/><path d="M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg><strong>Pickup</strong><span>Ready in 20-30 min</span></div></div></div></div>');
+        document.body.insertAdjacentHTML('beforeend', '<div class="on-popup-ov" id="onPopup"><div class="on-popup"><button class="on-popup-x" onclick="closeOnPopup()">&times;</button><h3>HOW WOULD YOU LIKE IT?</h3><p>Choose your preferred order method</p><div class="on-popup-btns"><div class="on-popup-btn" onclick="spChoose(\'delivery\')"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><strong>Delivery</strong><span>$7.99 fee · 30-45 min</span></div><div class="on-popup-btn" onclick="spChoose(\'pickup\')"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3"/><path d="M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg><strong>Pickup</strong><span>Ready in 20-30 min</span></div></div></div></div>');
         document.getElementById('onPopup').addEventListener('click', function (e) { if (e.target === this) closeOnPopup() });
     }
     window.openOnPopup = function () { document.getElementById('onPopup').classList.add('open'); document.body.style.overflow = 'hidden' };
     window.closeOnPopup = function () { document.getElementById('onPopup').classList.remove('open'); document.body.style.overflow = '' };
+    // Delivery/Pickup choice: use the in-page order app if present (home), otherwise route to home with the flow
+    window.spChoose = function (mode) {
+        closeOnPopup();
+        if (mode === 'delivery' && typeof openDf === 'function') return openDf();
+        if (mode === 'pickup' && typeof startPickup === 'function') return startPickup();
+        window.location.href = '/index.html?flow=' + mode;
+    };
 
     // Nav buttons
     document.querySelectorAll('.nav-cta').forEach(function (a) { if (a.textContent.trim() === 'Order Now') { a.href = '#'; a.onclick = function (e) { e.preventDefault(); openOnPopup() } } });
@@ -74,13 +83,27 @@
         c.onclick = function () {
             var nm = c.getAttribute('value') || c.getAttribute('data-deal') || '';
             if (nm && typeof window.orderDealFromHome === 'function') { window.orderDealFromHome(nm); return; }
+            if (nm) { window.location.href = '/index.html?deal=' + encodeURIComponent(nm); return; }
             if (typeof scrollHero === 'function') scrollHero();
         };
     });
 
-    // Deal alert → popup
+    // Deal alert → open TODAY'S special item directly in the item modal
     var daB = document.querySelector('.deal-alert-body');
-    if (daB) { daB.href = '#'; daB.onclick = function (e) { e.preventDefault(); if (typeof closeDealAlert === 'function') closeDealAlert(); openOnPopup() } }
+    if (daB) {
+        daB.href = '#';
+        daB.onclick = function (e) {
+            e.preventDefault();
+            // Resolve by today's weekday so it matches the real menu item (e.g. "Toonie Tuesday")
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var hal = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Halifax' }));
+            var weekday = days[hal.getDay()];
+            if (typeof closeDealAlert === 'function') closeDealAlert();
+            // On home: orderDealFromHome() opens the matched item's modal. On other pages: route to home with the deal.
+            if (typeof window.orderDealFromHome === 'function') window.orderDealFromHome(weekday);
+            else window.location.href = '/index.html?deal=' + encodeURIComponent(weekday);
+        };
+    }
 
     // =============== OUTLINE ICONS ===============
     var oPin = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>';
@@ -161,6 +184,17 @@
             }
         }, 20);
         setTimeout(function () { clearInterval(chk); document.documentElement.style.transition = 'opacity .3s ease'; document.documentElement.style.opacity = '1' }, 2000);
+    }
+
+    // =============== DEAL DEEP-LINK (arriving from another page via /index.html?deal=) ===============
+    if (dealParam) {
+        var dchk = setInterval(function () {
+            if (typeof window.orderDealFromHome === 'function') {
+                clearInterval(dchk);
+                window.orderDealFromHome(dealParam);
+            }
+        }, 30);
+        setTimeout(function () { clearInterval(dchk); }, 6000);
     }
 
 })();

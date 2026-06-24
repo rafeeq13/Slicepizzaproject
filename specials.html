@@ -243,8 +243,8 @@ justify-content: center !important;
 
 <!-- DEAL ALERT -->
 <div class="da" id="daEl">
-<div class="da-top"><span class="da-lbl"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg> TODAY'S SPECIAL</span><button class="da-x" onclick="hideDA()">&times;</button></div>
-<a href="#" onclick="event.preventDefault();hideDA();openOP()" class="da-body">
+<div class="da-top"><span class="da-lbl"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg> TODAY'S SPECIAL</span><button class="da-x" onclick="closeDealAlert()">&times;</button></div>
+<a href="#" onclick="event.preventDefault();goTodayDeal()" class="da-body">
 <div class="da-day" id="daDay"></div><div class="da-name" id="daName"></div><div class="da-desc" id="daDesc"></div>
 <div><span class="da-price" id="daPrice"></span><span class="da-cta">Order Now <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span></div>
 </a><div class="da-prog"><div class="da-prog-bar" id="daPB"></div></div></div>
@@ -266,7 +266,7 @@ var today=(function(){var d=new Date(new Date().toLocaleString('en-US',{timeZone
 var grid=document.getElementById('specialsGrid'),gh='';
 [1,2,3,4,5,6,0].forEach(function(dn){
     var s=specials.find(function(x){return x.day===dn}),isT=dn===today;
-    gh+='<div class="reveal"><div class="special-card'+(isT?' today':'')+'" onclick="openOP()">'+
+    gh+='<div class="reveal"><div class="special-card'+(isT?' today':'')+'" onclick="goDeal(\''+s.full+'\')">'+
     (isT?'<div class="special-badge"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg> TODAY\'S DEAL</div>':'')+
     '<div class="special-day-side"><div class="special-day-icon">'+s.icon+'</div><div class="special-day">'+s.label+'</div></div>'+
     '<div class="special-content"><div class="special-name">'+s.name+'</div><div class="special-desc">'+s.desc+'</div>'+
@@ -279,6 +279,9 @@ grid.innerHTML=gh;
 // ORDER POPUP
 function openOP(){document.getElementById('opBg').classList.add('open');document.body.style.overflow='hidden'}
 function closeOP(){document.getElementById('opBg').classList.remove('open');document.body.style.overflow=''}
+// Open a specific deal's item on the home order app (resolved there by name/weekday)
+function goDeal(name){window.location.href='/index.html?deal='+encodeURIComponent(name||'')}
+function goTodayDeal(){var s=specials.find(function(x){return x.day===today});goDeal(s?s.full:'')}
 document.getElementById('opBg').addEventListener('click',function(e){if(e.target===this)closeOP()});
 
 // CART

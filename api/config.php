@@ -3,16 +3,16 @@
 // PAYMENT MODE: false = sandbox testing, true = real payments
 define('LIVE_MODE', true);
 // PRODUCTION - Menu & Inventory (always used)
-define('CLOVER_MERCHANT_ID', 'RT6ST4S4M0951');
-define('CLOVER_API_TOKEN', '967ac4d3-5b7b-b6bf-4f4a-c27eb92f8f7e');
-define('CLOVER_API_BASE', 'https://api.clover.com/v3/merchants/RT6ST4S4M0951');
+define('CLOVER_MERCHANT_ID', '6NE31YP41G4F1');
+define('CLOVER_API_TOKEN', '88a4c809-5447-1e41-76ca-1910d496ef63');
+define('CLOVER_API_BASE', 'https://api.clover.com/v3/merchants/6NE31YP41G4F1');
 // SANDBOX eCommerce tokens (backup)
 define('SANDBOX_PUBLIC_TOKEN', 'cc45affdc4338ebe181f473e4fafb783');
 define('SANDBOX_PRIVATE_TOKEN', 'c0919121-bd7d-4570-c609-615315a94487');
 // PAYMENT CONFIG (auto-selected)
 if (LIVE_MODE) {
-    define('ECOM_PUBLIC_TOKEN', '7aea24016f6d42913610807c24d130f0');
-    define('ECOM_PRIVATE_TOKEN', '056139b5-055c-8f60-f7b4-e3a31d612ccb');
+    define('ECOM_PUBLIC_TOKEN', '9bafb3258a5cb533b6c001cc984815a1');
+    define('ECOM_PRIVATE_TOKEN', '25d9298b-23d5-f884-0f83-9a055dfa3997');
     define('PAY_ECOM_BASE', 'https://scl.clover.com');
     define('CHECKOUT_JS_URL', 'https://checkout.clover.com/sdk.js');
 } else {

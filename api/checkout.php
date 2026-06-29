@@ -1,11 +1,10 @@
 <?php
 /**
- * Slice+ Checkout API — Clover Payment + Uber Direct Delivery + Tracking + Emails
+ * Slice+ Checkout API — Clover Payment + Tracking + Emails
  */
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/email.php';
-require_once __DIR__ . '/uber-direct.php';
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -35,7 +34,7 @@ if (!empty($errors)) { json_response(array('error' => true, 'messages' => $error
 
 // ORDER API BASE
 if (LIVE_MODE) {
-    $orderApiBase = 'https://api.clover.com/v3/merchants/RT6ST4S4M0951';
+    $orderApiBase = 'https://api.clover.com/v3/merchants/6NE31YP41G4F1';
     $orderApiToken = CLOVER_API_TOKEN;
 } else {
     $orderApiBase = 'https://sandbox.dev.clover.com/v3/merchants/M155T7XWW06S1';
@@ -214,67 +213,10 @@ $trackingData = array(
         'brand' => isset($charge['source']['brand']) ? $charge['source']['brand'] : null
     ),
     'tracking_url' => $trackingUrl,
-    'uber_delivery' => null,
     'placed_at' => date('c'),
     'updated_at' => date('c'),
     'estimated_time' => $orderType === 'delivery' ? '30-45 min' : '20-30 min'
 );
-
-// ====== UBER DIRECT — AUTO DISPATCH FOR DELIVERY ORDERS ======
-if ($orderType === 'delivery') {
-    error_log('Slice+ Order #' . $num . ' — Dispatching Uber Direct rider...');
-    
-    $uberOrder = array(
-        'number' => $num,
-        'customer' => $customer,
-        'items' => $emailItems,
-        'total' => format_price($totalCents)
-    );
-    
-    $uberResult = uber_create_delivery($uberOrder);
-    
-    if (isset($uberResult['error'])) {
-        // Uber failed — order still goes through, just no auto-delivery
-        error_log('Slice+ Order #' . $num . ' — Uber Direct FAILED: ' . json_encode($uberResult));
-        $trackingData['uber_delivery'] = array(
-            'status' => 'failed',
-            'error' => $uberResult['message'] ?? 'Unknown error',
-            'time' => date('c')
-        );
-    } else {
-        // Uber delivery created successfully
-        error_log('Slice+ Order #' . $num . ' — Uber Direct SUCCESS: Delivery ID ' . ($uberResult['id'] ?? 'unknown'));
-        $trackingData['uber_delivery'] = array(
-            'id' => $uberResult['id'] ?? null,
-            'status' => $uberResult['status'] ?? 'pending',
-            'tracking_url' => $uberResult['tracking_url'] ?? null,
-            'pickup_eta' => $uberResult['pickup']['eta'] ?? null,
-            'dropoff_eta' => $uberResult['dropoff']['eta'] ?? null,
-            'fee' => $uberResult['fee'] ?? null,
-            'courier' => null,
-            'time' => date('c')
-        );
-        
-        // Update estimated time with Uber ETA if available
-        if (!empty($uberResult['dropoff']['eta'])) {
-            $etaTime = strtotime($uberResult['dropoff']['eta']);
-            if ($etaTime) {
-                $minLeft = round(($etaTime - time()) / 60);
-                if ($minLeft > 0) {
-                    $trackingData['estimated_time'] = $minLeft . ' min';
-                }
-            }
-        }
-        
-        // Update status to preparing
-        $trackingData['status'] = 'preparing';
-        $trackingData['status_history'][] = array(
-            'status' => 'preparing',
-            'time' => date('c'),
-            'note' => 'Uber Direct rider dispatched'
-        );
-    }
-}
 
 // Save tracking file
 file_put_contents($ordersDir . $num . '.json', json_encode($trackingData, JSON_PRETTY_PRINT));

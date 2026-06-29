@@ -10,7 +10,7 @@
     var params = new URLSearchParams(window.location.search);
     var flow = params.get('flow');
     var dealParam = params.get('deal');
-    if (flow) { document.documentElement.style.opacity = '0'; document.documentElement.style.transition = 'none'; }
+    if (flow || dealParam) { document.documentElement.style.opacity = '0'; document.documentElement.style.transition = 'none'; }
     if (flow || dealParam) { window.history.replaceState({}, document.title, window.location.pathname) }
 
     // =============== ALL CSS IN ONE BLOCK ===============
@@ -188,13 +188,16 @@
 
     // =============== DEAL DEEP-LINK (arriving from another page via /index.html?deal=) ===============
     if (dealParam) {
+        var dealReveal = function () { document.documentElement.style.transition = 'opacity .3s ease'; document.documentElement.style.opacity = '1'; };
         var dchk = setInterval(function () {
             if (typeof window.orderDealFromHome === 'function') {
                 clearInterval(dchk);
                 window.orderDealFromHome(dealParam);
+                // Reveal once the Delivery/Pickup popup is up, so the home hero isn't shown first
+                setTimeout(dealReveal, 50);
             }
         }, 30);
-        setTimeout(function () { clearInterval(dchk); }, 6000);
+        setTimeout(function () { clearInterval(dchk); dealReveal(); }, 6000);
     }
 
 })();

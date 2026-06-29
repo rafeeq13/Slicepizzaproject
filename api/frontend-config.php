@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/config.php';
 
-$merchant = LIVE_MODE ? 'RT6ST4S4M0951' : 'M155T7XWW06S1';
+$merchant = LIVE_MODE ? '6NE31YP41G4F1' : 'M155T7XWW06S1';
 
 json_response(array(
     'checkout_js' => CHECKOUT_JS_URL,
